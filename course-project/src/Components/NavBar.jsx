@@ -1,3 +1,5 @@
+
+//NavBar component to display the navigation bar
 export default function NavBar() {
     return (
         <nav className="flex p-4 bg-blue-500 justify-between">
