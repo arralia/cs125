@@ -13,7 +13,7 @@ app = FastAPI(title="FastAPI Backend")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Adjust this in production
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -30,6 +30,10 @@ async def health_check():
 @app.get("/api")
 async def api_root():
     return {"message": "Welcome to the API!"}
+
+@app.get("/api/classInfo")
+async def api_class_info():
+    return {"status": "ok", "message": "Class info is running smoothly"}
 
 if __name__ == "__main__":
     import uvicorn
