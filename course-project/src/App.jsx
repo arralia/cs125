@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <Card />
+      <Card className="CS 125" description="Next Generation Search Systems" />
     </>
   )
 }
