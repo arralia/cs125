@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <div className="flex justify-center p-4">
+      <div className="flex justify-left p-4 gap-4">
         <Card 
           className={classes?.data?.[0]?.className} 
           description={classes?.data?.[0]?.description} 
