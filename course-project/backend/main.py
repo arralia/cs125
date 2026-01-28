@@ -17,7 +17,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173"
-    ],  # Specified origin is required for credentials
+    ],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -51,6 +51,20 @@ async def api_class_info():
         "status": "ok",
         "message": "Class info is running smoothly",
     }
+
+@app.get("/api/userClassInfo")
+async def api_user_class_info(cookie: str):
+    print("api_user_class_info called")
+    return {
+        "data": [
+            {"className": "CS 125", "description": "Next Generation Search Systems"},
+            {"className": "CS 161", "description": "Design and Analysis of Algorithms"},
+            {"className": "CS 162", "description": "Formal Languages and Automata"},
+        ],
+        "status": "ok",
+        "message": "Class info is running smoothly",
+    }
+
 
 
 class LoginRequest(BaseModel):
