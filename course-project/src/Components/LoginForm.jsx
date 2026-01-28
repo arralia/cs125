@@ -17,6 +17,8 @@ export default function LoginForm({ setLogin }) {
       console.log("Server response:", response);
       if (response) {
         console.log("Login successful! User exists.");
+        // this line here sets a cookie in the frontend
+        document.cookie = `user_id=${response.userid}; path=/; max-age=3600; SameSite=Lax`
         setLogin(false);
       }
     } catch (error) {
