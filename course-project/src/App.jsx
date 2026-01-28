@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar setLogin={setLogin} />
       {loginPrompt ? <LoginPage setLogin={setLogin} /> : <ClassCardCollection />}
     </>
   )
