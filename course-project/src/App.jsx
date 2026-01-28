@@ -1,29 +1,16 @@
 import NavBar from './Components/NavBar'
-import Card from './Components/Card'
-import useApiCall from './Components/useApiCall'
-
+import ClassCardCollection from './Components/ClassCardCollection'
+import LoginPage from './Pages/LoginPage'
+import { useState } from 'react'
 
 function App() {
-  const classes = useApiCall({ api: "/api/classInfo" });
-  
+
+  const [loginPrompt, setLogin] = useState(true);
 
   return (
     <>
       <NavBar />
-      <div className="flex justify-left p-4 gap-4">
-        <Card 
-          className={classes?.data?.[0]?.className} 
-          description={classes?.data?.[0]?.description} 
-        />
-        <Card 
-          className={classes?.data?.[1]?.className} 
-          description={classes?.data?.[1]?.description} 
-        />
-        <Card 
-          className={classes?.data?.[2]?.className} 
-          description={classes?.data?.[2]?.description} 
-        />
-      </div>
+      {loginPrompt ? <LoginPage setLogin={setLogin} /> : <ClassCardCollection />}
     </>
   )
 }
