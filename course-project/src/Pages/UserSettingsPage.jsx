@@ -1,5 +1,6 @@
-import UserInfoForm from "../Components/UserSettingsForm";
+
 import { useEffect } from "react";
+import UserSettingsForm from "../Components/UserSettingsForm";
 
 export default function UserSettingsPage({ setSettings }) {
   
@@ -28,8 +29,7 @@ export default function UserSettingsPage({ setSettings }) {
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-black/40 backdrop-blur-sm z-50 p-4">
       <div className="flex flex-col justify-left z-50 max-w-md mx-auto bg-white p-10 rounded-lg">
-        <h2 className="text-2xl font-bold mb-2">User Settings</h2>
-        <UserInfoForm />
+        <UserSettingsForm />
       </div>
     </div>
   );
