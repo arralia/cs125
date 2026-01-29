@@ -19,7 +19,7 @@ export default function ClassCardCollection() {
   }, []);
 
   return (
-    <div className="flex justify-left p-4 gap-4">
+    <div className="flex flex-col justify-left p-4 gap-4">
       {classes?.data?.map((item, index) => (
         <Card
           key={index} // Keys help React track list items

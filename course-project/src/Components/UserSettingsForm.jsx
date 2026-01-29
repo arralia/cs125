@@ -7,7 +7,7 @@ import { useState } from "react";
 
 import { useForm } from "react-hook-form";
 
-export default function UserInfoForm() {
+export default function UserSettingsForm() {
   // These are the 3 tools you'll use 90% of the time
   const {
     register,
@@ -24,7 +24,8 @@ export default function UserInfoForm() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("name")} />
         <input {...register("email")} />
-        <input type="submit" /> 
+        <input {...register("specialization")} type="dropdown" />
+        <input type="submit" />
       </form>
     </div>
   );
