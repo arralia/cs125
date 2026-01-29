@@ -10,11 +10,11 @@ function App() {
   const [settingsPrompt, setSettings] = useState(false);
 
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <NavBar setLogin={setLogin} setSettings={setSettings} />
       {loginPrompt ? <LoginPage setLogin={setLogin} /> : <ClassCardCollection />}
       {settingsPrompt ? <UserSettingsPage setSettings={setSettings} /> : null}
-    </>
+    </div>
   )
 }
 
