@@ -1,0 +1,2004 @@
+{
+  "ok": true,
+  "data": [
+    {
+      "id": "COMPSCI103",
+      "title": "Advanced Programming and Problem Solving with C++",
+      "description": "Advanced programming language concepts for more complex, higher performance software design. Builds depth of programming skills in C++ as a foundation for upper-division courses and projects. Focuses on strengthening programming, debugging, and problem solving skills.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 45C",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI111",
+      "title": "Digital Image Processing",
+      "description": "Introduction to the fundamental concepts of digital signal and image processing as applicable in areas such as multimedia, graphics, AI, data mining, databases, vision, or video games. Topics include image representation, space- and frequency-domain transformations, filters, segmentation, and compression.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 46",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 46",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6D",
+            "minGrade": "C"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N",
+                "minGrade": "C"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI112",
+      "title": "Computer Graphics",
+      "description": "Introduction to the fundamental principles of 3D computer graphics including polygonal modeling, geometric transformations, visibility algorithms, illumination models, texturing, and rasterization. Use of an independently-learned 3D graphics API to implement these techniques.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 46",
+            "minGrade": "C"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N",
+                "minGrade": "C"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI113",
+      "title": "Computer Game Development",
+      "description": "Introduction to the principles of interactive 2D and 3D computer game development. Concepts in computer graphics, algorithms, software engineering, art and graphics, music and sound, story analysis, and artificial intelligence are presented and are the basis for student work.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 112"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 171"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "IN4MATX 121"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "ART 106B"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 163"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 166"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI114",
+      "title": "Projects in Advanced 3D Computer Graphics",
+      "description": "Projects in advanced 3D graphics such as illumination, geometric modeling, visualization, and animation. Topics include physically based and global illumination, solid modeling, curved surfaces, multiresolution modeling, image-based rendering, basic concepts of animation, and scientific visualization.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 112"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 45C",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 45C",
+                "minGrade": "C"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI115",
+      "title": "Computer Simulation",
+      "description": "Discrete event-driven simulation; continuous system simulation; basic probability as pertaining to input distributions and output analysis; stochastic and deterministic simulation; static and dynamic system simulation.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6B",
+            "minGrade": "C"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 7",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP STATISTICS",
+                "minGrade": "3"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 120A",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 51",
+            "minGrade": "C"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "IN4MATX 43",
+            "minGrade": "C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI116",
+      "title": "Computational Photography and Vision",
+      "description": "Introduces the problems of computer vision through the application of computational photography. Specific topics include photo-editing (image warping, compositing, hole filling), panoramic image stitching, and face detection for digital photographs.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6D",
+            "minGrade": "C"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 2B",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP CALCULUS BC",
+                "minGrade": "4"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP CALCULUS AB SUB",
+                "minGrade": "4"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 46",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 46",
+                "minGrade": "C"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI117",
+      "title": "Project in Computer Vision",
+      "description": "Students undertake construction of a computer vision system. Topics include automatically building 3D models from photographs, searching photo collections, robot navigation, and human motion tracking.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6D",
+            "minGrade": "C"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 2B",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP CALCULUS BC",
+                "minGrade": "4"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 46",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 46",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 112",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 116",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 171",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 178",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI118",
+      "title": "Introduction to Virtual Reality",
+      "description": "Introduces virtual reality systems and software. Topics include computer graphics pipeline, human visual system and perception, head mounted displays, image formation, sensors and tracking, and 3D sound. Students use a popular cross-platform game engine to create VR environments.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A"
+              }
+            ]
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 33"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI121",
+      "title": "Information Retrieval",
+      "description": "An introduction to information retrieval including indexing, retrieval, classifying, and clustering text and multimedia documents.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 45C",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 45J",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 7",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP STATISTICS",
+                "minGrade": "3"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI122A",
+      "title": "Introduction to Data Management",
+      "description": "Introduction to the design of databases and the use of database management systems (DBMS) for applications. Topics include entity-relationship modeling for design, relational data model, relational algebra, relational design theory, and Structured Query Language (SQL) programming.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 33",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "EECS 114",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI122B",
+      "title": "Project in Databases and Web Applications",
+      "description": "Introduces students to advanced database technologies and web applications. Topics include database connectivity (ODBC/JDBC), extending databases using stored procedures, database administration, web servers, web programming languages (Java servlets, XML, Ajax, and mobile platforms).",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 122A",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "EECS 116",
+                "minGrade": "D-"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 45J",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP COMP SCI A",
+                "minGrade": "4"
+              }
+            ]
+          },
+          {
+            "NOT": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 137"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "IN4MATX 124"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI122C",
+      "title": "Principles of Data Management",
+      "description": "Covers fundamental principles underlying data management systems. Content includes key techniques including storage management, buffer management, record-oriented file system, access methods, query optimization, and query processing.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 122A",
+            "minGrade": "D-"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 53",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 143A",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI122D",
+      "title": "Beyond SQL Data Management",
+      "description": "Survey of modern data management and analysis technologies beyond relational (SQL) database management. Topics include semistructured data, NoSQL databases, big data analysis, and text search/query engines. Additional topics vary and may include data frames, streaming data, and/or time-series data.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 46",
+            "minGrade": "D-"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 51",
+            "minGrade": "D-"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 122A",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "EECS 116",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI125",
+      "title": "Next Generation Search Systems",
+      "description": "Discusses concepts and techniques related to all aspects of search systems. After considering basic search technology and the state-of-art systems, rapidly developing techniques for multimedia search, local search, event-search, and video-on-demand are explored.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 45C",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 45J",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 7",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP STATISTICS",
+                "minGrade": "3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI130",
+      "title": "Introduction to Security and Privacy",
+      "description": "Introductory course on security mindset and basic principles/practices of software and systems security. Covers the foundations of building, using, and managing secure systems. Topics include standard security principles, threats, and defenses for real-world systems, including web, mobile, and IoT security.",
+      "prerequisiteTree": {}
+    },
+    {
+      "id": "COMPSCI131",
+      "title": "Parallel and Distributed Computing",
+      "description": "Parallel and distributed computer systems. Parallel programming models. Common parallel and distributed programming issues. Specific topics include parallel programming, performance models, coordination and synchronization, consistency and replication, transactions, fault tolerance.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 53",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 143A",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI132",
+      "title": "Computer Networks",
+      "description": "Computer network architectures, protocols, and applications. Internet congestion control, addressing, and routing. Local area networks. Multimedia networking.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "EECS 55",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI133",
+      "title": "Advanced Computer Networks",
+      "description": "Fundamental principles in computer networks are applied to obtain practical experience and skills necessary for designing and implementing computer networks, protocols, and network applications. Various network design techniques, simulation techniques, and UNIX network programming are covered.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 132",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "EECS 148",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI134",
+      "title": "Computer and Network Security",
+      "description": "Overview of modern computer and networks security, attacks, and countermeasures. Authentication, identification, data secrecy, data integrity, authorization, access control, computer viruses, network security. Also covers secure e-commerce and applications of public key methods, digital certificates, and credentials.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 132",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "EECS 148",
+                "minGrade": "D-"
+              }
+            ]
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 53",
+            "minGrade": "D-"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 161",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI137",
+      "title": "Internet Applications Engineering",
+      "description": "Concepts in Internet applications engineering with emphasis on the Web. Peer-to-Peer and Interoperability. Topics include HTTP and REST, Remote Procedure/Method Calls, Web Services, data representations, content distribution networks, identity management, relevant W3C/IETF standards, and relevant new large-scale computing styles.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 132",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "EECS 148",
+                "minGrade": "D-"
+              }
+            ]
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 45J",
+            "minGrade": "D-"
+          },
+          {
+            "NOT": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 122B"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI141",
+      "title": "Concepts in Programming Languages",
+      "description": "In-depth study of several contemporary programming languages stressing variety in data structures, operations, notation, and control. Examination of different programming paradigms, such as logic programming, functional programming and object-oriented programming; implementation strategies, programming environments, and programming style.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 51",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 31",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "EECS 31",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 46",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 46",
+                "minGrade": "C"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI142A",
+      "title": "Compilers and Interpreters",
+      "description": "Introduction to the theory of programming language processors covering lexical analysis, syntax analysis, semantic analysis, intermediate representations, code generation, optimization, interpretation, and run-time support.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 141",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 141",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "IN4MATX 101",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI142B",
+      "title": "Project in Compilers and Interpreters",
+      "description": "Project course which provides working laboratory experience in construction and behavior of compilers and interpreters. Students build actual language processors and perform experiments which reveal their behaviors.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 142A",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 142",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI143A",
+      "title": "Principles of Operating Systems",
+      "description": "Principles and concepts of process and resource management, especially as seen in operating systems. Processes, memory management, protection, scheduling, file systems, and I/O systems are covered. Concepts illustrated in the context of several well-known systems.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 46",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 46",
+                "minGrade": "D-"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 51",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "EECS 31",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 31",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI143B",
+      "title": "Project in Operating System Organization",
+      "description": "Detailed specification and design of critical components of an actual operating system including a memory manager, a process server, and a file/IO subsystem. Hardware/software tradeoffs. Emphasis on logical organization of system and communication.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 143A",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI144",
+      "title": "High-performance Computers and Program Optimization",
+      "description": "Analyzes the relationship between computer architecture and program optimization. High-performance and parallelizing compilers for RISC, Superscalar, and VLIW architectures are discussed.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 51",
+            "minGrade": "C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI145",
+      "title": "Embedded Software",
+      "description": "Principles of embedded computing systems: embedded systems architecture, hardware/software components, system software and interfacing, real-time operating systems, hardware/software co-development, and communication issues. Examples of embedded computing in real-world application domains. Simple programming using an embedded systems development environment.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 46",
+            "minGrade": "D-"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 51",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "EECS 31",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI145A",
+      "title": "Embedded Software",
+      "description": "Principles of embedded computing systems: embedded systems architecture, hardware/software components, system software and interfacing, real-time operating systems, hardware/software co-development, and communication issues. Examples of embedded computing in real-world application domains. Simple programming using an embedded systems development environment.",
+      "prerequisiteTree": {}
+    },
+    {
+      "id": "COMPSCI145B",
+      "title": "Embedded Software Laboratory",
+      "description": "Laboratory section to accompany CSE 145A or COMPSCI 145A.",
+      "prerequisiteTree": {}
+    },
+    {
+      "id": "COMPSCI145L",
+      "title": "Embedded Software Laboratory",
+      "description": "Laboratory section to accompany COMPSCI 145.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": true,
+                "courseId": "COMPSCI 145"
+              },
+              {
+                "prereqType": "course",
+                "coreq": true,
+                "courseId": "CSE 145"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI146",
+      "title": "Programming in Multitasking Operating Systems",
+      "description": "User- and systems-level programming of modern Internet-connected, multi-user, multitasking operating systems. Shells, scripting, filters, pipelines, programmability, extensibility, concurrency, inter-process communication. Concrete examples of a modern operating system (such as, but not necessarily, Unix programmed in C) are used.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 46",
+            "minGrade": "C"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 51",
+            "minGrade": "C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI147",
+      "title": "Internet of Things (IoT) Software and Systems",
+      "description": "Introduction to the Internet of Things (IoT) from a systems and software perspective. IoT ecosystem including sensors, embedded CPUs, networking protocols, software, cloud services, and security and privacy requirements. IoT use cases, system design, and programming project.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 33",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI151",
+      "title": "Digital Logic Design",
+      "description": "Boolean algebra. Design/analysis of combinational and sequential systems using SSI/MSI/LSI modules. Number systems. Error detecting and correction codes. Arithmetic algorithms. Hardware/firmware implementation of algorithms.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 33",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 43",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 51",
+            "minGrade": "C"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6B"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6D"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI152",
+      "title": "Computer Architecture",
+      "description": "Design of computer elements; ALU, control unit, and arithmetic circuits. Memory hierarchy and organization. Caches. Function unit sharing and pipelining. I/O and interrupt processing. RTL and behavioral modeling using hardware description languages. Microprocessor organization and implementation techniques.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 151",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI153",
+      "title": "Logic Design Laboratory",
+      "description": "Introduction to standard integrated circuits. Construction and debugging techniques. Design of digital systems using LSI and MSI components. Practical use of circuits in a laboratory environment, including implementation of small digital systems such as arithmetic modules, displays, and timers.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 151"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI154",
+      "title": "Computer Design Laboratory",
+      "description": "Underlying primitives of computer instruction sets. Principles of microprogramming. Microprogramming. Microprograms written for one or more systems. Typical microprogramming applications discussed and implemented or simulated.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 151",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI161",
+      "title": "Design and Analysis of Algorithms",
+      "description": "Techniques for efficient algorithm design, including divide-and-conquer and dynamic programming, and time/space analysis. Fast algorithms for problems applicable to networks, computer games, and scientific computing, such as sorting, shortest paths, minimum spanning trees, network flow, and pattern matching.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 46",
+            "minGrade": "C"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6B",
+            "minGrade": "D-"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6D",
+            "minGrade": "D-"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 2B",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP CALCULUS BC",
+                "minGrade": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI162",
+      "title": "Formal Languages and Automata",
+      "description": "Formal aspects of describing and recognizing languages by grammars and automata. Parsing regular and context-free languages. Ambiguity, nondeterminism. Elements of computability; Turning machines, random access machines, undecidable problems, NP-completeness.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 46",
+                "minGrade": "C"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 46",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 2B",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP CALCULUS BC",
+                "minGrade": "4"
+              }
+            ]
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6B",
+            "minGrade": "D-"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6D",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI163",
+      "title": "Graph Algorithms",
+      "description": "Algorithms for solving fundamental problems in graph theory. Graph representations, graph traversal, network flow, connectivity, graph layout, matching problems.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 161",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 161",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI164",
+      "title": "Computational Geometry",
+      "description": "Algorithms and data structures for computational geometry and geometric modeling, with applications to computer vision and graphics. Topics: convex hulls, Voronoi diagrams, algorithms for triangulation, motion planning, and data structures for geometric searching and modeling of 2D and 3D",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 46",
+            "minGrade": "C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI165",
+      "title": "Project in Algorithms and Data Structures",
+      "description": "Design, implementation, execution, and analysis of algorithms for problems such as sorting, searching, data compression, and data encryption. Time-space-structure trade-offs.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 161",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI166",
+      "title": "Quantum Computation and Information",
+      "description": "Basic models for quantum computation and their foundations in quantum mechanics. Quantum complexity classes and quantum algorithms, including algorithms for factoring and quantum simulation. Introduction to quantum information theory and quantum entanglement.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N",
+                "minGrade": "C+"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "C+"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 161",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "PHYSICS 113A",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI167",
+      "title": "Introduction to Applied Cryptography",
+      "description": "An introduction to the essential aspects of applied cryptography, as it is used in practice. Topics include classical cryptography, block ciphers, stream ciphers, public-key cryptography, digital signatures, one-way hash functions, basic cryptographic protocols, and digital certificates and credentials.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 161",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "CSE 161",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI168",
+      "title": "Network Optimization",
+      "description": "Network modeling techniques and related algorithms for solving large-scale integer programming problems. Exact methods and heuristic techniques. Applications include computer and communications networks and transportation and logistics networks.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 52"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "IN4MATX 43",
+                "minGrade": "C"
+              }
+            ]
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 167"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI169",
+      "title": "Introduction to Optimization",
+      "description": "A broad introduction to optimization. Unconstrained and constrained optimization. Equality and inequality constraints. Linear and integer programming. Stochastic dynamic programming.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "D-"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 7",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP STATISTICS",
+                "minGrade": "3"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 120A",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI171",
+      "title": "Introduction to Artificial Intelligence",
+      "description": "Different means of representing knowledge and uses of representations in heuristic problem solving. Representations considered include predicate logic, semantic nets, procedural representations, natural language grammars, and search trees.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 7",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP STATISTICS",
+                "minGrade": "3"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 120A",
+                "minGrade": "D-"
+              }
+            ]
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 46",
+            "minGrade": "D-"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 2B"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP CALCULUS BC",
+                "minGrade": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI172B",
+      "title": "Neural Networks and Deep Learning ",
+      "description": "Neural network and deep learning from multiple perspectives. Theory of parallel distributed processing systems, algorithmic approaches for learning from data in various manners, applications to difficult problems in AI from computer vision, to natural language understanding, to bioinformatics and chemoinformatics.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 120A",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 121A",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 178",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 273A",
+                "minGrade": "D-"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 120B",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 121A",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 178",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "COMPSCI 273A",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI172C",
+      "title": "Artificial Intelligence Frontiers: Technical, Ethical, and Societal",
+      "description": "Explores the frontiers of artificial intelligence and related technologies with a focus on the underlying ethical, legal, and societal challenges and opportunities they create. Encourages critical thinking about these issues.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 171",
+            "minGrade": "D-"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 172B",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI174",
+      "title": "Bioinformatics",
+      "description": "Introduces fundamental problems in biology that lend themselves to computational approaches. The lectures present the necessary biological background to understand the importance of the problem and the data available for algorithmic analysis.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 171",
+            "minGrade": "C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI175",
+      "title": "Project in Artificial Intelligence",
+      "description": "Construction of a working artificial intelligence system. Evaluation of capabilities of the system including impact of knowledge representation.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 171",
+            "minGrade": "D-"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 178",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI177",
+      "title": "Applications of Probability in Computer Science",
+      "description": "Application of probability to real-world problems in computer science. Typical topics include analysis of algorithms and graphs, probabilistic language models, network traffic modeling, data compression, and reliability modeling.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 2B",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP CALCULUS BC",
+                "minGrade": "4"
+              }
+            ]
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "STATS 67",
+            "minGrade": "D-"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6B",
+            "minGrade": "D-"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6D",
+            "minGrade": "D-"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI178",
+      "title": "Machine Learning and Data-Mining",
+      "description": "Introduction to principles of machine learning and data-mining applied to real-world datasets. Typical applications include spam filtering, object recognition, and credit scoring.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6B",
+            "minGrade": "D-"
+          },
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 6D",
+            "minGrade": "D-"
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "D-"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 2B",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP CALCULUS BC",
+                "minGrade": "4"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 7",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "exam",
+                "examName": "AP STATISTICS",
+                "minGrade": "3"
+              }
+            ]
+          },
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 67",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 120A",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI179",
+      "title": "Algorithms for Probabilistic and Deterministic Graphical Models",
+      "description": "Graphical model techniques dealing with probabilistic and deterministic knowledge representations. Focuses on graphical models such as constraint networks, Bayesian networks, and Markov networks that have become a central paradigm for knowledge representation and reasoning in AI and general computer science.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 171",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI180A",
+      "title": "Project in Computer Science",
+      "description": "Students to solve a substantial real-world problem with knowledge gained from many areas in computer science. Project has a focus on computer science but can overlap with neighbor disciplines.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "I&C SCI 46",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI180B",
+      "title": "Project in Computer Science",
+      "description": "Students to solve a substantial real-world problem with knowledge gained from many areas in computer science. Project has a focus on computer science but can overlap with neighbor disciplines.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 180A",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI183",
+      "title": "Introduction to Computational Biology",
+      "description": "The use of theories and methods based on computer science, mathematics, and physics in molecular biology and biochemistry. Basics in biomolecular modeling. Analysis of sequence and structural data of biomolecules. Analysis of biomolecular functions.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 2D",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 7",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "STATS 8",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI184A",
+      "title": "Artificial Intelligence in Biology and Medicine",
+      "description": "Introduction to computational methods in molecular biology, aimed at those interested in learning about this interdisciplinary area. Covers computational approaches to understanding and predicting the structure, function, interactions, and evolution of DNA, RNA, proteins, and related molecules and processes.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "OR": [
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "I&C SCI 6N",
+                "minGrade": "D-"
+              },
+              {
+                "prereqType": "course",
+                "coreq": false,
+                "courseId": "MATH 3A",
+                "minGrade": "D-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI184B",
+      "title": "Probabilistic Modeling of Biological Data",
+      "description": "A unified Bayesian probabilistic framework for modeling and mining biological data. Applications range from sequence (DNA, RNA, proteins) to gene expression data. Graphical models, Markov models, stochastic grammars, structure prediction, gene finding, evolution, DNA arrays, single- and multiple-gene analysis.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 184A"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI184C",
+      "title": "Computational Systems Biology",
+      "description": "Computational inference and modeling of gene regulation networks, signal transduction pathways, and the effects of regulatory networks in cellular processes, development, and disease. Introduction of required mathematical, computational, and data handling tools.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 184A",
+            "minGrade": "D-"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI189",
+      "title": "Project in Bioinformatics",
+      "description": "Teaches problem definition and analysis, data representation, algorithm design, component integration, solution validation, and testability with teams specifying, designing, building, and testing a solution to a bioinformatics problem. Lectures include engineering values, discussions, and ethical ramifications of biomedical computing issues.",
+      "prerequisiteTree": {
+        "AND": [
+          {
+            "prereqType": "course",
+            "coreq": false,
+            "courseId": "COMPSCI 184A",
+            "minGrade": "C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "COMPSCI190",
+      "title": "Special Topics in Information and Computer Science",
+      "description": "Studies in selected areas of Information and Computer Science. Topics addressed vary each quarter.",
+      "prerequisiteTree": {}
+    },
+    {
+      "id": "COMPSCI199",
+      "title": "Individual Study",
+      "description": "Individual research or investigation with Computer Science faculty.",
+      "prerequisiteTree": {}
+    }
+  ]
+}
