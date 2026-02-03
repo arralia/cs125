@@ -14,7 +14,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI111",
@@ -61,7 +64,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Graphics & Visualization"
+      ]
     },
     {
       "id": "COMPSCI112",
@@ -92,7 +98,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Graphics & Visualization"
+      ]
     },
     {
       "id": "COMPSCI113",
@@ -135,7 +144,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Game Development"
+      ]
     },
     {
       "id": "COMPSCI114",
@@ -165,7 +177,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Graphics & Visualization"
+      ]
     },
     {
       "id": "COMPSCI115",
@@ -245,7 +260,10 @@
             "minGrade": "C"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI116",
@@ -312,7 +330,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Graphics & Visualization"
+      ]
     },
     {
       "id": "COMPSCI117",
@@ -402,7 +423,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Graphics & Visualization"
+      ]
     },
     {
       "id": "COMPSCI118",
@@ -430,7 +454,10 @@
             "courseId": "I&C SCI 33"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Graphics & Visualization"
+      ]
     },
     {
       "id": "COMPSCI121",
@@ -476,7 +503,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Databases & Data Management"
+      ]
     },
     {
       "id": "COMPSCI122A",
@@ -501,7 +531,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Databases & Data Management"
+      ]
     },
     {
       "id": "COMPSCI122B",
@@ -555,7 +588,11 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Databases & Data Management",
+        "Web & Internet Applications"
+      ]
     },
     {
       "id": "COMPSCI122C",
@@ -586,7 +623,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Databases & Data Management"
+      ]
     },
     {
       "id": "COMPSCI122D",
@@ -623,7 +663,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Databases & Data Management"
+      ]
     },
     {
       "id": "COMPSCI125",
@@ -669,13 +712,20 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Databases & Data Management",
+        "Web & Internet Applications"
+      ]
     },
     {
       "id": "COMPSCI130",
       "title": "Introduction to Security and Privacy",
       "description": "Introductory course on security mindset and basic principles/practices of software and systems security. Covers the foundations of building, using, and managing secure systems. Topics include standard security principles, threats, and defenses for real-world systems, including web, mobile, and IoT security.",
-      "prerequisiteTree": {}
+      "prerequisiteTree": {},
+      "keywords": [
+        "Security & Privacy"
+      ]
     },
     {
       "id": "COMPSCI131",
@@ -700,7 +750,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Systems & Architecture"
+      ]
     },
     {
       "id": "COMPSCI132",
@@ -725,7 +778,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Systems & Architecture"
+      ]
     },
     {
       "id": "COMPSCI133",
@@ -750,7 +806,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Systems & Architecture"
+      ]
     },
     {
       "id": "COMPSCI134",
@@ -787,7 +846,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Security & Privacy"
+      ]
     },
     {
       "id": "COMPSCI137",
@@ -827,7 +889,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Web & Internet Applications"
+      ]
     },
     {
       "id": "COMPSCI141",
@@ -874,7 +939,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Programming Languages & Compilers"
+      ]
     },
     {
       "id": "COMPSCI142A",
@@ -905,7 +973,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Programming Languages & Compilers"
+      ]
     },
     {
       "id": "COMPSCI142B",
@@ -930,7 +1001,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Programming Languages & Compilers"
+      ]
     },
     {
       "id": "COMPSCI143A",
@@ -977,7 +1051,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Systems & Architecture"
+      ]
     },
     {
       "id": "COMPSCI143B",
@@ -992,7 +1069,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Systems & Architecture"
+      ]
     },
     {
       "id": "COMPSCI144",
@@ -1007,7 +1087,10 @@
             "minGrade": "C"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Systems & Architecture"
+      ]
     },
     {
       "id": "COMPSCI145",
@@ -1038,19 +1121,28 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Embedded & Real-Time Systems"
+      ]
     },
     {
       "id": "COMPSCI145A",
       "title": "Embedded Software",
       "description": "Principles of embedded computing systems: embedded systems architecture, hardware/software components, system software and interfacing, real-time operating systems, hardware/software co-development, and communication issues. Examples of embedded computing in real-world application domains. Simple programming using an embedded systems development environment.",
-      "prerequisiteTree": {}
+      "prerequisiteTree": {},
+      "keywords": [
+        "Embedded & Real-Time Systems"
+      ]
     },
     {
       "id": "COMPSCI145B",
       "title": "Embedded Software Laboratory",
       "description": "Laboratory section to accompany CSE 145A or COMPSCI 145A.",
-      "prerequisiteTree": {}
+      "prerequisiteTree": {},
+      "keywords": [
+        "Embedded & Real-Time Systems"
+      ]
     },
     {
       "id": "COMPSCI145L",
@@ -1073,7 +1165,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Embedded & Real-Time Systems"
+      ]
     },
     {
       "id": "COMPSCI146",
@@ -1094,7 +1189,10 @@
             "minGrade": "C"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI147",
@@ -1109,7 +1207,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "IoT & Edge Computing"
+      ]
     },
     {
       "id": "COMPSCI151",
@@ -1150,7 +1251,10 @@
             "courseId": "I&C SCI 6D"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI152",
@@ -1165,7 +1269,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI153",
@@ -1179,7 +1286,10 @@
             "courseId": "COMPSCI 151"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI154",
@@ -1194,7 +1304,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI161",
@@ -1236,7 +1349,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Algorithms & Data Structures"
+      ]
     },
     {
       "id": "COMPSCI162",
@@ -1288,7 +1404,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Programming Languages & Compilers"
+      ]
     },
     {
       "id": "COMPSCI163",
@@ -1313,7 +1432,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Algorithms & Data Structures"
+      ]
     },
     {
       "id": "COMPSCI164",
@@ -1328,7 +1450,10 @@
             "minGrade": "C"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Algorithms & Data Structures"
+      ]
     },
     {
       "id": "COMPSCI165",
@@ -1343,7 +1468,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Projects & Capstone"
+      ]
     },
     {
       "id": "COMPSCI166",
@@ -1384,7 +1512,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Quantum & Emerging Technologies"
+      ]
     },
     {
       "id": "COMPSCI167",
@@ -1409,7 +1540,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Security & Privacy"
+      ]
     },
     {
       "id": "COMPSCI168",
@@ -1438,7 +1572,10 @@
             "courseId": "I&C SCI 167"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Systems & Architecture"
+      ]
     },
     {
       "id": "COMPSCI169",
@@ -1500,7 +1637,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI171",
@@ -1566,7 +1706,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "AI & Machine Learning"
+      ]
     },
     {
       "id": "COMPSCI172B",
@@ -1631,7 +1774,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "AI & Machine Learning"
+      ]
     },
     {
       "id": "COMPSCI172C",
@@ -1652,7 +1798,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "AI & Machine Learning"
+      ]
     },
     {
       "id": "COMPSCI174",
@@ -1667,7 +1816,10 @@
             "minGrade": "C"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Bioinformatics & Computational Biology"
+      ]
     },
     {
       "id": "COMPSCI175",
@@ -1688,7 +1840,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Projects & Capstone"
+      ]
     },
     {
       "id": "COMPSCI177",
@@ -1746,7 +1901,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI178",
@@ -1835,7 +1993,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "AI & Machine Learning"
+      ]
     },
     {
       "id": "COMPSCI179",
@@ -1850,7 +2011,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Algorithms & Data Structures"
+      ]
     },
     {
       "id": "COMPSCI180A",
@@ -1865,7 +2029,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Projects & Capstone"
+      ]
     },
     {
       "id": "COMPSCI180B",
@@ -1880,7 +2047,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Projects & Capstone"
+      ]
     },
     {
       "id": "COMPSCI183",
@@ -1917,7 +2087,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "Bioinformatics & Computational Biology"
+      ]
     },
     {
       "id": "COMPSCI184A",
@@ -1942,7 +2115,10 @@
             ]
           }
         ]
-      }
+      },
+      "keywords": [
+        "AI & Machine Learning"
+      ]
     },
     {
       "id": "COMPSCI184B",
@@ -1956,7 +2132,10 @@
             "courseId": "COMPSCI 184A"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI184C",
@@ -1971,7 +2150,10 @@
             "minGrade": "D-"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Bioinformatics & Computational Biology"
+      ]
     },
     {
       "id": "COMPSCI189",
@@ -1986,19 +2168,28 @@
             "minGrade": "C"
           }
         ]
-      }
+      },
+      "keywords": [
+        "Projects & Capstone"
+      ]
     },
     {
       "id": "COMPSCI190",
       "title": "Special Topics in Information and Computer Science",
       "description": "Studies in selected areas of Information and Computer Science. Topics addressed vary each quarter.",
-      "prerequisiteTree": {}
+      "prerequisiteTree": {},
+      "keywords": [
+        "Special Topics & Research"
+      ]
     },
     {
       "id": "COMPSCI199",
       "title": "Individual Study",
       "description": "Individual research or investigation with Computer Science faculty.",
-      "prerequisiteTree": {}
+      "prerequisiteTree": {},
+      "keywords": [
+        "Projects & Capstone"
+      ]
     }
   ]
 }
