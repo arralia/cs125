@@ -1,0 +1,1353 @@
+{
+  "data": [
+    {
+      "prerequisiteText": "(I&C SCI 61 or GDIM 25) and (GDIM 31 or I&C SCI 10 or I&C SCI 31 or I&C SCI H32)",
+      "overlap": "",
+      "department": "I&C SCI",
+      "instructors": [
+        "Aaron Trammell",
+        "Amelia C Regan",
+        "David A Eppstein",
+        "Don Patterson",
+        "Michael B Dillencourt",
+        "Michael T Goodrich",
+        "Richard Slaughter",
+        "Theresa Jean Tanenbaum"
+      ],
+      "title": "Mobile and Ubiquitous Games",
+      "courseNumeric": 163,
+      "description": "Design and technology of mobile games, including mixed reality gaming, urban games, and locative media. Case studies of significant systems. Uses and limitations of location-based technologies. Infrastructures and their relationships to gameplay and design.",
+      "id": "I&CSCI163",
+      "courseNumber": "163",
+      "dependencies": [
+        {
+          "id": "COMPSCI113",
+          "title": "Computer Game Development",
+          "department": "COMPSCI",
+          "courseNumber": "113"
+        },
+        {
+          "id": "IN4MATX125",
+          "title": "Computer Game Development",
+          "department": "IN4MATX",
+          "courseNumber": "125"
+        }
+      ],
+      "prerequisites": [
+        {
+          "id": "I&CSCI61",
+          "title": "Game Design Fundamentals",
+          "department": "I&C SCI",
+          "courseNumber": "61"
+        },
+        {
+          "id": "GDIM25",
+          "title": "Game Design Fundamentals",
+          "department": "GDIM",
+          "courseNumber": "25"
+        },
+        {
+          "id": "GDIM31",
+          "title": "Introduction to Programming for Games",
+          "department": "GDIM",
+          "courseNumber": "31"
+        },
+        {
+          "id": "I&CSCI10",
+          "title": "How Computers Work",
+          "department": "I&C SCI",
+          "courseNumber": "10"
+        },
+        {
+          "id": "I&CSCI31",
+          "title": "Introduction to Programming",
+          "department": "I&C SCI",
+          "courseNumber": "31"
+        },
+        {
+          "id": "I&CSCI32A",
+          "title": "Python Programming and Libraries (Accelerated)",
+          "department": "I&C SCI",
+          "courseNumber": "32A"
+        }
+      ],
+      "keywords": [
+        "Game Development"
+      ]
+    },
+    {
+      "prerequisiteText": "I&C SCI 61 or GDIM 25",
+      "overlap": "",
+      "department": "I&C SCI",
+      "instructors": [
+        "James Bryan Jackson",
+        "Kurt Dean Squire",
+        "Mary Katherine Wells",
+        "Shelby Roberts"
+      ],
+      "title": "Game Design",
+      "courseNumeric": 166,
+      "description": "Game design takes into consideration psychology, narrative, platform features and limitations, marketing, computer science capabilities, human-computer interface principles, industry trends, aesthetic judgment, and other factors. Students focus on video game design through lectures, readings, presentations, implementation, and play testing.",
+      "id": "I&CSCI166",
+      "courseNumber": "166",
+      "dependencies": [
+        {
+          "id": "COMPSCI113",
+          "title": "Computer Game Development",
+          "department": "COMPSCI",
+          "courseNumber": "113"
+        },
+        {
+          "id": "GDIM161",
+          "title": "Multiplayer Game Project",
+          "department": "GDIM",
+          "courseNumber": "161"
+        },
+        {
+          "id": "GDIM167A",
+          "title": "Capstone Game Project I",
+          "department": "GDIM",
+          "courseNumber": "167A"
+        },
+        {
+          "id": "I&CSCI168",
+          "title": "Multiplayer Game Project",
+          "department": "I&C SCI",
+          "courseNumber": "168"
+        },
+        {
+          "id": "I&CSCI169A",
+          "title": "Capstone Game Project I",
+          "department": "I&C SCI",
+          "courseNumber": "169A"
+        },
+        {
+          "id": "IN4MATX125",
+          "title": "Computer Game Development",
+          "department": "IN4MATX",
+          "courseNumber": "125"
+        }
+      ],
+      "prerequisites": [
+        {
+          "id": "I&CSCI61",
+          "title": "Game Design Fundamentals",
+          "department": "I&C SCI",
+          "courseNumber": "61"
+        },
+        {
+          "id": "GDIM25",
+          "title": "Game Design Fundamentals",
+          "department": "GDIM",
+          "courseNumber": "25"
+        }
+      ],
+      "keywords": [
+        "Game Development"
+      ]
+    },
+    {
+      "prerequisiteText": "I&C SCI 32 with a minimum grade of C or I&C SCI H32 with a minimum grade of C",
+      "overlap": "",
+      "department": "I&C SCI",
+      "instructors": [
+        "Alexander W Thornton",
+        "Michael B Dillencourt",
+        "Mu-chun Chen",
+        "Richard Eric Pattis"
+      ],
+      "title": "Intermediate Programming",
+      "courseNumeric": 33,
+      "description": "Intermediate-level language features and programming concepts for larger, more complex, higher-quality software. Functional programming, name spaces, modules, class protocols, inheritance, iterators, generators, operator overloading, reflection. Analysis of time and space efficiency.",
+      "id": "I&CSCI33",
+      "courseNumber": "33",
+      "dependencies": [
+        {
+          "id": "COMPSCI118",
+          "title": "Introduction to Virtual Reality",
+          "department": "COMPSCI",
+          "courseNumber": "118"
+        },
+        {
+          "id": "COMPSCI122A",
+          "title": "Introduction to Data Management",
+          "department": "COMPSCI",
+          "courseNumber": "122A"
+        },
+        {
+          "id": "COMPSCI147",
+          "title": "Internet of Things (IoT) Software and Systems",
+          "department": "COMPSCI",
+          "courseNumber": "147"
+        },
+        {
+          "id": "COMPSCI151",
+          "title": "Digital Logic Design",
+          "department": "COMPSCI",
+          "courseNumber": "151"
+        },
+        {
+          "id": "EECS116",
+          "title": "Introduction to Data Management",
+          "department": "EECS",
+          "courseNumber": "116"
+        },
+        {
+          "id": "I&CSCI162",
+          "title": "Modeling and World Building",
+          "department": "I&C SCI",
+          "courseNumber": "162"
+        },
+        {
+          "id": "I&CSCI45C",
+          "title": "Programming in C/C++ as a Second Language",
+          "department": "I&C SCI",
+          "courseNumber": "45C"
+        },
+        {
+          "id": "I&CSCI45J",
+          "title": "Programming in Java as a Second Language",
+          "department": "I&C SCI",
+          "courseNumber": "45J"
+        },
+        {
+          "id": "I&CSCI46",
+          "title": "Data Structure Implementation and Analysis",
+          "department": "I&C SCI",
+          "courseNumber": "46"
+        },
+        {
+          "id": "I&CSCI51",
+          "title": "Introductory Computer Organization",
+          "department": "I&C SCI",
+          "courseNumber": "51"
+        },
+        {
+          "id": "IN4MATX113",
+          "title": "Requirements Analysis and Engineering",
+          "department": "IN4MATX",
+          "courseNumber": "113"
+        },
+        {
+          "id": "IN4MATX117",
+          "title": "Project in Software System Design",
+          "department": "IN4MATX",
+          "courseNumber": "117"
+        },
+        {
+          "id": "IN4MATX121",
+          "title": "Software Design: Applications",
+          "department": "IN4MATX",
+          "courseNumber": "121"
+        }
+      ],
+      "prerequisites": [
+        {
+          "id": "I&CSCI32",
+          "title": "Programming with Software Libraries",
+          "department": "I&C SCI",
+          "courseNumber": "32"
+        },
+        {
+          "id": "I&CSCIH32",
+          "title": "Python Programming and Libraries (Accelerated)",
+          "department": "I&C SCI",
+          "courseNumber": "H32"
+        }
+      ],
+      "keywords": [
+        "AI & Machine Learning",
+        "Databases & Data Management",
+        "Game Development",
+        "Graphics & Visualization",
+        "Programming Languages & Compilers",
+        "Web & Internet Applications"
+      ]
+    },
+    {
+      "prerequisiteText": "I&C SCI 33 with a minimum grade of C or EECS 40 with a minimum grade of C",
+      "overlap": "",
+      "department": "I&C SCI",
+      "instructors": [
+        "Alexander W Thornton",
+        "Diane R Campbell",
+        "Heather Stern",
+        "Michael Shindler",
+        "Patrick Kevin Lee",
+        "Raymond O Klefstad",
+        "Zhaoxia Yu"
+      ],
+      "title": "Programming in C/C++ as a Second Language",
+      "courseNumeric": 45,
+      "description": "An introduction to the lexical, syntactic, semantic, and pragmatic characteristics of the C/C++ languages for experienced programmers. Emphasis on object-oriented programming, using standard libraries, and programming with manual garbage collection.",
+      "id": "I&CSCI45C",
+      "courseNumber": "45C",
+      "dependencies": [
+        {
+          "id": "COMPSCI103",
+          "title": "Advanced Programming and Problem Solving with C++",
+          "department": "COMPSCI",
+          "courseNumber": "103"
+        },
+        {
+          "id": "COMPSCI114",
+          "title": "Projects in Advanced 3D Computer Graphics",
+          "department": "COMPSCI",
+          "courseNumber": "114"
+        },
+        {
+          "id": "COMPSCI121",
+          "title": "Information Retrieval",
+          "department": "COMPSCI",
+          "courseNumber": "121"
+        },
+        {
+          "id": "COMPSCI125",
+          "title": "Next Generation Search Systems",
+          "department": "COMPSCI",
+          "courseNumber": "125"
+        },
+        {
+          "id": "EECS121",
+          "title": "System Security",
+          "department": "EECS",
+          "courseNumber": "121"
+        },
+        {
+          "id": "I&CSCI161",
+          "title": "Game Engine Lab",
+          "department": "I&C SCI",
+          "courseNumber": "161"
+        },
+        {
+          "id": "I&CSCI46",
+          "title": "Data Structure Implementation and Analysis",
+          "department": "I&C SCI",
+          "courseNumber": "46"
+        },
+        {
+          "id": "IN4MATX115",
+          "title": "Software Testing, Analysis, and Quality Assurance",
+          "department": "IN4MATX",
+          "courseNumber": "115"
+        },
+        {
+          "id": "IN4MATX119",
+          "title": "Engineering Artificial Intelligence Software",
+          "department": "IN4MATX",
+          "courseNumber": "119"
+        },
+        {
+          "id": "IN4MATX133",
+          "title": "User Interaction Software",
+          "department": "IN4MATX",
+          "courseNumber": "133"
+        },
+        {
+          "id": "IN4MATX141",
+          "title": "Information Retrieval",
+          "department": "IN4MATX",
+          "courseNumber": "141"
+        },
+        {
+          "id": "PHYSICS139",
+          "title": "Observational Astrophysics",
+          "department": "PHYSICS",
+          "courseNumber": "139"
+        }
+      ],
+      "prerequisites": [
+        {
+          "id": "I&CSCI33",
+          "title": "Intermediate Programming",
+          "department": "I&C SCI",
+          "courseNumber": "33"
+        },
+        {
+          "id": "EECS40",
+          "title": "Object-Oriented Systems and Programming",
+          "department": "EECS",
+          "courseNumber": "40"
+        }
+      ],
+      "keywords": [
+        "Programming Languages & Compilers",
+        "Web & Internet Applications"
+      ]
+    },
+    {
+      "prerequisiteText": "I&C SCI 33 with a minimum grade of C or CSE 43 with a minimum grade of C",
+      "overlap": "I&C SCI 22, I&C SCI 23, CSE 23",
+      "department": "I&C SCI",
+      "instructors": [
+        "Aditya Prasad",
+        "Adriana Meza Soria",
+        "Emily Navarro",
+        "Hengrong Du",
+        "Kimberly A Hermans",
+        "Norman M. Jacobson",
+        "Sora Y Han"
+      ],
+      "title": "Programming in Java as a Second Language",
+      "courseNumeric": 45,
+      "description": "An introduction to the lexical, syntactic, semantic, and pragmatic characteristics of the Java language for experienced programmers. Emphasis on object-oriented programming, using standard libraries, and programming with automatic garbage collection.",
+      "id": "I&CSCI45J",
+      "courseNumber": "45J",
+      "dependencies": [
+        {
+          "id": "COMPSCI121",
+          "title": "Information Retrieval",
+          "department": "COMPSCI",
+          "courseNumber": "121"
+        },
+        {
+          "id": "COMPSCI122B",
+          "title": "Project in Databases and Web Applications",
+          "department": "COMPSCI",
+          "courseNumber": "122B"
+        },
+        {
+          "id": "COMPSCI125",
+          "title": "Next Generation Search Systems",
+          "department": "COMPSCI",
+          "courseNumber": "125"
+        },
+        {
+          "id": "COMPSCI137",
+          "title": "Internet Applications Engineering",
+          "department": "COMPSCI",
+          "courseNumber": "137"
+        },
+        {
+          "id": "IN4MATX115",
+          "title": "Software Testing, Analysis, and Quality Assurance",
+          "department": "IN4MATX",
+          "courseNumber": "115"
+        },
+        {
+          "id": "IN4MATX119",
+          "title": "Engineering Artificial Intelligence Software",
+          "department": "IN4MATX",
+          "courseNumber": "119"
+        },
+        {
+          "id": "IN4MATX122",
+          "title": "Software Design: Structure and Implementation",
+          "department": "IN4MATX",
+          "courseNumber": "122"
+        },
+        {
+          "id": "IN4MATX124",
+          "title": "Internet Applications Engineering",
+          "department": "IN4MATX",
+          "courseNumber": "124"
+        },
+        {
+          "id": "IN4MATX133",
+          "title": "User Interaction Software",
+          "department": "IN4MATX",
+          "courseNumber": "133"
+        },
+        {
+          "id": "IN4MATX141",
+          "title": "Information Retrieval",
+          "department": "IN4MATX",
+          "courseNumber": "141"
+        }
+      ],
+      "prerequisites": [
+        {
+          "id": "I&CSCI33",
+          "title": "Intermediate Programming",
+          "department": "I&C SCI",
+          "courseNumber": "33"
+        },
+        {
+          "id": "CSE43",
+          "title": "Intermediate Programming",
+          "department": "CSE",
+          "courseNumber": "43"
+        }
+      ],
+      "keywords": [
+        "Web & Internet Applications"
+      ]
+    },
+    {
+      "prerequisiteText": "I&C SCI 33 with a minimum grade of C and I&C SCI 45C with a minimum grade of C",
+      "overlap": "",
+      "department": "I&C SCI",
+      "instructors": [
+        "Alexander W Thornton",
+        "Mazhar U Khan",
+        "Michael B Dillencourt",
+        "Michael Shindler",
+        "Raymond O Klefstad",
+        "Richard Eric Pattis",
+        "Sergio Gago Masague",
+        "Thomas Yeh",
+        "Yue Liu"
+      ],
+      "title": "Data Structure Implementation and Analysis",
+      "courseNumeric": 46,
+      "description": "Focuses on implementation and mathematical analysis of fundamental data structures and algorithms. Covers storage allocation and memory management techniques.",
+      "id": "I&CSCI46",
+      "courseNumber": "46",
+      "dependencies": [
+        {
+          "id": "COMPSCI111",
+          "title": "Digital Image Processing",
+          "department": "COMPSCI",
+          "courseNumber": "111"
+        },
+        {
+          "id": "COMPSCI112",
+          "title": "Computer Graphics",
+          "department": "COMPSCI",
+          "courseNumber": "112"
+        },
+        {
+          "id": "COMPSCI116",
+          "title": "Computational Photography and Vision",
+          "department": "COMPSCI",
+          "courseNumber": "116"
+        },
+        {
+          "id": "COMPSCI117",
+          "title": "Project in Computer Vision",
+          "department": "COMPSCI",
+          "courseNumber": "117"
+        },
+        {
+          "id": "COMPSCI122D",
+          "title": "Beyond SQL Data Management",
+          "department": "COMPSCI",
+          "courseNumber": "122D"
+        },
+        {
+          "id": "COMPSCI141",
+          "title": "Concepts in Programming Languages",
+          "department": "COMPSCI",
+          "courseNumber": "141"
+        },
+        {
+          "id": "COMPSCI143A",
+          "title": "Principles of Operating Systems",
+          "department": "COMPSCI",
+          "courseNumber": "143A"
+        },
+        {
+          "id": "COMPSCI145",
+          "title": "Embedded Software",
+          "department": "COMPSCI",
+          "courseNumber": "145"
+        },
+        {
+          "id": "COMPSCI146",
+          "title": "Programming in Multitasking Operating Systems",
+          "department": "COMPSCI",
+          "courseNumber": "146"
+        },
+        {
+          "id": "COMPSCI161",
+          "title": "Design and Analysis of Algorithms",
+          "department": "COMPSCI",
+          "courseNumber": "161"
+        },
+        {
+          "id": "COMPSCI162",
+          "title": "Formal Languages and Automata",
+          "department": "COMPSCI",
+          "courseNumber": "162"
+        },
+        {
+          "id": "COMPSCI164",
+          "title": "Computational Geometry",
+          "department": "COMPSCI",
+          "courseNumber": "164"
+        },
+        {
+          "id": "COMPSCI171",
+          "title": "Introduction to Artificial Intelligence",
+          "department": "COMPSCI",
+          "courseNumber": "171"
+        },
+        {
+          "id": "COMPSCI180A",
+          "title": "Project in Computer Science",
+          "department": "COMPSCI",
+          "courseNumber": "180A"
+        },
+        {
+          "id": "COMPSCI216",
+          "title": "Image Understanding",
+          "department": "COMPSCI",
+          "courseNumber": "216"
+        },
+        {
+          "id": "COMPSCI217",
+          "title": "Light and Geometry in Computer Vision",
+          "department": "COMPSCI",
+          "courseNumber": "217"
+        },
+        {
+          "id": "COMPSCI261",
+          "title": "Data Structures",
+          "department": "COMPSCI",
+          "courseNumber": "261"
+        },
+        {
+          "id": "CSE104",
+          "title": "Principles of Operating Systems",
+          "department": "CSE",
+          "courseNumber": "104"
+        },
+        {
+          "id": "CSE141",
+          "title": "Concepts in Programming Languages I",
+          "department": "CSE",
+          "courseNumber": "141"
+        },
+        {
+          "id": "EECS111",
+          "title": "System Software",
+          "department": "EECS",
+          "courseNumber": "111"
+        },
+        {
+          "id": "I&CSCI53",
+          "title": "Principles in System Design",
+          "department": "I&C SCI",
+          "courseNumber": "53"
+        },
+        {
+          "id": "IN4MATX101",
+          "title": "Concepts in Programming Languages",
+          "department": "IN4MATX",
+          "courseNumber": "101"
+        },
+        {
+          "id": "IN4MATX115",
+          "title": "Software Testing, Analysis, and Quality Assurance",
+          "department": "IN4MATX",
+          "courseNumber": "115"
+        },
+        {
+          "id": "IN4MATX122",
+          "title": "Software Design: Structure and Implementation",
+          "department": "IN4MATX",
+          "courseNumber": "122"
+        },
+        {
+          "id": "LSCI102",
+          "title": "Formal Languages and Automata",
+          "department": "LSCI",
+          "courseNumber": "102"
+        },
+        {
+          "id": "STATS170A",
+          "title": "Project in Data Science I",
+          "department": "STATS",
+          "courseNumber": "170A"
+        }
+      ],
+      "prerequisites": [
+        {
+          "id": "I&CSCI33",
+          "title": "Intermediate Programming",
+          "department": "I&C SCI",
+          "courseNumber": "33"
+        },
+        {
+          "id": "I&CSCI45C",
+          "title": "Programming in C/C++ as a Second Language",
+          "department": "I&C SCI",
+          "courseNumber": "45C"
+        }
+      ],
+      "keywords": [
+        "AI & Machine Learning",
+        "Algorithms & Data Structures",
+        "Databases & Data Management",
+        "Graphics & Visualization",
+        "Programming Languages & Compilers",
+        "Security & Privacy",
+        "Systems & Architecture"
+      ]
+    },
+    {
+      "prerequisiteText": "I&C SCI 33 and I&C SCI 6B",
+      "overlap": "",
+      "department": "I&C SCI",
+      "instructors": [
+        "Alexander Veidenbaum",
+        "Alexandru Nicolau",
+        "Elaheh Bozorgzadeh",
+        "George S Lueker",
+        "Heather Stern",
+        "Isaac D Scherson",
+        "Jennifer Lee Wong-ma",
+        "Jonathan D Davis",
+        "Lissa Campos",
+        "Lubomir Bic",
+        "Michael B Dillencourt",
+        "Nikil D Dutt",
+        "Ranjan Gupta",
+        "Raymond O Klefstad",
+        "Shannon L Alfaro",
+        "Yu Morimoto"
+      ],
+      "title": "Introductory Computer Organization",
+      "courseNumeric": 51,
+      "description": "Multilevel view, design, and operation of computer system components. Machine-level data and instruction representation. Instruction sets and addressing modes. Memory organization. Laboratory work using low-level programming languages.",
+      "id": "I&CSCI51",
+      "courseNumber": "51",
+      "dependencies": [
+        {
+          "id": "COMPSCI115",
+          "title": "Computer Simulation",
+          "department": "COMPSCI",
+          "courseNumber": "115"
+        },
+        {
+          "id": "COMPSCI122D",
+          "title": "Beyond SQL Data Management",
+          "department": "COMPSCI",
+          "courseNumber": "122D"
+        },
+        {
+          "id": "COMPSCI141",
+          "title": "Concepts in Programming Languages",
+          "department": "COMPSCI",
+          "courseNumber": "141"
+        },
+        {
+          "id": "COMPSCI143A",
+          "title": "Principles of Operating Systems",
+          "department": "COMPSCI",
+          "courseNumber": "143A"
+        },
+        {
+          "id": "COMPSCI144",
+          "title": "High-performance Computers and Program Optimization",
+          "department": "COMPSCI",
+          "courseNumber": "144"
+        },
+        {
+          "id": "COMPSCI145",
+          "title": "Embedded Software",
+          "department": "COMPSCI",
+          "courseNumber": "145"
+        },
+        {
+          "id": "COMPSCI146",
+          "title": "Programming in Multitasking Operating Systems",
+          "department": "COMPSCI",
+          "courseNumber": "146"
+        },
+        {
+          "id": "COMPSCI151",
+          "title": "Digital Logic Design",
+          "department": "COMPSCI",
+          "courseNumber": "151"
+        },
+        {
+          "id": "COMPSCI244",
+          "title": "Introduction to Embedded and Ubiquitous Systems",
+          "department": "COMPSCI",
+          "courseNumber": "244"
+        },
+        {
+          "id": "COMPSCI245",
+          "title": "Software for Embedded Systems",
+          "department": "COMPSCI",
+          "courseNumber": "245"
+        },
+        {
+          "id": "CSE104",
+          "title": "Principles of Operating Systems",
+          "department": "CSE",
+          "courseNumber": "104"
+        },
+        {
+          "id": "CSE141",
+          "title": "Concepts in Programming Languages I",
+          "department": "CSE",
+          "courseNumber": "141"
+        },
+        {
+          "id": "I&CSCI167",
+          "title": "Multiplayer Game Systems",
+          "department": "I&C SCI",
+          "courseNumber": "167"
+        },
+        {
+          "id": "I&CSCI53",
+          "title": "Principles in System Design",
+          "department": "I&C SCI",
+          "courseNumber": "53"
+        },
+        {
+          "id": "IN4MATX101",
+          "title": "Concepts in Programming Languages",
+          "department": "IN4MATX",
+          "courseNumber": "101"
+        },
+        {
+          "id": "IN4MATX244",
+          "title": "Introduction to Embedded and Ubiquitous Systems",
+          "department": "IN4MATX",
+          "courseNumber": "244"
+        },
+        {
+          "id": "LINGUIS102",
+          "title": "Formal Languages and Automata",
+          "department": "LINGUIS",
+          "courseNumber": "102"
+        }
+      ],
+      "prerequisites": [
+        {
+          "id": "I&CSCI33",
+          "title": "Intermediate Programming",
+          "department": "I&C SCI",
+          "courseNumber": "33"
+        },
+        {
+          "id": "I&CSCI6B",
+          "title": "Boolean Logic and Discrete Structures",
+          "department": "I&C SCI",
+          "courseNumber": "6B"
+        }
+      ],
+      "keywords": [
+        "Algorithms & Data Structures",
+        "Databases & Data Management",
+        "Programming Languages & Compilers",
+        "Security & Privacy",
+        "Systems & Architecture"
+      ]
+    },
+    {
+      "prerequisiteText": "I&C SCI 46 with a minimum grade of C and I&C SCI 51 with a minimum grade of C",
+      "overlap": "",
+      "department": "I&C SCI",
+      "instructors": [
+        "Ian G Harris",
+        "Jennifer Lee Wong-ma",
+        "Nikil D Dutt",
+        "Raymond O Klefstad",
+        "Shannon L Alfaro",
+        "Tony Digaleh Givargis"
+      ],
+      "title": "Principles in System Design",
+      "courseNumeric": 53,
+      "description": "Introduces basic principles of system software: operating systems, compilers, and networking. Exposure to the following topics through theoretical and practical programming experiences: linking and loading, process and memory management, concurrency and synchronization, network communication, programming for performance, etc.",
+      "id": "I&CSCI53",
+      "courseNumber": "53",
+      "dependencies": [
+        {
+          "id": "COMPSCI122C",
+          "title": "Principles of Data Management",
+          "department": "COMPSCI",
+          "courseNumber": "122C"
+        },
+        {
+          "id": "COMPSCI131",
+          "title": "Parallel and Distributed Computing",
+          "department": "COMPSCI",
+          "courseNumber": "131"
+        },
+        {
+          "id": "COMPSCI134",
+          "title": "Computer and Network Security",
+          "department": "COMPSCI",
+          "courseNumber": "134"
+        },
+        {
+          "id": "COMPSCI222",
+          "title": "Principles of Data Management",
+          "department": "COMPSCI",
+          "courseNumber": "222"
+        }
+      ],
+      "prerequisites": [
+        {
+          "id": "I&CSCI46",
+          "title": "Data Structure Implementation and Analysis",
+          "department": "I&C SCI",
+          "courseNumber": "46"
+        },
+        {
+          "id": "I&CSCI51",
+          "title": "Introductory Computer Organization",
+          "department": "I&C SCI",
+          "courseNumber": "51"
+        }
+      ],
+      "keywords": [
+        "Databases & Data Management",
+        "Security & Privacy",
+        "Systems & Architecture"
+      ]
+    },
+    {
+      "prerequisiteText": "High school mathematics through trigonometry",
+      "overlap": "",
+      "department": "I&C SCI",
+      "instructors": [
+        "Amelia C Regan",
+        "Beverly Y Wang",
+        "Dan Hirschberg",
+        "Gopi Meenakshisundaram",
+        "Hadar Ziv",
+        "Irene Gassko",
+        "Kimberly A Hermans",
+        "Lubomir Bic",
+        "Michael B Dillencourt",
+        "Sandra S Irani",
+        "Stanislaw Michal Jarecki",
+        "Wayne B Hayes"
+      ],
+      "title": "Boolean Logic and Discrete Structures",
+      "courseNumeric": 6,
+      "description": "Relations and their properties; Boolean algebras, formal languages; finite automata.",
+      "id": "I&CSCI6B",
+      "courseNumber": "6B",
+      "dependencies": [
+        {
+          "id": "COMPSCI115",
+          "title": "Computer Simulation",
+          "department": "COMPSCI",
+          "courseNumber": "115"
+        },
+        {
+          "id": "COMPSCI151",
+          "title": "Digital Logic Design",
+          "department": "COMPSCI",
+          "courseNumber": "151"
+        },
+        {
+          "id": "COMPSCI161",
+          "title": "Design and Analysis of Algorithms",
+          "department": "COMPSCI",
+          "courseNumber": "161"
+        },
+        {
+          "id": "COMPSCI162",
+          "title": "Formal Languages and Automata",
+          "department": "COMPSCI",
+          "courseNumber": "162"
+        },
+        {
+          "id": "COMPSCI177",
+          "title": "Applications of Probability in Computer Science",
+          "department": "COMPSCI",
+          "courseNumber": "177"
+        },
+        {
+          "id": "COMPSCI178",
+          "title": "Machine Learning and Data-Mining",
+          "department": "COMPSCI",
+          "courseNumber": "178"
+        },
+        {
+          "id": "I&CSCI51",
+          "title": "Introductory Computer Organization",
+          "department": "I&C SCI",
+          "courseNumber": "51"
+        },
+        {
+          "id": "MATH150",
+          "title": "Introduction to Mathematical Logic",
+          "department": "MATH",
+          "courseNumber": "150"
+        },
+        {
+          "id": "MATH161",
+          "title": "Modern Geometry",
+          "department": "MATH",
+          "courseNumber": "161"
+        },
+        {
+          "id": "MATH173A",
+          "title": "Introduction to Cryptology I",
+          "department": "MATH",
+          "courseNumber": "173A"
+        },
+        {
+          "id": "MATH174A",
+          "title": "Modern Graph Theory I",
+          "department": "MATH",
+          "courseNumber": "174A"
+        }
+      ],
+      "prerequisites": [],
+      "keywords": [
+        "Algorithms & Data Structures",
+        "Systems & Architecture"
+      ]
+    },
+    {
+      "prerequisiteText": "Recommended: I&C SCI 6B",
+      "overlap": "",
+      "department": "I&C SCI",
+      "instructors": [
+        "Eric D Mjolsness",
+        "Gopi Meenakshisundaram",
+        "Irene Gassko",
+        "Jing Zhang",
+        "Michael B Dillencourt",
+        "Paniz Ebrahimi",
+        "Pierre F Baldi",
+        "Regina D Yu",
+        "Sandra S Irani",
+        "Stanislaw Michal Jarecki",
+        "Wayne B Hayes"
+      ],
+      "title": "Discrete Mathematics for Computer Science",
+      "courseNumeric": 6,
+      "description": "Covers essential tools from discrete mathematics used in computer science with an emphasis on the process of abstracting computational problems and analyzing them mathematically. Topics include mathematical induction, combinatorics, and recurrence relations.",
+      "id": "I&CSCI6D",
+      "courseNumber": "6D",
+      "dependencies": [
+        {
+          "id": "COMPSCI111",
+          "title": "Digital Image Processing",
+          "department": "COMPSCI",
+          "courseNumber": "111"
+        },
+        {
+          "id": "COMPSCI116",
+          "title": "Computational Photography and Vision",
+          "department": "COMPSCI",
+          "courseNumber": "116"
+        },
+        {
+          "id": "COMPSCI117",
+          "title": "Project in Computer Vision",
+          "department": "COMPSCI",
+          "courseNumber": "117"
+        },
+        {
+          "id": "COMPSCI151",
+          "title": "Digital Logic Design",
+          "department": "COMPSCI",
+          "courseNumber": "151"
+        },
+        {
+          "id": "COMPSCI161",
+          "title": "Design and Analysis of Algorithms",
+          "department": "COMPSCI",
+          "courseNumber": "161"
+        },
+        {
+          "id": "COMPSCI162",
+          "title": "Formal Languages and Automata",
+          "department": "COMPSCI",
+          "courseNumber": "162"
+        },
+        {
+          "id": "COMPSCI177",
+          "title": "Applications of Probability in Computer Science",
+          "department": "COMPSCI",
+          "courseNumber": "177"
+        },
+        {
+          "id": "COMPSCI178",
+          "title": "Machine Learning and Data-Mining",
+          "department": "COMPSCI",
+          "courseNumber": "178"
+        },
+        {
+          "id": "COMPSCI216",
+          "title": "Image Understanding",
+          "department": "COMPSCI",
+          "courseNumber": "216"
+        },
+        {
+          "id": "COMPSCI217",
+          "title": "Light and Geometry in Computer Vision",
+          "department": "COMPSCI",
+          "courseNumber": "217"
+        },
+        {
+          "id": "COMPSCI244",
+          "title": "Introduction to Embedded and Ubiquitous Systems",
+          "department": "COMPSCI",
+          "courseNumber": "244"
+        },
+        {
+          "id": "COMPSCI245",
+          "title": "Software for Embedded Systems",
+          "department": "COMPSCI",
+          "courseNumber": "245"
+        },
+        {
+          "id": "IN4MATX244",
+          "title": "Introduction to Embedded and Ubiquitous Systems",
+          "department": "IN4MATX",
+          "courseNumber": "244"
+        },
+        {
+          "id": "LSCI102",
+          "title": "Formal Languages and Automata",
+          "department": "LSCI",
+          "courseNumber": "102"
+        },
+        {
+          "id": "MATH13",
+          "title": "Introduction to Abstract Mathematics",
+          "department": "MATH",
+          "courseNumber": "13"
+        },
+        {
+          "id": "MATH150",
+          "title": "Introduction to Mathematical Logic",
+          "department": "MATH",
+          "courseNumber": "150"
+        },
+        {
+          "id": "MATH161",
+          "title": "Modern Geometry",
+          "department": "MATH",
+          "courseNumber": "161"
+        },
+        {
+          "id": "MATH173A",
+          "title": "Introduction to Cryptology I",
+          "department": "MATH",
+          "courseNumber": "173A"
+        },
+        {
+          "id": "MATH174A",
+          "title": "Modern Graph Theory I",
+          "department": "MATH",
+          "courseNumber": "174A"
+        }
+      ],
+      "prerequisites": [],
+      "keywords": [
+        "Algorithms & Data Structures",
+        "Graphics & Visualization"
+      ]
+    },
+    {
+      "prerequisiteText": "I&C SCI 31 or I&C SCI H32 or AP Computer Science A with a minimum score of 3",
+      "overlap": "MATH 3A",
+      "department": "I&C SCI",
+      "instructors": [
+        "Gopi Meenakshisundaram",
+        "Michael B Dillencourt",
+        "Paniz Ebrahimi",
+        "Sandra S Irani",
+        "Sergio Gago Masague",
+        "Wayne B Hayes"
+      ],
+      "title": "Computational Linear Algebra",
+      "courseNumeric": 6,
+      "description": "Matrices and linear transformations, systems of linear equations, determinants, linear vector spaces, eigenvalues and eigenvectors, orthogonal matrices, diagonalization, and least squares. Topics taught primarily from an algorithmic perspective, including computational solutions, applications, and numerical error analysis.",
+      "id": "I&CSCI6N",
+      "courseNumber": "6N",
+      "dependencies": [
+        {
+          "id": "BME130",
+          "title": "Biomedical Signals and Systems",
+          "department": "BME",
+          "courseNumber": "130"
+        },
+        {
+          "id": "BME138",
+          "title": "Spectroscopy and Imaging of Biological Systems",
+          "department": "BME",
+          "courseNumber": "138"
+        },
+        {
+          "id": "CBE40B",
+          "title": "Process Thermodynamics",
+          "department": "CBE",
+          "courseNumber": "40B"
+        },
+        {
+          "id": "COMPSCI111",
+          "title": "Digital Image Processing",
+          "department": "COMPSCI",
+          "courseNumber": "111"
+        },
+        {
+          "id": "COMPSCI112",
+          "title": "Computer Graphics",
+          "department": "COMPSCI",
+          "courseNumber": "112"
+        },
+        {
+          "id": "COMPSCI115",
+          "title": "Computer Simulation",
+          "department": "COMPSCI",
+          "courseNumber": "115"
+        },
+        {
+          "id": "COMPSCI116",
+          "title": "Computational Photography and Vision",
+          "department": "COMPSCI",
+          "courseNumber": "116"
+        },
+        {
+          "id": "COMPSCI117",
+          "title": "Project in Computer Vision",
+          "department": "COMPSCI",
+          "courseNumber": "117"
+        },
+        {
+          "id": "COMPSCI118",
+          "title": "Introduction to Virtual Reality",
+          "department": "COMPSCI",
+          "courseNumber": "118"
+        },
+        {
+          "id": "COMPSCI166",
+          "title": "Quantum Computation and Information",
+          "department": "COMPSCI",
+          "courseNumber": "166"
+        },
+        {
+          "id": "COMPSCI169",
+          "title": "Introduction to Optimization",
+          "department": "COMPSCI",
+          "courseNumber": "169"
+        },
+        {
+          "id": "COMPSCI177",
+          "title": "Applications of Probability in Computer Science",
+          "department": "COMPSCI",
+          "courseNumber": "177"
+        },
+        {
+          "id": "COMPSCI178",
+          "title": "Machine Learning and Data-Mining",
+          "department": "COMPSCI",
+          "courseNumber": "178"
+        },
+        {
+          "id": "COMPSCI184A",
+          "title": "Artificial Intelligence in Biology and Medicine",
+          "department": "COMPSCI",
+          "courseNumber": "184A"
+        },
+        {
+          "id": "COMPSCI216",
+          "title": "Image Understanding",
+          "department": "COMPSCI",
+          "courseNumber": "216"
+        },
+        {
+          "id": "COMPSCI217",
+          "title": "Light and Geometry in Computer Vision",
+          "department": "COMPSCI",
+          "courseNumber": "217"
+        },
+        {
+          "id": "COMPSCI221",
+          "title": "Information Retrieval, Filtering, and Classification",
+          "department": "COMPSCI",
+          "courseNumber": "221"
+        },
+        {
+          "id": "COMPSCI244",
+          "title": "Introduction to Embedded and Ubiquitous Systems",
+          "department": "COMPSCI",
+          "courseNumber": "244"
+        },
+        {
+          "id": "COMPSCI245",
+          "title": "Software for Embedded Systems",
+          "department": "COMPSCI",
+          "courseNumber": "245"
+        },
+        {
+          "id": "COMPSCI268",
+          "title": "Introduction to Optimization",
+          "department": "COMPSCI",
+          "courseNumber": "268"
+        },
+        {
+          "id": "ENGRCEE111",
+          "title": "Methods IV: Systems Analysis and Decision-Making",
+          "department": "ENGRCEE",
+          "courseNumber": "111"
+        },
+        {
+          "id": "ENGRCEE21",
+          "title": "Computational Problem Solving",
+          "department": "ENGRCEE",
+          "courseNumber": "21"
+        },
+        {
+          "id": "ENGRMAE145",
+          "title": "Theory of Machines and Mechanisms",
+          "department": "ENGRMAE",
+          "courseNumber": "145"
+        },
+        {
+          "id": "ENGRMAE183",
+          "title": "Computer-Aided Mechanism Design",
+          "department": "ENGRMAE",
+          "courseNumber": "183"
+        },
+        {
+          "id": "I&CSCI162",
+          "title": "Modeling and World Building",
+          "department": "I&C SCI",
+          "courseNumber": "162"
+        },
+        {
+          "id": "IN4MATX244",
+          "title": "Introduction to Embedded and Ubiquitous Systems",
+          "department": "IN4MATX",
+          "courseNumber": "244"
+        },
+        {
+          "id": "MSE69",
+          "title": "Electronic and Optical Properties in Materials",
+          "department": "MSE",
+          "courseNumber": "69"
+        },
+        {
+          "id": "STATS120C",
+          "title": "Introduction to Probability and Statistics III",
+          "department": "STATS",
+          "courseNumber": "120C"
+        },
+        {
+          "id": "STATS140",
+          "title": "Multivariate Statistical Methods",
+          "department": "STATS",
+          "courseNumber": "140"
+        },
+        {
+          "id": "STATS240",
+          "title": "Multivariate Statistical Methods",
+          "department": "STATS",
+          "courseNumber": "240"
+        }
+      ],
+      "prerequisites": [
+        {
+          "id": "I&CSCI31",
+          "title": "Introduction to Programming",
+          "department": "I&C SCI",
+          "courseNumber": "31"
+        },
+        {
+          "id": "I&CSCI32A",
+          "title": "Python Programming and Libraries (Accelerated)",
+          "department": "I&C SCI",
+          "courseNumber": "32A"
+        }
+      ],
+      "keywords": [
+        "Graphics & Visualization"
+      ]
+    }
+  ]
+}

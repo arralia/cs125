@@ -13,6 +13,17 @@
 
 ## For CSUpperDivStripped:
 - took all elements in CSUpperDivFullResponse and ran it through the strip_courses.py script
-- only kept relevant fields needed for our mongodb table
+- only kept relevant fields needed for our mongodb table (id, title, description, prerequisites)
+
+## For ICSCoursesStripped:
+- obtained from this query:
+![alt text](image-1.png)
+- removed all ICS classes that aren't prerequisites for classes in CSUpperDivStripped
+- added the keywords field which should be consistent with what's in Keywords.json
+
+## For Keywords:
+- created by Copilot
+- assigned ALL upper div CS classes and ALL ICS classes that are prerequisites to keywords
+- propagated the "keywords" field into every course in ICSCoursesStripped and CSUpperDivStripped to ensure consistency
 
 ## Please place information for each .json in this /data folder here.
