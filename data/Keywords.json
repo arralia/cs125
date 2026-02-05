@@ -3,7 +3,7 @@
     {
       "keyword": "Graphics & Visualization",
       "description": "Computer graphics, image processing, computer vision, and visual rendering",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI111",
           "title": "Digital Image Processing"
@@ -27,9 +27,7 @@
         {
           "id": "COMPSCI118",
           "title": "Introduction to Virtual Reality"
-        }
-      ],
-      "prerequisites": [
+        },
         {
           "id": "I&CSCI46",
           "title": "Data Structure Implementation and Analysis"
@@ -51,7 +49,7 @@
     {
       "keyword": "Algorithms & Data Structures",
       "description": "Algorithm design, analysis, and fundamental data structure implementations",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI161",
           "title": "Design and Analysis of Algorithms"
@@ -67,9 +65,7 @@
         {
           "id": "COMPSCI179",
           "title": "Algorithms for Probabilistic and Deterministic Graphical Models"
-        }
-      ],
-      "prerequisites": [
+        },
         {
           "id": "I&CSCI46",
           "title": "Data Structure Implementation and Analysis"
@@ -91,7 +87,7 @@
     {
       "keyword": "Databases & Data Management",
       "description": "Database design, management systems, data modeling, and query optimization",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI121",
           "title": "Information Retrieval"
@@ -115,9 +111,7 @@
         {
           "id": "COMPSCI125",
           "title": "Next Generation Search Systems"
-        }
-      ],
-      "prerequisites": [
+        },
         {
           "id": "I&CSCI33",
           "title": "Intermediate Programming"
@@ -139,7 +133,7 @@
     {
       "keyword": "Web & Internet Applications",
       "description": "Web technologies, internet protocols, and application development",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI122B",
           "title": "Project in Databases and Web Applications"
@@ -155,9 +149,7 @@
         {
           "id": "COMPSCI137",
           "title": "Internet Applications Engineering"
-        }
-      ],
-      "prerequisites": [
+        },
         {
           "id": "I&CSCI33",
           "title": "Intermediate Programming"
@@ -175,7 +167,7 @@
     {
       "keyword": "Systems & Architecture",
       "description": "Operating systems, computer architecture, networks, and system design",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI131",
           "title": "Parallel and Distributed Computing"
@@ -203,9 +195,7 @@
         {
           "id": "COMPSCI168",
           "title": "Network Optimization"
-        }
-      ],
-      "prerequisites": [
+        },
         {
           "id": "I&CSCI46",
           "title": "Data Structure Implementation and Analysis"
@@ -235,7 +225,7 @@
     {
       "keyword": "Programming Languages & Compilers",
       "description": "Language design, implementation, compilation, and interpretation",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI141",
           "title": "Concepts in Programming Languages"
@@ -251,9 +241,7 @@
         {
           "id": "COMPSCI162",
           "title": "Formal Languages and Automata"
-        }
-      ],
-      "prerequisites": [
+        },
         {
           "id": "I&CSCI33",
           "title": "Intermediate Programming"
@@ -275,7 +263,7 @@
     {
       "keyword": "Special Topics & Research",
       "description": "Auto-generated category for Special Topics & Research.",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI103",
           "title": "Advanced Programming and Problem Solving with C++"
@@ -321,12 +309,57 @@
           "title": "Special Topics in Information and Computer Science"
         }
       ],
-      "prerequisites": []
+      "prerequisites": [
+        {
+          "id": "I&CSCI163",
+          "title": "Mobile and Ubiquitous Games"
+        },
+        {
+          "id": "I&CSCI166",
+          "title": "Game Design"
+        },
+        {
+          "id": "I&CSCI33",
+          "title": "Intermediate Programming"
+        },
+        {
+          "id": "I&CSCI45C",
+          "title": "Programming in C/C++ as a Second Language"
+        },
+        {
+          "id": "I&CSCI45J",
+          "title": "Programming in Java as a Second Language"
+        },
+        {
+          "id": "I&CSCI46",
+          "title": "Data Structure Implementation and Analysis"
+        },
+        {
+          "id": "I&CSCI51",
+          "title": "Introductory Computer Organization"
+        },
+        {
+          "id": "I&CSCI53",
+          "title": "Principles in System Design"
+        },
+        {
+          "id": "I&CSCI6B",
+          "title": "Boolean Logic and Discrete Structures"
+        },
+        {
+          "id": "I&CSCI6D",
+          "title": "Discrete Mathematics for Computer Science"
+        },
+        {
+          "id": "I&CSCI6N",
+          "title": "Computational Linear Algebra"
+        }
+      ]
     },
     {
       "keyword": "Embedded & Real-Time Systems",
       "description": "Auto-generated category for Embedded & Real-Time Systems.",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI145",
           "title": "Embedded Software"
@@ -338,29 +371,23 @@
         {
           "id": "COMPSCI145B",
           "title": "Embedded Software Laboratory"
-        },
-        {
-          "id": "COMPSCI145L",
-          "title": "Embedded Software Laboratory"
         }
-      ],
-      "prerequisites": []
+      ]
     },
     {
       "keyword": "IoT & Edge Computing",
       "description": "Auto-generated category for IoT & Edge Computing.",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI147",
           "title": "Internet of Things (IoT) Software and Systems"
         }
-      ],
-      "prerequisites": []
+      ]
     },
     {
       "keyword": "Projects & Capstone",
       "description": "Auto-generated category for Projects & Capstone.",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI165",
           "title": "Project in Algorithms and Data Structures"
@@ -385,24 +412,22 @@
           "id": "COMPSCI199",
           "title": "Individual Study"
         }
-      ],
-      "prerequisites": []
+      ]
     },
     {
       "keyword": "Quantum & Emerging Technologies",
       "description": "Auto-generated category for Quantum & Emerging Technologies.",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI166",
           "title": "Quantum Computation and Information"
         }
-      ],
-      "prerequisites": []
+      ]
     },
     {
       "keyword": "AI & Machine Learning",
       "description": "Artificial intelligence and machine learning",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI172B",
           "title": "Neural Networks and Deep Learning "
@@ -422,9 +447,7 @@
         {
           "id": "COMPSCI178",
           "title": "Machine Learning and Data Mining"
-        }
-      ],
-      "prerequisites": [
+        },
         {
           "id": "I&CSCI33",
           "title": "Intermediate Programming"
@@ -438,13 +461,11 @@
     {
       "keyword": "Game Development",
       "description": "Game design and development, engines, interactive systems, and game production",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI113",
           "title": "Computer Game Development"
-        }
-      ],
-      "prerequisites": [
+        },
         {
           "id": "I&CSCI163",
           "title": "Mobile and Ubiquitous Games"
@@ -462,7 +483,7 @@
     {
       "keyword": "Security & Privacy",
       "description": "Cybersecurity, encryption, authentication, and secure systems design",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI130",
           "title": "Introduction to Security and Privacy"
@@ -478,9 +499,7 @@
         {
           "id": "COMPSCI167",
           "title": "Introduction to Applied Cryptography"
-        }
-      ],
-      "prerequisites": [
+        },
         {
           "id": "I&CSCI46",
           "title": "Data Structure Implementation and Analysis"
@@ -498,7 +517,7 @@
     {
       "keyword": "Bioinformatics & Computational Biology",
       "description": "Auto-generated category for Bioinformatics & Computational Biology.",
-      "upperDivisionCourses": [
+      "courses": [
         {
           "id": "COMPSCI174",
           "title": "Bioinformatics"
@@ -511,8 +530,7 @@
           "id": "COMPSCI184C",
           "title": "Computational Systems Biology"
         }
-      ],
-      "prerequisites": []
+      ]
     }
   ]
 }

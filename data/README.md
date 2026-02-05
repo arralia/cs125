@@ -19,6 +19,8 @@
 - obtained from this query:
 ![alt text](image-1.png)
 - removed all ICS classes that aren't prerequisites for classes in CSUpperDivStripped
+- removed all dependencies that don't start with either: COMPSCI1, IN4MATX, I&CSCI
+- removed the prerequisiteText field, converting it into a prerequisiteTree to match CSUpperDivStripped format (manual)
 - added the keywords field which should be consistent with what's in Keywords.json
 
 ## For Keywords:
