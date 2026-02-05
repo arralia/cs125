@@ -18,14 +18,14 @@ with open(CS_PATH, 'r', encoding='utf-8') as f:
 # Build set of existing prerequisite ids in keywords
 existing_prereqs = set()
 for k in keywords.get('keywords', []):
-    for p in k.get('prerequisites', []):
+    for p in k.get('courses', []):
         existing_prereqs.add(p.get('id'))
 
 # Map upper course id to keyword names
 upper_to_kw = defaultdict(list)
 for k in keywords.get('keywords', []):
     name = k.get('keyword')
-    for c in k.get('upperDivisionCourses', []):
+    for c in k.get('courses', []):
         upper_to_kw[c.get('id')].append(name)
 
 # Helper to find upper courses that list this ICS as prerequisite
@@ -52,8 +52,17 @@ def find_upper_dependents(ics_id):
 
 # Collect ICS ids from ICSCoursesStripped
 ics_ids = [c.get('id') for c in ics.get('data', [])]
-missing = [cid for cid in ics_ids if cid not in existing_prereqs]
-print(f'Found {len(ics_ids)} ICS courses in ICSCoursesStripped.json; {len(missing)} missing in Keywords.json')
+missing_ics = [cid for cid in ics_ids if cid not in existing_prereqs]
+print(f'Found {len(ics_ids)} ICS courses in ICSCoursesStripped.json; {len(missing_ics)} missing in Keywords.json')
+
+# Collect CS Upper Div ids from CSUpperDivStripped
+cs_ids = [c.get('id') for c in cs.get('data', [])]
+missing_cs = [cid for cid in cs_ids if cid not in existing_prereqs]
+print(f'Found {len(cs_ids)} CS Upper Div courses in CSUpperDivStripped.json; {len(missing_cs)} missing in Keywords.json')
+if missing_cs:
+    print('Missing CS courses:')
+    for cid in missing_cs:
+        print(f'  - {cid}')
 
 added = []
 # ensure special topics exists
@@ -66,7 +75,7 @@ if special_kw is None:
     special_kw = {'keyword':'Special Topics & Research', 'description':'Catch-all','upperDivisionCourses':[], 'prerequisites':[]}
     keywords['keywords'].append(special_kw)
 
-for ics_id in missing:
+for ics_id in missing_ics:
     dependents = find_upper_dependents(ics_id)
     target_kw_names = set()
     for up in dependents:
