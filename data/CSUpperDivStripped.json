@@ -8,8 +8,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 45C",
             "minGrade": "D-"
           }
@@ -28,36 +26,26 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 46",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 46",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6D",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N",
                 "minGrade": "C"
               }
@@ -76,22 +64,16 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 46",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N",
                 "minGrade": "C"
               }
@@ -112,33 +94,21 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 112"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 171"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "IN4MATX 121"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "ART 106B"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 163"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 166"
               }
             ]
@@ -156,21 +126,15 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 112"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 45C",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 45C",
                 "minGrade": "C"
               }
@@ -189,22 +153,16 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6B",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "C"
               }
@@ -213,49 +171,32 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 7",
                 "minGrade": "C"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP STATISTICS",
-                "minGrade": "3"
               }
             ]
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 120A",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 51",
             "minGrade": "C"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "IN4MATX 43",
             "minGrade": "C"
           }
@@ -272,58 +213,32 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6D",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "OR": [
-              {
-                "prereqType": "course",
-                "coreq": false,
-                "courseId": "MATH 2B",
-                "minGrade": "C"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP CALCULUS BC",
-                "minGrade": "4"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP CALCULUS AB SUB",
-                "minGrade": "4"
-              }
-            ]
+            "courseId": "MATH 2B",
+            "minGrade": "C"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 46",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 46",
                 "minGrade": "C"
               }
@@ -342,53 +257,32 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6D",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "OR": [
-              {
-                "prereqType": "course",
-                "coreq": false,
-                "courseId": "MATH 2B",
-                "minGrade": "C"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP CALCULUS BC",
-                "minGrade": "4"
-              }
-            ]
+            "courseId": "MATH 2B",
+            "minGrade": "C"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 46",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 46",
                 "minGrade": "C"
               }
@@ -397,26 +291,18 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 112",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 116",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 171",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 178",
                 "minGrade": "D-"
               }
@@ -437,20 +323,14 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A"
               }
             ]
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 33"
           }
         ]
@@ -468,14 +348,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 45C",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 45J",
                 "minGrade": "C"
               }
@@ -484,19 +360,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 7",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "exam",
-                "examName": "AP STATISTICS",
-                "minGrade": "3"
-              },
-              {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "D-"
               }
@@ -517,14 +384,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 33",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "EECS 114",
                 "minGrade": "D-"
               }
@@ -545,44 +408,25 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 122A",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "EECS 116",
                 "minGrade": "D-"
               }
             ]
           },
           {
-            "OR": [
-              {
-                "prereqType": "course",
-                "coreq": false,
-                "courseId": "I&C SCI 45J",
-                "minGrade": "D-"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP COMP SCI A",
-                "minGrade": "4"
-              }
-            ]
+            "courseId": "I&C SCI 45J",
+            "minGrade": "D-"
           },
           {
             "NOT": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 137"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "IN4MATX 124"
               }
             ]
@@ -601,22 +445,16 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 122A",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 53",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 143A",
                 "minGrade": "D-"
               }
@@ -635,28 +473,20 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 46",
             "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 51",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 122A",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "EECS 116",
                 "minGrade": "D-"
               }
@@ -677,14 +507,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 45C",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 45J",
                 "minGrade": "C"
               }
@@ -693,21 +519,12 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 7",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "D-"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP STATISTICS",
-                "minGrade": "3"
               }
             ]
           }
@@ -736,14 +553,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 53",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 143A",
                 "minGrade": "D-"
               }
@@ -764,14 +577,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "EECS 55",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "D-"
               }
@@ -792,14 +601,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 132",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "EECS 148",
                 "minGrade": "D-"
               }
@@ -820,28 +625,20 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 132",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "EECS 148",
                 "minGrade": "D-"
               }
             ]
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 53",
             "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 161",
             "minGrade": "D-"
           }
@@ -860,30 +657,22 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 132",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "EECS 148",
                 "minGrade": "D-"
               }
             ]
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 45J",
             "minGrade": "D-"
           },
           {
             "NOT": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 122B"
               }
             ]
@@ -903,20 +692,14 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 51",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 31",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "EECS 31",
                 "minGrade": "C"
               }
@@ -925,14 +708,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 46",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 46",
                 "minGrade": "C"
               }
@@ -953,20 +732,14 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 141",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 141",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "IN4MATX 101",
                 "minGrade": "D-"
               }
@@ -987,14 +760,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 142A",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 142",
                 "minGrade": "D-"
               }
@@ -1015,14 +784,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 46",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 46",
                 "minGrade": "D-"
               }
@@ -1031,20 +796,14 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 51",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "EECS 31",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 31",
                 "minGrade": "D-"
               }
@@ -1063,8 +822,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 143A",
             "minGrade": "D-"
           }
@@ -1081,8 +838,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 51",
             "minGrade": "C"
           }
@@ -1099,22 +854,16 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 46",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 51",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "EECS 31",
                 "minGrade": "D-"
               }
@@ -1145,46 +894,16 @@
       ]
     },
     {
-      "id": "COMPSCI145L",
-      "title": "Embedded Software Laboratory",
-      "description": "Laboratory section to accompany COMPSCI 145.",
-      "prerequisiteTree": {
-        "AND": [
-          {
-            "OR": [
-              {
-                "prereqType": "course",
-                "coreq": true,
-                "courseId": "COMPSCI 145"
-              },
-              {
-                "prereqType": "course",
-                "coreq": true,
-                "courseId": "CSE 145"
-              }
-            ]
-          }
-        ]
-      },
-      "keywords": [
-        "Embedded & Real-Time Systems"
-      ]
-    },
-    {
       "id": "COMPSCI146",
       "title": "Programming in Multitasking Operating Systems",
       "description": "User- and systems-level programming of modern Internet-connected, multi-user, multitasking operating systems. Shells, scripting, filters, pipelines, programmability, extensibility, concurrency, inter-process communication. Concrete examples of a modern operating system (such as, but not necessarily, Unix programmed in C) are used.",
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 46",
             "minGrade": "C"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 51",
             "minGrade": "C"
           }
@@ -1201,8 +920,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 33",
             "minGrade": "D-"
           }
@@ -1221,33 +938,23 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 33",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 43",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 51",
             "minGrade": "C"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6B"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6D"
           }
         ]
@@ -1263,8 +970,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 151",
             "minGrade": "D-"
           }
@@ -1281,8 +986,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 151"
           }
         ]
@@ -1298,8 +1001,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 151",
             "minGrade": "D-"
           }
@@ -1316,37 +1017,20 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 46",
             "minGrade": "C"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6B",
             "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6D",
             "minGrade": "D-"
           },
           {
-            "OR": [
-              {
-                "prereqType": "course",
-                "coreq": false,
-                "courseId": "MATH 2B",
-                "minGrade": "D-"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP CALCULUS BC",
-                "minGrade": "4"
-              }
-            ]
+            "courseId": "MATH 2B",
+            "minGrade": "D-"
           }
         ]
       },
@@ -1363,43 +1047,24 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 46",
                 "minGrade": "C"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 46",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "OR": [
-              {
-                "prereqType": "course",
-                "coreq": false,
-                "courseId": "MATH 2B",
-                "minGrade": "D-"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP CALCULUS BC",
-                "minGrade": "4"
-              }
-            ]
+            "courseId": "MATH 2B",
+            "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6B",
             "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6D",
             "minGrade": "D-"
           }
@@ -1418,14 +1083,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 161",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 161",
                 "minGrade": "D-"
               }
@@ -1444,8 +1105,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 46",
             "minGrade": "C"
           }
@@ -1462,8 +1121,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 161",
             "minGrade": "D-"
           }
@@ -1482,14 +1139,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N",
                 "minGrade": "C+"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "C+"
               }
@@ -1498,14 +1151,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 161",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "PHYSICS 113A",
                 "minGrade": "D-"
               }
@@ -1526,14 +1175,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 161",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "CSE 161",
                 "minGrade": "D-"
               }
@@ -1554,21 +1199,15 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 52"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "IN4MATX 43",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 167"
           }
         ]
@@ -1586,14 +1225,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "D-"
               }
@@ -1602,35 +1237,22 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 7",
                 "minGrade": "D-"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP STATISTICS",
-                "minGrade": "3"
               }
             ]
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 120A",
                 "minGrade": "D-"
               }
@@ -1651,59 +1273,33 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 7",
                 "minGrade": "D-"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP STATISTICS",
-                "minGrade": "3"
               }
             ]
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 120A",
                 "minGrade": "D-"
               }
             ]
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 46",
             "minGrade": "D-"
           },
           {
-            "OR": [
-              {
-                "prereqType": "course",
-                "coreq": false,
-                "courseId": "MATH 2B"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP CALCULUS BC",
-                "minGrade": "4"
-              }
-            ]
+            "courseId": "MATH 2B"
           }
         ]
       },
@@ -1720,26 +1316,18 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 120A",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 121A",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 178",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 273A",
                 "minGrade": "D-"
               }
@@ -1748,26 +1336,18 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 120B",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 121A",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 178",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "COMPSCI 273A",
                 "minGrade": "D-"
               }
@@ -1786,14 +1366,10 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 171",
             "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 172B",
             "minGrade": "D-"
           }
@@ -1810,8 +1386,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 171",
             "minGrade": "C"
           }
@@ -1828,14 +1402,10 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 171",
             "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 178",
             "minGrade": "D-"
           }
@@ -1852,49 +1422,28 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "OR": [
-              {
-                "prereqType": "course",
-                "coreq": false,
-                "courseId": "MATH 2B",
-                "minGrade": "D-"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP CALCULUS BC",
-                "minGrade": "4"
-              }
-            ]
+            "courseId": "MATH 2B",
+            "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "STATS 67",
             "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6B",
             "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6D",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N",
                 "minGrade": "D-"
               }
@@ -1913,80 +1462,48 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6B",
             "minGrade": "D-"
           },
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 6D",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "D-"
               }
             ]
           },
           {
-            "OR": [
-              {
-                "prereqType": "course",
-                "coreq": false,
-                "courseId": "MATH 2B",
-                "minGrade": "D-"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP CALCULUS BC",
-                "minGrade": "4"
-              }
-            ]
+            "courseId": "MATH 2B",
+            "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 7",
                 "minGrade": "D-"
-              },
-              {
-                "prereqType": "exam",
-                "examName": "AP STATISTICS",
-                "minGrade": "3"
               }
             ]
           },
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 67",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 120A",
                 "minGrade": "D-"
               }
@@ -2005,8 +1522,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 171",
             "minGrade": "D-"
           }
@@ -2023,8 +1538,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "I&C SCI 46",
             "minGrade": "D-"
           }
@@ -2041,8 +1554,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 180A",
             "minGrade": "D-"
           }
@@ -2061,26 +1572,18 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 2D",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 7",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "STATS 8",
                 "minGrade": "D-"
               }
@@ -2101,14 +1604,10 @@
           {
             "OR": [
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "I&C SCI 6N",
                 "minGrade": "D-"
               },
               {
-                "prereqType": "course",
-                "coreq": false,
                 "courseId": "MATH 3A",
                 "minGrade": "D-"
               }
@@ -2127,8 +1626,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 184A"
           }
         ]
@@ -2144,8 +1641,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 184A",
             "minGrade": "D-"
           }
@@ -2162,8 +1657,6 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "prereqType": "course",
-            "coreq": false,
             "courseId": "COMPSCI 184A",
             "minGrade": "C"
           }
