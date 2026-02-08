@@ -27,21 +27,14 @@ class LoginRequest(BaseModel):
 
 
 class UserSetInfoRequest(BaseModel):
-    username: str
-    classesTaken: list[str]
+    classes: list[dict[str, str | int]]
     skills: dict[str, int]
-    quarter: str
-    year: int
+    specialization: str
 
 
 @app.get("/")
 async def root():
     return {"message": "Welcome to the FastAPI Backend!"}
-
-
-@app.get("/health")
-async def health_check():
-    return {"status": "ok", "message": "Server is running smoothly"}
 
 
 @app.get("/api")
@@ -91,7 +84,36 @@ async def api_class_info(userid: str = None):
             {"className": "CS 162", "description": "Formal Languages and Automata"},
         ],
         "status": "ok",
-        "message": "Class info is running smoothly",
+        "message": "Class info",
+    }
+
+
+@app.get("/api/allClasses")
+async def all_classes():
+    return {
+        "data": [
+            {"className": "CS 125", "description": "Next Generation Search Systems"},
+            {"className": "CS 161", "description": "Design and Analysis of Algorithms"},
+            {"className": "CS 162", "description": "Formal Languages and Automata"},
+        ],
+        "status": "ok",
+        "message": "Class info",
+    }
+
+
+@app.get("/api/specializationInfo")
+async def api_specialization_info():
+    return {
+        "data": [
+            {"specialization": "AI", "description": "Artificial Intelligence"},
+            {"specialization": "Algorithms", "description": "Algorithms"},
+            {
+                "specialization": "Formal Languages and Automata",
+                "description": "Formal Languages and Automata",
+            },
+        ],
+        "status": "ok",
+        "message": "Specialization info",
     }
 
 
@@ -109,6 +131,28 @@ async def api_login(request: LoginRequest):
         print("User not found")
         raise HTTPException(status_code=404, detail="User not found")
 
+
+@app.post("/api/setUserInfo")
+async def api_set_user_info(request: UserSetInfoRequest):
+    print(request)
+    return {
+        "status": "ok",
+        "message": "User info set successfully",
+    }
+
+@app.get("/api/getUserInfo")
+async def api_get_user_info():
+    return {
+        "data": {
+            "classes": [
+                {"className": "CS 161", "grade": "A-", "difficulty": 3},
+            ],
+            "skills": {"Math": 1, "Algorithms": 5, "Data Structures": 2, "Programming": 4, "Recursion": 3},
+            "specialization": "Algorithms",
+        },
+        "status": "ok",
+        "message": "User info",
+    }
 
 if __name__ == "__main__":
     import uvicorn

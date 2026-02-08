@@ -3,7 +3,7 @@
 // list of skills and their difficultys, selection for CS specialization
 // Quarters left till graditiaton
 
-import { useForm } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 import { useEffect, useState } from "react";
 import useApiPost from "./useApiPost";
 import useApiGet from "./useApiGet";
@@ -12,25 +12,50 @@ export default function UserSettingsForm({ setSettings }) {
   // These are the 3 tools you'll use 90% of the time
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      classes: [],
+      skills: {},
+    },
+  });
+
 
   const onSubmit = (data) => {
     setSettings(false);
     console.log("Clean JSON data:", data);
+    sendUserInfo(data);
   };
 
-  const [settingsPage, setSettingsPage] = useState("skills");
+  const [settingsPage, setSettingsPage] = useState("Skills");
+
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "classes",
+  });
+
+  const { execute: sendUserInfo, response: setUserInfoResponse } = useApiPost({
+    api: "/api/setUserInfo",
+  });
 
   // this gets the class info when the settings page first comes up
   // so we can populate the drop down menu for the user to select
-  const { execute } = useApiGet({
+  const { execute: getClassInfo, response: classListResponse } = useApiGet({
     api: "/api/classInfo",
+  });
+  const {
+    execute: getSpecializationInfo,
+    response: specializationListResponse,
+  } = useApiGet({
+    api: "/api/specializationInfo",
   });
 
   useEffect(() => {
-    const classList = execute();
+    getClassInfo();
+    getSpecializationInfo();
   }, []);
 
   const skills = [
@@ -43,38 +68,168 @@ export default function UserSettingsForm({ setSettings }) {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-2">User Settings</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      <h2 className="text-3xl font-bold mb-6">User Settings</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
         <div className="flex">
-          <button className="text-xl font-bold outline px-3 rounded-l-md hover:text-blue-700 hover:" onClick={() => {setSettingsPage("Skills")}}>
+          <button
+            type="button"
+            className="text-xl font-bold outline px-3 rounded-l-md hover:text-blue-700"
+            onClick={() => setSettingsPage("Skills")}
+          >
             Skills
           </button>
-          <button className="text-xl font-bold outline px-3 rounded-r-md hover:text-blue-700" onClick={() => {setSettingsPage("Classes")}}>
+          <button
+            type="button"
+            className="text-xl font-bold outline px-3 rounded-r-md hover:text-blue-700"
+            onClick={() => setSettingsPage("Classes")}
+          >
             Classes
           </button>
         </div>
-        {/* map through the skills */}
-        {skills.map((skill) => (
-          <div key={skill.name} className="flex gap-4 justify-between">
-            <label>{skill.name}</label>
-            <div className="flex gap-2 justify-center items-center">
-              <label>1</label>
-              <input
-                id={skill.name}
-                type="range"
-                min="1"
-                max="5"
-                step="1"
-                {...register(skill.name)}
-              />
-              <label>5</label>
+
+        {settingsPage === "Skills" ? (
+          <div className="flex flex-col gap-4">
+            <h3 className="text-xl font-semibold mb-2">
+              Self-Assessment Skills
+            </h3>
+            {skills.map((skill) => (
+              <div
+                key={skill.name}
+                className="flex gap-4 justify-between items-center bg-gray-50 p-3 rounded-lg"
+              >
+                <label className="font-medium text-gray-700">
+                  {skill.name}
+                </label>
+                <div className="flex gap-3 justify-end items-center">
+                  <label className="text-xs text-gray-500">1</label>
+                  <input
+                    id={skill.name}
+                    type="range"
+                    min="1"
+                    max="5"
+                    step="1"
+                    className="w-30 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                    {...register(`skills.${skill.name}`)}
+                  />
+                  <label className="text-xs text-gray-500">5</label>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4">
+            {/* this section was written by gemini ai for the class selection */}
+
+            <h3 className="text-xl font-semibold">Specialization</h3>
+            <select
+              {...register("specialization")}
+              className="w-64 p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            >
+              <option value="">Select a specialization...</option>
+              {specializationListResponse?.data?.map((specialization) => (
+                <option
+                  key={specialization.specialization}
+                  value={specialization.specialization}
+                >
+                  {specialization.specialization}
+                </option>
+              ))}
+            </select>
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-xl font-semibold">Classes Taken</h3>
+              <button
+                type="button"
+                onClick={() =>
+                  append({ className: "", grade: "", difficulty: 3 })
+                }
+                className="bg-green-500 text-white px-3 py-1 rounded-md text-sm hover:bg-green-600 transition-colors"
+              >
+                + Add Class
+              </button>
+            </div>
+
+            {fields.length === 0 && (
+              <div className="py-10 text-center border-2 border-dashed border-gray-200 rounded-xl bg-gray-50 text-gray-400">
+                No classes added yet. Click "+ Add Class" to begin.
+              </div>
+            )}
+
+            <div className="flex flex-col gap-3">
+              {fields.map((field, index) => (
+                <div
+                  key={field.id}
+                  className="flex flex-col sm:flex-row gap-4 bg-white p-4 rounded-lg shadow-sm border border-gray-200 items-end"
+                >
+                  <div className="flex-1 w-full">
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">
+                      Class Name
+                    </label>
+                    <select
+                      {...register(`classes.${index}.className`)}
+                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                    >
+                      <option value="">Select a class...</option>
+                      {classListResponse &&
+                        classListResponse.data && // Access the 'data' array inside the object
+                        Array.isArray(classListResponse.data) &&
+                        classListResponse.data.map((course) => (
+                          <option
+                            key={course.className}
+                            value={course.className}
+                          >
+                            {course.className}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+
+                  <div className="w-full sm:w-24">
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">
+                      Grade
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="A-"
+                      {...register(`classes.${index}.grade`)}
+                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                    />
+                  </div>
+
+                  <div className="w-full sm:w-40">
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1 text-center">
+                      Difficulty
+                    </label>
+                    <div className="flex gap-2 items-center">
+                      <span className="text-xs text-gray-400">1</span>
+                      <input
+                        type="range"
+                        min="1"
+                        max="5"
+                        {...register(`classes.${index}.difficulty`)}
+                        className="w-max h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                      />
+                      <span className="text-xs text-gray-400">5</span>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => remove(index)}
+                    className="p-2 text-red-500 hover:bg-red-50 rounded-md transition-colors"
+                    title="Remove Class"
+                  >
+                    x
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
+        )}
+
         <input
           type="submit"
-          value="Save"
-          className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600 cursor-pointer"
+          value="Save Settings"
+          className="mt-4 bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700 transition-colors cursor-pointer shadow-md"
         />
       </form>
     </div>
