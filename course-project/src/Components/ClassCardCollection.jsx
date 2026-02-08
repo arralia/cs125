@@ -1,7 +1,7 @@
 import Card from "./Card";
 import useApiGet from "./useApiGet";
 import { useEffect } from "react";
-import ReadCookie from "./ReadCookie";
+import ReadCookie from "./readCookie";
 
 export default function ClassCardCollection() {
   // Handle the cookie logic cleanly
