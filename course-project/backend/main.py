@@ -1,7 +1,7 @@
 # added a bloilerpalte fastapi server as a starting point created with gemini ai
 
 import os
-from fastapi import FastAPI, Response
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pydantic import BaseModel
