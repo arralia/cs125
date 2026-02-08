@@ -141,18 +141,22 @@ async def api_set_user_info(request: UserSetInfoRequest):
     }
 
 @app.get("/api/getUserInfo")
-async def api_get_user_info():
-    return {
-        "data": {
-            "classes": [
-                {"className": "CS 161", "grade": "A-", "difficulty": 3},
-            ],
-            "skills": {"Math": 1, "Algorithms": 5, "Data Structures": 2, "Programming": 4, "Recursion": 3},
-            "specialization": "Algorithms",
-        },
-        "status": "ok",
-        "message": "User info",
-    }
+async def api_get_user_info(userid: str = None):
+    print(f"api_get_user_info called with userid: {userid}")
+    if userid == "nathan":
+        print("User Nathan: loading user info")
+        return {
+            "data": {
+                "classes": [
+                    {"className": "CS 161", "grade": "A-", "difficulty": 3},
+                ],
+                "skills": {"Math": 1, "Algorithms": 5, "Data Structures": 2, "Programming": 4, "Recursion": 3},
+                "specialization": "Algorithms",
+            },
+            "status": "ok",
+            "message": "User info",
+        }
+    return None
 
 if __name__ == "__main__":
     import uvicorn
