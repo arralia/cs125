@@ -135,7 +135,8 @@ export default function UserSettingsForm({ setSettings }) {
           </div>
         ) : (
           <div className="flex flex-col gap-4">
-            {/* this section was written by gemini ai for the class selection */}
+            {/* this section was written by gemini ai for the class selection, lke the 
+            cards and the add class button and layout. I modified it to fit my needs. */}
 
             <h3 className="text-xl font-semibold">Specialization</h3>
             <select
