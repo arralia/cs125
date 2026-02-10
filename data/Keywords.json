@@ -29,6 +29,10 @@
           "title": "Introduction to Virtual Reality"
         },
         {
+          "id": "I&CSCI33",
+          "title": "Intermediate Programming"
+        },
+        {
           "id": "I&CSCI46",
           "title": "Data Structure Implementation and Analysis"
         },
@@ -39,10 +43,6 @@
         {
           "id": "I&CSCI6N",
           "title": "Computational Linear Algebra"
-        },
-        {
-          "id": "I&CSCI33",
-          "title": "Intermediate Programming"
         }
       ]
     },
@@ -71,16 +71,16 @@
           "title": "Data Structure Implementation and Analysis"
         },
         {
+          "id": "I&CSCI51",
+          "title": "Introductory Computer Organization"
+        },
+        {
           "id": "I&CSCI6B",
           "title": "Boolean Logic and Discrete Structures"
         },
         {
           "id": "I&CSCI6D",
           "title": "Discrete Mathematics for Computer Science"
-        },
-        {
-          "id": "I&CSCI51",
-          "title": "Introductory Computer Organization"
         }
       ]
     },
@@ -155,12 +155,12 @@
           "title": "Intermediate Programming"
         },
         {
-          "id": "I&CSCI45J",
-          "title": "Programming in Java as a Second Language"
-        },
-        {
           "id": "I&CSCI45C",
           "title": "Programming in C/C++ as a Second Language"
+        },
+        {
+          "id": "I&CSCI45J",
+          "title": "Programming in Java as a Second Language"
         }
       ]
     },
@@ -197,6 +197,10 @@
           "title": "Network Optimization"
         },
         {
+          "id": "I&CSCI167",
+          "title": "I&CSCI167"
+        },
+        {
           "id": "I&CSCI46",
           "title": "Data Structure Implementation and Analysis"
         },
@@ -205,20 +209,16 @@
           "title": "Introductory Computer Organization"
         },
         {
+          "id": "I&CSCI52",
+          "title": "I&CSCI52"
+        },
+        {
           "id": "I&CSCI53",
           "title": "Principles in System Design"
         },
         {
           "id": "I&CSCI6B",
           "title": "Boolean Logic and Discrete Structures"
-        },
-        {
-          "id": "I&CSCI52",
-          "title": "I&CSCI52"
-        },
-        {
-          "id": "I&CSCI167",
-          "title": "I&CSCI167"
         }
       ]
     },
@@ -429,6 +429,10 @@
       "description": "Artificial intelligence and machine learning",
       "courses": [
         {
+          "id": "COMPSCI171",
+          "title": "Introduction to Artificial Intelligence"
+        },
+        {
           "id": "COMPSCI172B",
           "title": "Neural Networks and Deep Learning "
         },
@@ -437,16 +441,12 @@
           "title": "Artificial Intelligence Frontiers: Technical, Ethical, and Societal"
         },
         {
-          "id": "COMPSCI184A",
-          "title": "Artificial Intelligence in Biology and Medicine"
-        },
-        {
-          "id": "COMPSCI171",
-          "title": "Introduction to Artificial Intelligence"
-        },
-        {
           "id": "COMPSCI178",
           "title": "Machine Learning and Data Mining"
+        },
+        {
+          "id": "COMPSCI184A",
+          "title": "Artificial Intelligence in Biology and Medicine"
         },
         {
           "id": "I&CSCI33",
@@ -493,12 +493,12 @@
           "title": "Computer and Network Security"
         },
         {
-          "id": "EECS121",
-          "title": "System Security"
-        },
-        {
           "id": "COMPSCI167",
           "title": "Introduction to Applied Cryptography"
+        },
+        {
+          "id": "EECS121",
+          "title": "System Security"
         },
         {
           "id": "I&CSCI46",

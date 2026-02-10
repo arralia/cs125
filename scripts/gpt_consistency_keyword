@@ -1,0 +1,50 @@
+import json
+from collections import defaultdict
+
+KW_PATH = '../data/Keywords.json'
+CS_PATH = '../data/CSUpperDivStripped.json'
+ICS_PATH = '../data/ICSCoursesStripped.json'
+
+# Load Keywords.json
+with open(KW_PATH, 'r', encoding='utf-8') as f:
+    keywords_data = json.load(f)
+
+# Load course data files
+with open(CS_PATH, 'r', encoding='utf-8') as f:
+    cs_data = json.load(f)
+
+with open(ICS_PATH, 'r', encoding='utf-8') as f:
+    ics_data = json.load(f)
+
+# Build mapping: course_id -> list of keywords according to Keywords.json
+course_to_keywords = defaultdict(list)
+for kw_obj in keywords_data.get('keywords', []):
+    kw_name = kw_obj['keyword']
+    for course in kw_obj.get('courses', []):
+        course_to_keywords[course['id']].append(kw_name)
+
+# Function to update keywords for a list of courses
+def update_keywords(courses, source_name):
+    updated_count = 0
+    for course in courses:
+        cid = course['id']
+        new_keywords = course_to_keywords.get(cid, [])
+        if 'keywords' not in course or course['keywords'] != new_keywords:
+            course['keywords'] = new_keywords
+            updated_count += 1
+    print(f"Updated {updated_count} courses in {source_name}")
+
+# Update CS courses
+update_keywords(cs_data.get('data', []), 'CSUpperDivStripped.json')
+
+# Update ICS courses
+update_keywords(ics_data.get('data', []), 'ICSCoursesStripped.json')
+
+# Save updated files
+with open(CS_PATH, 'w', encoding='utf-8') as f:
+    json.dump(cs_data, f, indent=2, ensure_ascii=False)
+
+with open(ICS_PATH, 'w', encoding='utf-8') as f:
+    json.dump(ics_data, f, indent=2, ensure_ascii=False)
+
+print("CSUpperDivStripped.json and ICSCoursesStripped.json now have keyword fields consistent with Keywords.json")
