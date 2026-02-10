@@ -1,9 +1,11 @@
 import json
 import sys
+import os
+from dotenv import load_dotenv
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError
 
-def insert_ics_courses_to_mongodb(mongo_uri="mongodb+srv://dev_db_user:upperdivrecommender@cs125.qalr6fc.mongodb.net/", db_name="cs125", collection_name="keywords"):
+def insert_ics_courses_to_mongodb(mongo_uri=MONGO_URI, db_name="cs125", collection_name="keywords"):
     """
     Insert json data into MongoDB.
     
