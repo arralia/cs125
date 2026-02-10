@@ -6,9 +6,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pydantic import BaseModel
 from fastapi.exceptions import HTTPException
+from database import Database
 
 # Load environment variables from .env
 load_dotenv()
+
+
+db = Database()
 
 app = FastAPI(title="FastAPI Backend")
 
@@ -27,9 +31,11 @@ class LoginRequest(BaseModel):
 
 
 class UserSetInfoRequest(BaseModel):
-    classes: list[dict[str, str | int]]
-    skills: dict[str, int]
+    completedClasses: list[dict[str, str | int]]
+    strengths: dict[str, int]
     specialization: str
+    username: str | None = None
+    quartersLeft: int | None = None
 
 
 @app.get("/")
@@ -134,29 +140,59 @@ async def api_login(request: LoginRequest):
 
 @app.post("/api/setUserInfo")
 async def api_set_user_info(request: UserSetInfoRequest):
-    print(request)
+    print(f"Saving info for user: {request.username}")
+
+    user_collection = db.get_collection("users")
+
+    # Upsert: Update if exists, insert if not
+    user_data = request.model_dump()
+    user_collection.update_one(
+        {"username": request.username}, {"$set": user_data}, upsert=True
+    )
+
     return {
         "status": "ok",
         "message": "User info set successfully",
     }
 
+
 @app.get("/api/getUserInfo")
 async def api_get_user_info(userid: str = None):
     print(f"api_get_user_info called with userid: {userid}")
-    if userid == "nathan":
-        print("User Nathan: loading user info")
+
+    if not userid:
+        return None
+
+    user_collection = db.get_collection("users")
+    user = user_collection.find_one({"username": userid}, {"_id": 0})
+
+    if user:
+        print(f"User {userid}: loading user info from DB")
         return {
-            "data": {
-                "classes": [
-                    {"className": "CS 161", "grade": "A-", "difficulty": 3},
-                ],
-                "skills": {"Math": 1, "Algorithms": 5, "Data Structures": 2, "Programming": 4, "Recursion": 3},
-                "specialization": "Algorithms",
-            },
+            "data": user,
             "status": "ok",
             "message": "User info",
         }
-    return None
+
+    # Fallback/Default for new users
+    return {
+        "data": {
+            "username": userid,
+            "completedClasses": [],
+            "strengths": {
+                "Math": 3,
+                "Algorithms": 3,
+                "Data Structures": 3,
+                "Programming": 3,
+                "Recursion": 3,
+            },
+            "specialization": "",
+            "quartersLeft": 4,
+        },
+        "status": "ok",
+        "message": "Default user info",
+    }
+
 
 if __name__ == "__main__":
     import uvicorn

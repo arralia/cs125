@@ -18,15 +18,24 @@ export default function UserSettingsForm({ setSettings }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      classes: [],
-      skills: {},
+      completedClasses: [],
+      strengths: {},
+      username: ReadCookie("user_id") || "",
+      quartersLeft: 0,
+      specialization: "",
     },
   });
 
   const onSubmit = (data) => {
     setSettings(false);
     console.log("Clean JSON data:", data);
-    sendUserInfo(data);
+    // if the user is not logged in, save the data to local storage (generated with gemini ai)
+    if (!data.username) {
+      console.log("No user logged in, saving to local storage");
+      localStorage.setItem("userSettings", JSON.stringify(data));
+    } else {
+      sendUserInfo(data);
+    }
   };
 
   const [settingsPage, setSettingsPage] = useState("Skills");
@@ -37,7 +46,7 @@ export default function UserSettingsForm({ setSettings }) {
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "classes",
+    name: "completedClasses",
   });
 
   const { execute: sendUserInfo, response: setUserInfoResponse } = useApiPost({
@@ -72,10 +81,17 @@ export default function UserSettingsForm({ setSettings }) {
   useEffect(() => {
     if (userInfoResponse?.data) {
       reset(userInfoResponse.data);
+    } else if (!ReadCookie("user_id")) {
+      // If guest user, try to load from local storage (genereated with geminii)
+      const localData = localStorage.getItem("userSettings");
+      if (localData) {
+        console.log("Loading guest settings from local storage");
+        reset(JSON.parse(localData));
+      }
     }
   }, [userInfoResponse, reset]);
 
-  const skills = [
+  const strengths = [
     { name: "Math", value: 0 },
     { name: "Algorithms", value: 0 },
     { name: "Data Structures", value: 0 },
@@ -87,6 +103,16 @@ export default function UserSettingsForm({ setSettings }) {
     <div>
       <h2 className="text-3xl font-bold mb-6">User Settings</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+        <div className="flex flex-row gap-2">
+          <label className="text-xl font-semibold">User ID:</label>
+          <input
+            type="text"
+            {...register("username")}
+            className="text-xl font-semibold"
+            readOnly
+          />
+        </div>
+
         <div className="flex">
           <button
             type="button"
@@ -109,7 +135,7 @@ export default function UserSettingsForm({ setSettings }) {
             <h3 className="text-xl font-semibold mb-2">
               Self-Assessment Skills
             </h3>
-            {skills.map((skill) => (
+            {strengths.map((skill) => (
               <div
                 key={skill.name}
                 className="flex gap-4 justify-between items-center bg-gray-50 p-3 rounded-lg"
@@ -126,7 +152,7 @@ export default function UserSettingsForm({ setSettings }) {
                     max="5"
                     step="1"
                     className="w-30 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
-                    {...register(`skills.${skill.name}`)}
+                    {...register(`strengths.${skill.name}`)}
                   />
                   <label className="text-xs text-gray-500">5</label>
                 </div>
@@ -137,22 +163,38 @@ export default function UserSettingsForm({ setSettings }) {
           <div className="flex flex-col gap-4">
             {/* this section was written by gemini ai for the class selection, lke the 
             cards and the add class button and layout. I modified it to fit my needs. */}
-
-            <h3 className="text-xl font-semibold">Specialization</h3>
-            <select
-              {...register("specialization")}
-              className="w-64 p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-            >
-              <option value="">Select a specialization...</option>
-              {specializationListResponse?.data?.map((specialization) => (
-                <option
-                  key={specialization.specialization}
-                  value={specialization.specialization}
+            <div className="flex flex-row gap-4 justify-between">
+              <div className="flex flex-col gap-2">
+                <h3 className="text-xl font-semibold">Specialization</h3>
+                <select
+                  {...register("specialization")}
+                  className="w-64 p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                 >
-                  {specialization.specialization}
-                </option>
-              ))}
-            </select>
+                  <option value="">Select a specialization...</option>
+                  {specializationListResponse?.data?.map((specialization) => (
+                    <option
+                      key={specialization.specialization}
+                      value={specialization.specialization}
+                    >
+                      {specialization.specialization}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <h3 className="text-xl font-semibold">Quarters Left</h3>
+
+                <input
+                  type="number"
+                  min="0"
+                  {...register("quartersLeft")}
+                  placeholder="Enter quarters left..."
+                  className="w-32 p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                />
+              </div>
+            </div>
+
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-xl font-semibold">Classes Taken</h3>
               <button
@@ -172,7 +214,7 @@ export default function UserSettingsForm({ setSettings }) {
               </div>
             )}
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar">
               {fields.map((field, index) => (
                 <div
                   key={field.id}
@@ -183,7 +225,7 @@ export default function UserSettingsForm({ setSettings }) {
                       Class Name
                     </label>
                     <select
-                      {...register(`classes.${index}.className`)}
+                      {...register(`completedClasses.${index}.className`)}
                       className="w-full p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                     >
                       <option value="">Select a class...</option>
@@ -208,7 +250,7 @@ export default function UserSettingsForm({ setSettings }) {
                     <input
                       type="text"
                       placeholder="A-"
-                      {...register(`classes.${index}.grade`)}
+                      {...register(`completedClasses.${index}.grade`)}
                       className="w-full p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                     />
                   </div>
@@ -223,7 +265,7 @@ export default function UserSettingsForm({ setSettings }) {
                         type="range"
                         min="1"
                         max="5"
-                        {...register(`classes.${index}.difficulty`)}
+                        {...register(`completedClasses.${index}.difficulty`)}
                         className="w-max h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
                       />
                       <span className="text-xs text-gray-400">5</span>
