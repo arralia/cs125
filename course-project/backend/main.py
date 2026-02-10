@@ -12,7 +12,7 @@ from database import Database
 load_dotenv()
 
 
-db = Database()
+#db = Database()
 
 app = FastAPI(title="FastAPI Backend")
 

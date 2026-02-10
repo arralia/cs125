@@ -3,3 +3,4 @@ uvicorn
 python-dotenv
 pydantic
 pymongo
+google-genai

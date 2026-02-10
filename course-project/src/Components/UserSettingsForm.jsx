@@ -152,7 +152,9 @@ export default function UserSettingsForm({ setSettings }) {
                     max="5"
                     step="1"
                     className="w-30 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
-                    {...register(`strengths.${skill.name}`)}
+                    {...register(`strengths.${skill.name}`, {
+                      valueAsNumber: true,
+                    })}
                   />
                   <label className="text-xs text-gray-500">5</label>
                 </div>
@@ -188,7 +190,7 @@ export default function UserSettingsForm({ setSettings }) {
                 <input
                   type="number"
                   min="0"
-                  {...register("quartersLeft")}
+                  {...register("quartersLeft", { valueAsNumber: true })}
                   placeholder="Enter quarters left..."
                   className="w-32 p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                 />
@@ -265,7 +267,9 @@ export default function UserSettingsForm({ setSettings }) {
                         type="range"
                         min="1"
                         max="5"
-                        {...register(`completedClasses.${index}.difficulty`)}
+                        {...register(`completedClasses.${index}.difficulty`, {
+                          valueAsNumber: true,
+                        })}
                         className="w-max h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
                       />
                       <span className="text-xs text-gray-400">5</span>
