@@ -17,7 +17,11 @@ export default function LoginForm({ setLogin }) {
       console.log("Server response:", response.data);
       if (response) {
         // this line here sets a cookie in the frontend
+<<<<<<< HEAD:course-project/src/components/LoginForm.jsx
         document.cookie = `username=${response.data.username}; path=/; max-age=3600; SameSite=Lax`;
+=======
+        document.cookie = `user_id=${response.userid}; path=/; max-age=3600; SameSite=Lax`;
+>>>>>>> 59a8f13 (refactor: Relocate API hooks to a dedicated directory, update components for new data fetching patterns, and connected the all classes api to display in the user settings and the homepage):course-project/src/Components/LoginForm.jsx
         setLogin(false);
       }
     } catch (error) {

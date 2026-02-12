@@ -64,6 +64,7 @@ class Gemini:
             Based on the student profile provided in the JSON, recommend one course.
 
             Expected JSON Output:
+<<<<<<< HEAD
             [{{
             "id": "the class id",
             "title": "the class title"
@@ -72,6 +73,14 @@ class Gemini:
             The JSON output should be a list of objects with the id and title of the recommended class
             You can only ouptut in this JSON format, no other format will be accepted and you will receive a 404 error
             If you do not follow this format, you will receive a 404 error
+=======
+            {{
+            "id": "the class id",
+            "title" "the class title"
+            }}
+
+            The JSON output should be the same as the input for the class catalog we provide
+>>>>>>> 59a8f13 (refactor: Relocate API hooks to a dedicated directory, update components for new data fetching patterns, and connected the all classes api to display in the user settings and the homepage)
             """
 
         response = self.generate_content(prompt)
