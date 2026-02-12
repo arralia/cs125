@@ -1,5 +1,3 @@
-# added a bloilerpalte fastapi server as a starting point created with gemini ai
-
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -52,53 +50,6 @@ async def root():
 This section is for the class information
 
 """
-
-# This api endpoint isnt not very necesary, may remove it later
-@app.get("/api/classInfo")
-async def api_class_info(userid: str = None):
-    print(f"api_class_info called with userid: {userid}")
-    if userid == "nathan":
-        return {
-            "data": [
-                {
-                    "className": "CS 161",
-                    "description": "Design and Analysis of Algorithms",
-                },
-            ],
-            "status": "ok",
-            "message": "User Class Info",
-        }
-    elif userid == "alyssia":
-        return {
-            "data": [
-                {"className": "CS 162", "description": "Formal Languages and Automata"},
-            ],
-            "status": "ok",
-            "message": "User Class Info",
-        }
-    elif userid == "peter":
-        return {
-            "data": [
-                {
-                    "className": "CS 125",
-                    "description": "Next Generation Search Systems",
-                },
-            ],
-            "status": "ok",
-            "message": "User Class Info",
-        }
-    print("User not found: loading default classes")
-
-    return {
-        "data": [
-            {"className": "CS 125", "description": "Next Generation Search Systems"},
-            {"className": "CS 161", "description": "Design and Analysis of Algorithms"},
-            {"className": "CS 162", "description": "Formal Languages and Automata"},
-        ],
-        "status": "ok",
-        "message": "Class info",
-    }
-
 
 @app.get("/api/allClassesData")
 async def all_classes():
