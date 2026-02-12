@@ -5,9 +5,9 @@
 
 import { useForm, useFieldArray } from "react-hook-form";
 import { useEffect, useState } from "react";
-import useApiPost from "./useApiPost";
-import useApiGet from "./useApiGet";
-import ReadCookie from "./readCookie";
+import useApiPost from "../hooks/useApiPost";
+import useApiGet from "../hooks/useApiGet";
+import ReadCookie from "./ReadCookie";
 
 export default function UserSettingsForm({ setSettings }) {
   const {
@@ -55,9 +55,11 @@ export default function UserSettingsForm({ setSettings }) {
 
   // this gets the class info when the settings page first comes up
   // so we can populate the drop down menu for the user to select
-  const { execute: getClassInfo, response: classListResponse } = useApiGet({
-    api: "/api/classInfo",
-  });
+  const { execute: getAllClassesData, response: classListResponse } = useApiGet(
+    {
+      api: "/api/allClassesData",
+    },
+  );
 
   const {
     execute: getSpecializationInfo,
@@ -67,7 +69,7 @@ export default function UserSettingsForm({ setSettings }) {
   });
 
   useEffect(() => {
-    getClassInfo();
+    getAllClassesData();
     getSpecializationInfo();
     // Use the ReadCookie helper to get the user_id from document.cookie
     const userId = ReadCookie("user_id");
@@ -236,10 +238,10 @@ export default function UserSettingsForm({ setSettings }) {
                         Array.isArray(classListResponse.data) &&
                         classListResponse.data.map((course) => (
                           <option
-                            key={course.className}
-                            value={course.className}
+                            key={course.id}
+                            value={course.id}
                           >
-                            {course.className}
+                            {course.id}
                           </option>
                         ))}
                     </select>

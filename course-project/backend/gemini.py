@@ -57,9 +57,11 @@ class Gemini:
 
             Expected JSON Output:
             {{
-            "classname": "[Course ID & Title]",
-            "message": "[Concise reasoning linking their strengths, their specialization, and peer reviews]"
+            "id": "the class id",
+            "title" "the class title"
             }}
+
+            The JSON output should be the same as the input for the class catalog we provide
             """
 
         return self.generate_content(prompt)
