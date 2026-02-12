@@ -1,11 +1,11 @@
-import NavBar from './Components/NavBar'
-import UserSettingsPage from './Pages/UserSettingsPage'
-import LoginPage from './Pages/LoginPage'
-import { useState } from 'react'  
-import CoursesPage from './Pages/CoursesPage'
+import NavBar from "./components/NavBar";
+import UserSettingsPage from "./pages/UserSettingsPage";
+import LoginPage from "./pages/LoginPage";
+import { useState } from "react";
+import CoursesPage from "./pages/CoursesPage";
+import RecommendedCoursesPage from "./pages/RecommendedCoursesPage";
 
 function App() {
-
   const [loginPrompt, setLogin] = useState(false);
   const [settingsPrompt, setSettings] = useState(false);
 
@@ -15,11 +15,12 @@ function App() {
       {loginPrompt ? <LoginPage setLogin={setLogin} /> : null}
       {settingsPrompt ? <UserSettingsPage setSettings={setSettings} /> : null}
 
-      <div className='flex flex-col justify-right items-center '>
+      <div className="flex justify-right items-center ">
+        <RecommendedCoursesPage />
         <CoursesPage />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

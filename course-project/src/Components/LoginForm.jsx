@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import useApiPost from "./useApiPost";
+import useApiPost from "../hooks/useApiPost";
 
 export default function LoginForm({ setLogin }) {
   const {
@@ -18,7 +18,7 @@ export default function LoginForm({ setLogin }) {
       if (response) {
         console.log("Login successful! User exists.");
         // this line here sets a cookie in the frontend
-        document.cookie = `user_id=${response.userid}; path=/; max-age=3600; SameSite=Lax`
+        document.cookie = `user_id=${response.userid}; path=/; max-age=3600; SameSite=Lax`;
         setLogin(false);
       }
     } catch (error) {

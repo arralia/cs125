@@ -7,12 +7,13 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 from fastapi.exceptions import HTTPException
 from database import Database
+import gemini
 import util
 
 # Load environment variables from .env
 load_dotenv()
 
-
+gemini = gemini.Gemini()
 
 db = Database()
 
@@ -137,9 +138,38 @@ async def api_course_info(courseid: str = None):
         return {"data": None, "status": "error", "message": "Failed to fetch course info"}
 
 
+@app.get("/api/recommendedClasses")
+async def api_recommended_classes(userid: str = None):
+    """
+    Returns the recommended classes for a given user
+    """
+
+    #return {"data": [], "status": "ok", "message": "Recommended classes"}
+
+    try:
+        courses = list(db.get_collection("courses").find())
+
+        for course in courses:
+            course["_id"] = str(course["_id"])
+        
+        courses = util.extract_course_info(courses)
+
+        print(f"Received /api/recommendedClasses with userid: {userid}")
+        user_info = db.get_collection("users").find_one({"userid": userid})
+        if user_info:
+            recommended_classes = gemini.recomend_class(user_info, courses)
+            return {"data": recommended_classes, "status": "ok", "message": "Recommended classes"}
+        else:
+            return {"data": None, "status": "error", "message": "Recommended classes not found"}
+            
+    except Exception as e:
+        print(f"Error fetching recommended classes: {e}")
+        return {"data": None, "status": "error", "message": "Failed to fetch recommended classes"}
+
+
 @app.get("/api/specializationInfo")
 async def api_specialization_info():
-    
+
     return {
         "data": [
             {"specialization": "AI", "description": "Artificial Intelligence"},
