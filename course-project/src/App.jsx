@@ -1,8 +1,8 @@
 import NavBar from './Components/NavBar'
-import ClassCardCollection from './Components/ClassCardCollection'
 import UserSettingsPage from './Pages/UserSettingsPage'
 import LoginPage from './Pages/LoginPage'
-import { useState } from 'react'
+import { useState } from 'react'  
+import CoursesPage from './Pages/CoursesPage'
 
 function App() {
 
@@ -12,8 +12,12 @@ function App() {
   return (
     <div className="flex flex-col h-screen">
       <NavBar setLogin={setLogin} setSettings={setSettings} />
-      {loginPrompt ? <LoginPage setLogin={setLogin} /> : <ClassCardCollection />}
+      {loginPrompt ? <LoginPage setLogin={setLogin} /> : null}
       {settingsPrompt ? <UserSettingsPage setSettings={setSettings} /> : null}
+
+      <div className='flex flex-col justify-right items-center '>
+        <CoursesPage />
+      </div>
     </div>
   )
 }

@@ -7,12 +7,14 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 from fastapi.exceptions import HTTPException
 from database import Database
+import util
 
 # Load environment variables from .env
 load_dotenv()
 
 
-#db = Database()
+
+db = Database()
 
 app = FastAPI(title="FastAPI Backend")
 
@@ -42,12 +44,13 @@ class UserSetInfoRequest(BaseModel):
 async def root():
     return {"message": "Welcome to the FastAPI Backend!"}
 
+"""
 
-@app.get("/api")
-async def api_root():
-    return {"message": "Welcome to the API!"}
+This section is for the class information
 
+"""
 
+# This api endpoint isnt not very necesary, may remove it later
 @app.get("/api/classInfo")
 async def api_class_info(userid: str = None):
     print(f"api_class_info called with userid: {userid}")
@@ -94,21 +97,49 @@ async def api_class_info(userid: str = None):
     }
 
 
-@app.get("/api/allClasses")
+@app.get("/api/allClassesData")
 async def all_classes():
-    return {
-        "data": [
-            {"className": "CS 125", "description": "Next Generation Search Systems"},
-            {"className": "CS 161", "description": "Design and Analysis of Algorithms"},
-            {"className": "CS 162", "description": "Formal Languages and Automata"},
-        ],
-        "status": "ok",
-        "message": "Class info",
-    }
+    """
+    Returns all the classes in the database
+    """
+
+    try:
+        print("Received /api/allClassesData: Fetching all classes...")
+        courses = list(db.get_collection("courses").find())
+
+        for course in courses:
+            course["_id"] = str(course["_id"])
+        
+        print(f"Successfully fetched {len(courses)} classes")
+        return {"data": courses}
+
+    except Exception as e:
+        print(f"Error fetching all classes: {e}")
+        return {"data": [], "status": "error", "message": "Failed to fetch all classes"}
+
+
+@app.get("/api/courseInfo")
+async def api_course_info(courseid: str = None):
+    """
+    Returns the course information for a given course id
+    """
+
+    try:
+        print(f"Received /api/courseInfo with courseid: {courseid}")
+        course = db.get_collection("courses").find_one({"id": courseid})
+        if course:
+            course["_id"] = str(course["_id"])
+            return {"data": course, "status": "ok", "message": "Course info"}
+        else:
+            return {"data": None, "status": "error", "message": "Course not found"}
+    except Exception as e:
+        print(f"Error fetching course info: {e}")
+        return {"data": None, "status": "error", "message": "Failed to fetch course info"}
 
 
 @app.get("/api/specializationInfo")
 async def api_specialization_info():
+    
     return {
         "data": [
             {"specialization": "AI", "description": "Artificial Intelligence"},

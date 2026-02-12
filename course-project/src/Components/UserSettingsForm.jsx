@@ -216,7 +216,7 @@ export default function UserSettingsForm({ setSettings }) {
               </div>
             )}
 
-            <div className="flex flex-col gap-3 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar">
+            <div className="flex flex-col gap-3 max-h-[320px] overflow-y-auto pr-2">
               {fields.map((field, index) => (
                 <div
                   key={field.id}
