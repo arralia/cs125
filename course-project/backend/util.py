@@ -1,3 +1,4 @@
+
 def extract_course_info(courses: list):
     """This function will take the courses data from the database 
     and just return a new json that only has the course ID and 
@@ -5,8 +6,7 @@ def extract_course_info(courses: list):
     return [
         {
             "id": course["id"],
-            "className": course["className"],
-            "description": course["description"],
+            "title": course["title"],
         }
         for course in courses
     ]

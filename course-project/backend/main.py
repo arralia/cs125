@@ -10,6 +10,8 @@ from database import Database
 import gemini
 import util
 
+TESTING = True
+
 # Load environment variables from .env
 load_dotenv()
 
@@ -147,17 +149,17 @@ async def api_recommended_classes(userid: str = None):
     #return {"data": [], "status": "ok", "message": "Recommended classes"}
 
     try:
+        print("Received /api/recommendedClasses: Fetching recommended classes...")
         courses = list(db.get_collection("courses").find())
-
-        for course in courses:
-            course["_id"] = str(course["_id"])
-        
         courses = util.extract_course_info(courses)
+        print(f"Successfully fetched {len(courses)} classes")
 
         print(f"Received /api/recommendedClasses with userid: {userid}")
         user_info = db.get_collection("users").find_one({"userid": userid})
         if user_info:
-            recommended_classes = gemini.recomend_class(user_info, courses)
+            print("user_info: ", user_info)
+            recommended_classes = gemini.recommend_class(user_info, courses, None)
+            print(f"Gemini output: {recommended_classes}")
             return {"data": recommended_classes, "status": "ok", "message": "Recommended classes"}
         else:
             return {"data": None, "status": "error", "message": "Recommended classes not found"}
