@@ -29,3 +29,21 @@
 - propagated the "keywords" field into every course in ICSCoursesStripped and CSUpperDivStripped to ensure consistency
 
 ## Please place information for each .json in this /data folder here.
+
+## For ICSCOMPSCIReviews.json
+- Reviews of all classes (i.e., COMPSCI and ICS)
+- ran the script `course_review.py` with no arguments
+
+## For COMPSCIReviews.json
+- Reviews of only COMPSCI classes
+- ran the script `course_review.py`
+    ```
+    python course_review --departments COMPSCI
+    ```
+
+## For ICSReviews.json
+- Reviews of only ICS classes
+- ran the script `course_review.py`
+    ```
+    python course_review --departments ICS
+    ```
