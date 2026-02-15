@@ -127,7 +127,7 @@ async def api_course_info(courseid: str = None):
 
 
 @app.get("/api/recommendedClasses")
-async def api_recommended_classes(userid: str = None):
+async def api_recommended_classes(username: str = None):
     """
     Returns the recommended classes for a given user
     """
@@ -140,8 +140,8 @@ async def api_recommended_classes(userid: str = None):
         courses = util.extract_course_info(courses)
         print(f"Successfully fetched {len(courses)} classes")
 
-        print(f"Received /api/recommendedClasses with userid: {userid}")
-        user_info = db.get_collection("users").find_one({"userid": userid})
+        print(f"Received /api/recommendedClasses with username: {username}")
+        user_info = db.get_collection("users").find_one({"username": username})
         if user_info:
             print("user_info: ", user_info)
             recommended_classes = gemini.recommend_class(user_info, courses, None)
@@ -155,7 +155,7 @@ async def api_recommended_classes(userid: str = None):
             return {
                 "data": None,
                 "status": "error",
-                "message": "Recommended classes not found",
+                "message": "User profile not found",
             }
 
     except Exception as e:

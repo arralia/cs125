@@ -26,7 +26,7 @@ class Gemini:
     ):
         print("Gemini being called: recomending a class")
         prompt = f"""### SYSTEM ROLE
-            You are the UCI ICS Academic Adviser. You are an expert in the UC Irvine Information and Computer Sciences curriculum. Your goal is to recommend the single best course for a student based on their academic history and self-reported strengths.
+            You are the UCI ICS Academic Adviser. You are an expert in the UC Irvine Information and Computer Sciences curriculum. Your goal is to recommend the single best course for a student based on their academic history, interests, and projected course load.
 
             ### RAW STUDENT DATA
             The following is the student's current profile in JSON format:
@@ -34,7 +34,7 @@ class Gemini:
             {user_info}
             </student_json>
 
-            If there is no student profile, just recommend 3 classes that you think a student should take.
+            If there is no student profile, just recommend 4 classes that you think a student should take.
 
             ### EXTERNAL CONTEXT
             <specialization_requirements>
@@ -49,10 +49,11 @@ class Gemini:
             [USER_DEFINED_GOALS_PLACEHOLDER]
 
             ### OPERATIONAL GUIDELINES
-            1. DATA EXTRACTION: Parse the `completedClasses` array. Note that the student has already taken these courses; do NOT recommend them. Only valid if there is a student profile.
+            1. DATA EXTRACTION: Parse the `completedClasses` array. Note that the student has already taken these courses; do NOT recommend them. Only valid if there is a student profile. Do NOT recommend a course where the student has not completed all its prerequisites.
             2. INTEREST ANALYSIS: Look at the `interests` list. These are areas where the student has expressed specific interest. Cross-reference this with the `grade` received in `completedClasses` (e.g., an A- in a difficulty 3 class indicates high aptitude in that subject). Only valid if there is a student profile.
             3. ALIGNMENT: Prioritize courses from the <specialization_requirements> that match the student's specialization (e.g., "specialization"). Only valid if there is a student profile.
-            4. REVIEW CHECK: Scan <course_catalog_and_reviews> for positive peer feedback to ensure a high-quality student experience.
+            4. FURTHER ALIGNMENT: Take into account the "quartersLeft" and "coursesLeft" field in the student profile. If the student is on "crunch time" (e.g., quartersLeft=1 and coursesLeft=3), prioritize easier courses that are more likely to be successfully completed. Only valid if there is a student profile.
+            5. REVIEW CHECK: Scan <course_catalog_and_reviews> for positive peer feedback to ensure a high-quality student experience.
 
             ### CONSTRAINTS
             - Return ONLY a valid JSON object.
