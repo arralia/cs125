@@ -59,6 +59,7 @@ class Gemini:
             - Strictly ground your recommendation in the provided catalog.
             - minimum classes recommended: 3
             - maximum classes recommended: 5
+            - You should be ranking the classes in order of what you feel the user would want to take first. The index 0 class is your top recommendation and the index 4 class is your bottom recommendation.
 
             Expected JSON Output:
             [{{
