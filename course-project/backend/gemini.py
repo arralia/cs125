@@ -50,7 +50,7 @@ class Gemini:
 
             ### OPERATIONAL GUIDELINES
             1. DATA EXTRACTION: Parse the `completedClasses` array. Note that the student has already taken these courses; do NOT recommend them. Only valid if there is a student profile.
-            2. STRENGTH ANALYSIS: Look at the `strengths` object. A value of 1-3 indicates areas where the student feels capable or neutral. Cross-reference this with the `grade` received in `completedClasses` (e.g., an A- in a difficulty 3 class indicates high aptitude). Only valid if there is a student profile.
+            2. INTEREST ANALYSIS: Look at the `interests` list. These are areas where the student has expressed specific interest. Cross-reference this with the `grade` received in `completedClasses` (e.g., an A- in a difficulty 3 class indicates high aptitude in that subject). Only valid if there is a student profile.
             3. ALIGNMENT: Prioritize courses from the <specialization_requirements> that match the student's specialization (e.g., "specialization"). Only valid if there is a student profile.
             4. REVIEW CHECK: Scan <course_catalog_and_reviews> for positive peer feedback to ensure a high-quality student experience.
 

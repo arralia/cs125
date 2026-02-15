@@ -7,5 +7,9 @@ if __name__ == "__main__":
     db = client["cs125"]
     print(db)
     print(db.list_collection_names())
-    print(db.users.find_one())
+
+    users = db.users.find()
+    for user in users:
+        print(user)
+
 

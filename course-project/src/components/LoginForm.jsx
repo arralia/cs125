@@ -14,11 +14,10 @@ export default function LoginForm({ setLogin }) {
   const onSubmit = async (data) => {
     try {
       const response = await postLogin(data);
-      console.log("Server response:", response);
+      console.log("Server response:", response.data);
       if (response) {
-        console.log("Login successful! User exists.");
         // this line here sets a cookie in the frontend
-        document.cookie = `user_id=${response.userid}; path=/; max-age=3600; SameSite=Lax`;
+        document.cookie = `username=${response.data.username}; path=/; max-age=3600; SameSite=Lax`;
         setLogin(false);
       }
     } catch (error) {
