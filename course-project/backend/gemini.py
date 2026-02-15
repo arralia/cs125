@@ -23,10 +23,14 @@ class Gemini:
 
     def recommend_class(
         self, user_info=None, class_info=None, specialization_requirements=None
+
     ):
+
+        # TODO: add specialization requirements
+
         print("Gemini being called: recomending a class")
         prompt = f"""### SYSTEM ROLE
-            You are the UCI ICS Academic Adviser. You are an expert in the UC Irvine Information and Computer Sciences curriculum. Your goal is to recommend the single best course for a student based on their academic history and self-reported strengths.
+            You are the UCI ICS Academic Adviser. You are an expert in the UC Irvine Information and Computer Sciences curriculum. Your goal is to recommend the best courses for a student based on their academic history and self-reported strengths.
 
             ### RAW STUDENT DATA
             The following is the student's current profile in JSON format:
@@ -45,35 +49,26 @@ class Gemini:
             {class_info}
             </course_catalog_and_reviews>
 
-            ### SPECIFIC GOAL
-            [USER_DEFINED_GOALS_PLACEHOLDER]
-
             ### OPERATIONAL GUIDELINES
             1. DATA EXTRACTION: Parse the `completedClasses` array. Note that the student has already taken these courses; do NOT recommend them. Only valid if there is a student profile.
             2. INTEREST ANALYSIS: Look at the `interests` list. These are areas where the student has expressed specific interest. Cross-reference this with the `grade` received in `completedClasses` (e.g., an A- in a difficulty 3 class indicates high aptitude in that subject). Only valid if there is a student profile.
-            3. ALIGNMENT: Prioritize courses from the <specialization_requirements> that match the student's specialization (e.g., "specialization"). Only valid if there is a student profile.
             4. REVIEW CHECK: Scan <course_catalog_and_reviews> for positive peer feedback to ensure a high-quality student experience.
 
             ### CONSTRAINTS
             - Return ONLY a valid JSON object.
             - Strictly ground your recommendation in the provided catalog.
-            - you should only output a maximum of 4 classes
-
-            ### FINAL EXECUTION
-            Based on the student profile provided in the JSON, recommend one course.
+            - minimum classes recommended: 3
+            - maximum classes recommended: 5
 
             Expected JSON Output:
             [{{
             "id": "the class id",
             "title": "the class title"
             }}]
-
-            The JSON output should be a list of objects with the id and title of the recommended class
-            You can only ouptut in this JSON format, no other format will be accepted and you will receive a 404 error
-            If you do not follow this format, you will receive a 404 error
             """
 
         response = self.generate_content(prompt)
+        print("Gemini output: ", response.text)
         return json.loads(response.text)
 
 

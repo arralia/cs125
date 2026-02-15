@@ -7,10 +7,10 @@ export default function useApiGet({ api }) {
   const [response, setResponse] = useState(null);
 
   // This is the "execute" function you call in your onSubmit
-  const execute = async (data) => {
+  const execute = async (config) => {
     setLoading(true);
     try {
-      const res = await axios.get(api, data);
+      const res = await axios.get(api, config);
       setResponse(res.data);
       return res.data; // Return it so 'await' can catch it
     } catch (err) {
