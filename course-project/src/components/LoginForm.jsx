@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import useApiPost from "../hooks/useApiPost";
+import { useEffect, useState } from "react";
+import ReadCookie from "./ReadCookie";
 
 export default function LoginForm({ setLogin }) {
   const {
@@ -7,6 +9,8 @@ export default function LoginForm({ setLogin }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const { execute: postLogin, loading } = useApiPost({ api: "/api/login" });
 
@@ -29,10 +33,24 @@ export default function LoginForm({ setLogin }) {
       }
     }
   };
-  // todo: put logic for checking if the user exists in the database
+
+  useEffect(() => {
+    // get the cookie for username and see if htye exist, if they do
+    if (document.cookie.includes("username")) {
+      setLoggedIn(true);
+      const username = ReadCookie("username");
+    } else {
+      setLoggedIn(false);
+    }
+  }, []);
 
   return (
     <div className="flex flex-col items-center bg-white">
+      {loggedIn && (
+        <p className="text-md font-bold mb-6 bg-gray-200 p-2 rounded-md">
+          Logged in as: {ReadCookie("username")}
+        </p>
+      )}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex items-center gap-4"

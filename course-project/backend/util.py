@@ -10,3 +10,4 @@ def extract_course_info(courses: list):
         }
         for course in courses
     ]
+

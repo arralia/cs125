@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useApiGet from "../hooks/useApiGet";
 import ClassCardCollection from "../components/ClassCardCollection";
+import ReadCookie from "../components/ReadCookie";
 
 export default function RecommendedCoursesPage() {
   const [recommendedClasses, setRecommendedClasses] = useState([]);
@@ -10,7 +11,7 @@ export default function RecommendedCoursesPage() {
   });
 
   const getRecommendedClasses = () => {
-    execute().then((res) => {
+    execute({ params: { username: ReadCookie("username") } }).then((res) => {
       setRecommendedClasses(res.data);
     });
   };

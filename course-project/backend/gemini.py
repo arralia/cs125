@@ -23,10 +23,14 @@ class Gemini:
 
     def recommend_class(
         self, user_info=None, class_info=None, specialization_requirements=None
+
     ):
+
+        # TODO: add specialization requirements
+
         print("Gemini being called: recomending a class")
         prompt = f"""### SYSTEM ROLE
-            You are the UCI ICS Academic Adviser. You are an expert in the UC Irvine Information and Computer Sciences curriculum. Your goal is to recommend the single best course for a student based on their academic history, interests, and projected course load.
+            You are the UCI ICS Academic Adviser. You are an expert in the UC Irvine Information and Computer Sciences curriculum. Your goal is to recommend the best courses for a student based on their academic history and self-reported strengths.
 
             ### RAW STUDENT DATA
             The following is the student's current profile in JSON format:
@@ -45,9 +49,6 @@ class Gemini:
             {class_info}
             </course_catalog_and_reviews>
 
-            ### SPECIFIC GOAL
-            [USER_DEFINED_GOALS_PLACEHOLDER]
-
             ### OPERATIONAL GUIDELINES
             1. DATA EXTRACTION: Parse the `completedClasses` array. Note that the student has already taken these courses; do NOT recommend them. Only valid if there is a student profile. Do NOT recommend a course where the student has not completed all its prerequisites.
             2. INTEREST ANALYSIS: Look at the `interests` list. These are areas where the student has expressed specific interest. Cross-reference this with the `grade` received in `completedClasses` (e.g., an A- in a difficulty 3 class indicates high aptitude in that subject). Only valid if there is a student profile.
@@ -58,10 +59,8 @@ class Gemini:
             ### CONSTRAINTS
             - Return ONLY a valid JSON object.
             - Strictly ground your recommendation in the provided catalog.
-            - you should only output a maximum of 4 classes
-
-            ### FINAL EXECUTION
-            Based on the student profile provided in the JSON, recommend one course.
+            - minimum classes recommended: 3
+            - maximum classes recommended: 5
 
             Expected JSON Output:
 
@@ -73,6 +72,7 @@ class Gemini:
 
 
         response = self.generate_content(prompt)
+        print("Gemini output: ", response.text)
         return json.loads(response.text)
 
 

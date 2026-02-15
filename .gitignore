@@ -50,3 +50,4 @@ yarn-error.log*
 # Data / Notebooks
 .ipynb_checkpoints
 data/processed/
+course-project/backend/Scripts/query_database.py

@@ -44,6 +44,10 @@ class UserSetInfoRequest(BaseModel):
     quartersLeft: int | None = None
 
 
+class Username(BaseModel):
+    username: str
+
+
 @app.get("/")
 async def root():
     return {"message": "Welcome to the FastAPI Backend!"}
@@ -127,7 +131,7 @@ async def api_course_info(courseid: str = None):
 
 
 @app.get("/api/recommendedClasses")
-async def api_recommended_classes(username: str = None):
+async def api_recommended_classes(username: str):
     """
     Returns the recommended classes for a given user
     """
@@ -155,7 +159,7 @@ async def api_recommended_classes(username: str = None):
             return {
                 "data": None,
                 "status": "error",
-                "message": "User profile not found",
+                "message": "User not found",
             }
 
     except Exception as e:
@@ -202,11 +206,13 @@ async def api_interests_list():
 @app.post("/api/login")
 async def api_login(request: LoginRequest):
 
+    username = request.username
+
     try:
-        print(f"Received /api/login with username: {request.username}")
+        print(f"Received /api/login with username: {username}")
         # Find user, exclude _id for clean JSON response
         user_info = db.get_collection("users").find_one(
-            {"username": request.username}, {"_id": 0}
+            {"username": username}, {"_id": 0}
         )
 
         if user_info:
@@ -217,14 +223,13 @@ async def api_login(request: LoginRequest):
                 "message": "User info",
             }
         else:
-            print(f"User {request.username} not found, creating new user.")
+            print(f"User {username} not found, creating new user.")
             new_user = {
-                "username": request.username,
+                "username": username,
                 "completedClasses": [],
                 "interests": [],
                 "specialization": "",
                 "quartersLeft": 4,
-
             }
             # Insert the new user
             db.get_collection("users").insert_one(new_user)
