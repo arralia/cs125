@@ -7,7 +7,7 @@ export default function CoursesPage() {
   const [classes, setClasses] = useState([]);
 
   // Handle the cookie logic cleanly
-  const userId = ReadCookie("user_id") || null;
+  const userId = ReadCookie("username") || null;
 
   // Destructure the values from your hook
   const { execute, loading, response } = useApiGet({

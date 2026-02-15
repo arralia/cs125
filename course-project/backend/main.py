@@ -8,14 +8,17 @@ from database import Database
 import gemini
 import util
 
-TESTING = True
+TESTING = False
 
 # Load environment variables from .env
 load_dotenv()
 
 gemini = gemini.Gemini()
 
-db = Database()
+if not TESTING:
+    db = Database()
+else:
+    db = None
 
 app = FastAPI(title="FastAPI Backend")
 
@@ -35,7 +38,7 @@ class LoginRequest(BaseModel):
 
 class UserSetInfoRequest(BaseModel):
     completedClasses: list[dict[str, str | int]]
-    strengths: dict[str, int]
+    interests: list[dict[str, str]] | None = None
     specialization: str
     username: str | None = None
     quartersLeft: int | None = None
@@ -45,11 +48,13 @@ class UserSetInfoRequest(BaseModel):
 async def root():
     return {"message": "Welcome to the FastAPI Backend!"}
 
+
 """
 
 This section is for the class information
 
 """
+
 
 @app.get("/api/allClassesData")
 async def all_classes():
@@ -58,12 +63,38 @@ async def all_classes():
     """
 
     try:
+        if TESTING:
+            return {
+                "data": [
+                    {
+                        "id": "CS 125",
+                        "title": "search systems",
+                        "description": "Another class yea",
+                        "prerequisites": [],
+                        "corequisites": [],
+                        "antirequisites": [],
+                        "units": 4,
+                        "quarter": "Fall",
+                    },
+                    {
+                        "id": "CS 161",
+                        "title": "Algorithms",
+                        "description": "Some class yea",
+                        "prerequisites": [],
+                        "corequisites": [],
+                        "antirequisites": [],
+                        "units": 4,
+                        "quarter": "Fall",
+                    },
+                ],
+                "message": "prefilled temp data",
+            }
         print("Received /api/allClassesData: Fetching all classes...")
         courses = list(db.get_collection("courses").find())
 
         for course in courses:
             course["_id"] = str(course["_id"])
-        
+
         print(f"Successfully fetched {len(courses)} classes")
         return {"data": courses}
 
@@ -88,7 +119,11 @@ async def api_course_info(courseid: str = None):
             return {"data": None, "status": "error", "message": "Course not found"}
     except Exception as e:
         print(f"Error fetching course info: {e}")
-        return {"data": None, "status": "error", "message": "Failed to fetch course info"}
+        return {
+            "data": None,
+            "status": "error",
+            "message": "Failed to fetch course info",
+        }
 
 
 @app.get("/api/recommendedClasses")
@@ -97,7 +132,7 @@ async def api_recommended_classes(userid: str = None):
     Returns the recommended classes for a given user
     """
 
-    #return {"data": [], "status": "ok", "message": "Recommended classes"}
+    # return {"data": [], "status": "ok", "message": "Recommended classes"}
 
     try:
         print("Received /api/recommendedClasses: Fetching recommended classes...")
@@ -111,13 +146,25 @@ async def api_recommended_classes(userid: str = None):
             print("user_info: ", user_info)
             recommended_classes = gemini.recommend_class(user_info, courses, None)
             print(f"Gemini output: {recommended_classes}")
-            return {"data": recommended_classes, "status": "ok", "message": "Recommended classes"}
+            return {
+                "data": recommended_classes,
+                "status": "ok",
+                "message": "Recommended classes",
+            }
         else:
-            return {"data": None, "status": "error", "message": "Recommended classes not found"}
-            
+            return {
+                "data": None,
+                "status": "error",
+                "message": "Recommended classes not found",
+            }
+
     except Exception as e:
         print(f"Error fetching recommended classes: {e}")
-        return {"data": None, "status": "error", "message": "Failed to fetch recommended classes"}
+        return {
+            "data": None,
+            "status": "error",
+            "message": "Failed to fetch recommended classes",
+        }
 
 
 @app.get("/api/specializationInfo")
@@ -137,19 +184,67 @@ async def api_specialization_info():
     }
 
 
+@app.get("/api/interestsList")
+async def api_interests_list():
+    return {
+        "data": [
+            "Math",
+            "Algorithms",
+            "Data Structures",
+            "Programming",
+            "Recursion",
+        ],
+        "status": "ok",
+        "message": "Interests list",
+    }
+
+
 @app.post("/api/login")
 async def api_login(request: LoginRequest):
-    usernames = ["nathan", "alyssia", "peter"]
-    if request.username in usernames:
+
+    try:
+        print(f"Received /api/login with username: {request.username}")
+        # Find user, exclude _id for clean JSON response
+        user_info = db.get_collection("users").find_one(
+            {"username": request.username}, {"_id": 0}
+        )
+
+        if user_info:
+            print("user_info found: ", user_info)
+            return {
+                "data": user_info,
+                "status": "ok",
+                "message": "User info",
+            }
+        else:
+            print(f"User {request.username} not found, creating new user.")
+            new_user = {
+                "username": request.username,
+                "completedClasses": [],
+                "interests": [],
+                "specialization": "",
+                "quartersLeft": 4,
+
+            }
+            # Insert the new user
+            db.get_collection("users").insert_one(new_user)
+
+            # Remove _id which insert_one adds, so we can return clean JSON
+            if "_id" in new_user:
+                del new_user["_id"]
+
+            return {
+                "data": new_user,
+                "status": "ok",
+                "message": "New user created",
+            }
+    except Exception as e:
+        print(f"Error processing login: {e}")
         return {
-            "status": "ok",
-            "message": f"Login is running smoothly, user: {request.username} has been seen",
-            "userid": request.username,
+            "data": None,
+            "status": "error",
+            "message": "Failed to process login",
         }
-    else:
-        # This sends a 404 status code to the frontend
-        print("User not found")
-        raise HTTPException(status_code=404, detail="User not found")
 
 
 @app.post("/api/setUserInfo")
@@ -171,17 +266,17 @@ async def api_set_user_info(request: UserSetInfoRequest):
 
 
 @app.get("/api/getUserInfo")
-async def api_get_user_info(userid: str = None):
-    print(f"api_get_user_info called with userid: {userid}")
+async def api_get_user_info(username: str = None):
+    print(f"api_get_user_info called with username: {username}")
 
-    if not userid:
+    if not username:
         return None
 
     user_collection = db.get_collection("users")
-    user = user_collection.find_one({"username": userid}, {"_id": 0})
+    user = user_collection.find_one({"username": username}, {"_id": 0})
 
     if user:
-        print(f"User {userid}: loading user info from DB")
+        print(f"User {username}: loading user info from DB")
         return {
             "data": user,
             "status": "ok",
@@ -191,15 +286,9 @@ async def api_get_user_info(userid: str = None):
     # Fallback/Default for new users
     return {
         "data": {
-            "username": userid,
+            "username": username,
             "completedClasses": [],
-            "strengths": {
-                "Math": 3,
-                "Algorithms": 3,
-                "Data Structures": 3,
-                "Programming": 3,
-                "Recursion": 3,
-            },
+            "interests": [],
             "specialization": "",
             "quartersLeft": 4,
         },
