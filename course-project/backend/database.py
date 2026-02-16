@@ -15,7 +15,7 @@ class Database:
 
     def connect(self):
         mongo_uri = os.getenv("MONGO_URI", "mongodb://localhost:27017")
-        db_name = os.getenv("DATABASE_NAME", "course_recommender")
+        db_name = "cs125"
 
         try:
             print(f"Trying to connect to MongoDB at {mongo_uri}")
@@ -49,4 +49,4 @@ class Database:
 if __name__ == "__main__":
     db = Database()
     db.connect()
-    print(db.get_collection("users").find_one())
+    print(list(db.get_collection("courses").find()))
