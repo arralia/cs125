@@ -16,10 +16,6 @@ export default function RecommendedCoursesPage() {
     });
   };
 
-  useEffect(() => {
-    getRecommendedClasses();
-  }, []);
-
   return (
     <div className="flex flex-col justify-center items-center bg-blue-100 max-w-sm w-full mx-auto rounded-lg m-4">
       <button
@@ -28,7 +24,6 @@ export default function RecommendedCoursesPage() {
       >
         Recommended Courses
       </button>
-
       <div className="flex flex-col items-center max-h-[620px] overflow-y-auto pr-2 scrollbar-custom bg-black/10 rounded-lg m-2">
         <ClassCardCollection data={recommendedClasses} />
       </div>

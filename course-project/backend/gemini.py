@@ -71,7 +71,6 @@ class Gemini:
             }}]
             """
 
-
         response = self.generate_content(prompt)
         print("Gemini output: ", response.text)
         return json.loads(response.text)

@@ -146,6 +146,7 @@ async def api_recommended_classes(username: str):
 
         print(f"Received /api/recommendedClasses with username: {username}")
         user_info = db.get_collection("users").find_one({"username": username})
+
         if user_info:
             print("user_info: ", user_info)
             recommended_classes = gemini.recommend_class(user_info, courses, None)
