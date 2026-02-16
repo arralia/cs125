@@ -1,7 +1,7 @@
 import useApiGet from "../hooks/useApiGet";
 import { useEffect, useState } from "react";
-import ReadCookie from "../components/ReadCookie";
-import ClassCardCollection from "../components/ClassCardCollection";
+import ReadCookie from "../Components/ReadCookie";
+import ClassCardCollection from "../Components/ClassCardCollection";
 
 export default function CoursesPage() {
   const [classes, setClasses] = useState([]);
