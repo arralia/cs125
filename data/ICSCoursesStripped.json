@@ -3,17 +3,17 @@
     {
       "id": "I&CSCI163",
       "title": "Mobile and Ubiquitous Games",
-      "description": "Design and technology of mobile games, including mixed reality gaming, urban games, and locative media. Case studies of significant systems. Uses and limitations of location-based technologies. Infrastructures and their relationships to gameplay and design.",
+      "description": "Design and technolfogy of mobile games, including mixed reality gaming, urban games, and locative media. Case studies of significant systems. Uses and limitations of location-based technologies. Infrastructures and their relationships to gameplay and design.",
       "prerequisiteTree": {
         "AND": [
           {
             "OR": [
               {
-                "courseId": "I&C SCI 61",
+                "courseId": "I&CSCI61",
                 "minGrade": "D-"
               },
               {
-                "courseId": "GDIM 25",
+                "courseId": "GDIM25",
                 "minGrade": "D-"
               }
             ]
@@ -21,19 +21,19 @@
           {
             "OR": [
               {
-                "courseId": "GDIM 31",
+                "courseId": "GDIM31",
                 "minGrade": "D-"
               },
               {
-                "courseId": "I&C SCI 10",
+                "courseId": "I&CSCI10",
                 "minGrade": "D-"
               },
               {
-                "courseId": "I&C SCI 31",
+                "courseId": "I&CSCI31",
                 "minGrade": "D-"
               },
               {
-                "courseId": "I&C SCI H32",
+                "courseId": "I&CSCIH32",
                 "minGrade": "D-"
               }
             ]
@@ -42,7 +42,7 @@
       },
       "dependencies": [
         {
-          "id": "COMPSCI113",
+          "courseId": "COMPSCI113",
           "title": "Computer Game Development"
         }
       ],
@@ -59,11 +59,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 61",
+                "courseId": "I&CSCI61",
                 "minGrade": "D-"
               },
               {
-                "courseId": "GDIM 25",
+                "courseId": "GDIM25",
                 "minGrade": "D-"
               }
             ]
@@ -72,15 +72,15 @@
       },
       "dependencies": [
         {
-          "id": "COMPSCI113",
+          "courseId": "COMPSCI113",
           "title": "Computer Game Development"
         },
         {
-          "id": "I&CSCI168",
+          "courseId": "I&CSCI168",
           "title": "Multiplayer Game Project"
         },
         {
-          "id": "I&CSCI169A",
+          "courseId": "I&CSCI169A",
           "title": "Capstone Game Project I"
         }
       ],
@@ -97,11 +97,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 32",
+                "courseId": "I&CSCI32",
                 "minGrade": "C"
               },
               {
-                "courseId": "I&C SCI H32",
+                "courseId": "I&CSCIH32",
                 "minGrade": "C"
               }
             ]
@@ -110,41 +110,49 @@
       },
       "dependencies": [
         {
-          "id": "COMPSCI118",
+          "courseId": "COMPSCI118",
           "title": "Introduction to Virtual Reality"
         },
         {
-          "id": "COMPSCI122A",
+          "courseId": "COMPSCI122A",
           "title": "Introduction to Data Management"
         },
         {
-          "id": "COMPSCI147",
+          "courseId": "COMPSCI147",
           "title": "Internet of Things (IoT) Software and Systems"
         },
         {
-          "id": "COMPSCI151",
+          "courseId": "COMPSCI151",
           "title": "Digital Logic Design"
         },
         {
-          "id": "I&CSCI162",
+          "courseId": "I&CSCI162",
           "title": "Modeling and World Building"
         },
         {
-          "id": "I&CSCI45C",
+          "courseId": "I&CSCI45C",
           "title": "Programming in C/C++ as a Second Language"
         },
         {
-          "id": "I&CSCI45J",
+          "courseId": "I&CSCI45J",
           "title": "Programming in Java as a Second Language"
         },
         {
-          "id": "I&CSCI46",
+          "courseId": "I&CSCI46",
           "title": "Data Structure Implementation and Analysis"
         },
         {
-          "id": "I&CSCI51",
+          "courseId": "I&CSCI51",
           "title": "Introductory Computer Organization"
         }
+      ],
+      "keywords": [
+        "Graphics & Visualization",
+        "Databases & Data Management",
+        "Web & Internet Applications",
+        "Programming Languages & Compilers",
+        "AI & Machine Learning",
+        "Game Development"
       ]
     },
     {
@@ -156,11 +164,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 33",
+                "courseId": "I&CSCI33",
                 "minGrade": "C"
               },
               {
-                "courseId": "EECS 40",
+                "courseId": "EECS40",
                 "minGrade": "C"
               }
             ]
@@ -169,29 +177,33 @@
       },
       "dependencies": [
         {
-          "id": "COMPSCI103",
+          "courseId": "COMPSCI103",
           "title": "Advanced Programming and Problem Solving with C++"
         },
         {
-          "id": "COMPSCI114",
+          "courseId": "COMPSCI114",
           "title": "Projects in Advanced 3D Computer Graphics"
         },
         {
-          "id": "COMPSCI121",
+          "courseId": "COMPSCI121",
           "title": "Information Retrieval"
         },
         {
-          "id": "COMPSCI125",
+          "courseId": "COMPSCI125",
           "title": "Next Generation Search Systems"
         },
         {
-          "id": "I&CSCI161",
+          "courseId": "I&CSCI161",
           "title": "Game Engine Lab"
         },
         {
-          "id": "I&CSCI46",
+          "courseId": "I&CSCI46",
           "title": "Data Structure Implementation and Analysis"
         }
+      ],
+      "keywords": [
+        "Web & Internet Applications",
+        "Programming Languages & Compilers"
       ]
     },
     {
@@ -203,11 +215,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 33",
+                "courseId": "I&CSCI33",
                 "minGrade": "C"
               },
               {
-                "courseId": "CSE 43",
+                "courseId": "CSE43",
                 "minGrade": "C"
               }
             ]
@@ -216,19 +228,19 @@
       },
       "dependencies": [
         {
-          "id": "COMPSCI121",
+          "courseId": "COMPSCI121",
           "title": "Information Retrieval"
         },
         {
-          "id": "COMPSCI122B",
+          "courseId": "COMPSCI122B",
           "title": "Project in Databases and Web Applications"
         },
         {
-          "id": "COMPSCI125",
+          "courseId": "COMPSCI125",
           "title": "Next Generation Search Systems"
         },
         {
-          "id": "COMPSCI137",
+          "courseId": "COMPSCI137",
           "title": "Internet Applications Engineering"
         }
       ],
@@ -243,85 +255,85 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 33",
+            "courseId": "I&CSCI33",
             "minGrade": "C"
           },
           {
-            "courseId": "I&C SCI 45C",
+            "courseId": "I&CSCI45C",
             "minGrade": "C"
           }
         ]
       },
       "dependencies": [
         {
-          "id": "COMPSCI111",
+          "courseId": "COMPSCI111",
           "title": "Digital Image Processing"
         },
         {
-          "id": "COMPSCI112",
+          "courseId": "COMPSCI112",
           "title": "Computer Graphics"
         },
         {
-          "id": "COMPSCI116",
+          "courseId": "COMPSCI116",
           "title": "Computational Photography and Vision"
         },
         {
-          "id": "COMPSCI117",
+          "courseId": "COMPSCI117",
           "title": "Project in Computer Vision"
         },
         {
-          "id": "COMPSCI122D",
+          "courseId": "COMPSCI122D",
           "title": "Beyond SQL Data Management"
         },
         {
-          "id": "COMPSCI141",
+          "courseId": "COMPSCI141",
           "title": "Concepts in Programming Languages"
         },
         {
-          "id": "COMPSCI143A",
+          "courseId": "COMPSCI143A",
           "title": "Principles of Operating Systems"
         },
         {
-          "id": "COMPSCI145",
+          "courseId": "COMPSCI145",
           "title": "Embedded Software"
         },
         {
-          "id": "COMPSCI146",
+          "courseId": "COMPSCI146",
           "title": "Programming in Multitasking Operating Systems"
         },
         {
-          "id": "COMPSCI161",
+          "courseId": "COMPSCI161",
           "title": "Design and Analysis of Algorithms"
         },
         {
-          "id": "COMPSCI162",
+          "courseId": "COMPSCI162",
           "title": "Formal Languages and Automata"
         },
         {
-          "id": "COMPSCI164",
+          "courseId": "COMPSCI164",
           "title": "Computational Geometry"
         },
         {
-          "id": "COMPSCI171",
+          "courseId": "COMPSCI171",
           "title": "Introduction to Artificial Intelligence"
         },
         {
-          "id": "COMPSCI180A",
+          "courseId": "COMPSCI180A",
           "title": "Project in Computer Science"
         },
         {
-          "id": "I&CSCI53",
+          "courseId": "I&CSCI53",
           "title": "Principles in System Design"
         }
       ],
       "keywords": [
-        "AI & Machine Learning",
+        "Graphics & Visualization",
         "Algorithms & Data Structures",
         "Databases & Data Management",
-        "Graphics & Visualization",
+        "Systems & Architecture",
         "Programming Languages & Compilers",
-        "Security & Privacy",
-        "Systems & Architecture"
+        "AI & Machine Learning",
+        "Security & Privacy"
       ]
     },
     {
@@ -331,63 +343,63 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 33",
+            "courseId": "I&CSCI33",
             "minGrade": "D-"
           },
           {
-            "courseId": "I&C SCI 6B",
+            "courseId": "I&CSCI6B",
             "minGrade": "D-"
           }
         ]
       },
       "dependencies": [
         {
-          "id": "COMPSCI115",
+          "courseId": "COMPSCI115",
           "title": "Computer Simulation"
         },
         {
-          "id": "COMPSCI122D",
+          "courseId": "COMPSCI122D",
           "title": "Beyond SQL Data Management"
         },
         {
-          "id": "COMPSCI141",
+          "courseId": "COMPSCI141",
           "title": "Concepts in Programming Languages"
         },
         {
-          "id": "COMPSCI143A",
+          "courseId": "COMPSCI143A",
           "title": "Principles of Operating Systems"
         },
         {
-          "id": "COMPSCI144",
+          "courseId": "COMPSCI144",
           "title": "High-performance Computers and Program Optimization"
         },
         {
-          "id": "COMPSCI145",
+          "courseId": "COMPSCI145",
           "title": "Embedded Software"
         },
         {
-          "id": "COMPSCI146",
+          "courseId": "COMPSCI146",
           "title": "Programming in Multitasking Operating Systems"
         },
         {
-          "id": "COMPSCI151",
+          "courseId": "COMPSCI151",
           "title": "Digital Logic Design"
         },
         {
-          "id": "I&CSCI167",
+          "courseId": "I&CSCI167",
           "title": "Multiplayer Game Systems"
         },
         {
-          "id": "I&CSCI53",
+          "courseId": "I&CSCI53",
           "title": "Principles in System Design"
         }
       ],
       "keywords": [
         "Algorithms & Data Structures",
         "Databases & Data Management",
+        "Systems & Architecture",
         "Programming Languages & Compilers",
-        "Security & Privacy",
-        "Systems & Architecture"
+        "Security & Privacy"
       ]
     },
     {
@@ -397,33 +409,33 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 46",
+            "courseId": "I&CSCI46",
             "minGrade": "C"
           },
           {
-            "courseId": "I&C SCI 51",
+            "courseId": "I&CSCI51",
             "minGrade": "C"
           }
         ]
       },
       "dependencies": [
         {
-          "id": "COMPSCI122C",
+          "courseId": "COMPSCI122C",
           "title": "Principles of Data Management"
         },
         {
-          "id": "COMPSCI131",
+          "courseId": "COMPSCI131",
           "title": "Parallel and Distributed Computing"
         },
         {
-          "id": "COMPSCI134",
+          "courseId": "COMPSCI134",
           "title": "Computer and Network Security"
         }
       ],
       "keywords": [
         "Databases & Data Management",
-        "Security & Privacy",
-        "Systems & Architecture"
+        "Systems & Architecture",
+        "Security & Privacy"
       ]
     },
     {
@@ -433,31 +445,31 @@
       "prerequisiteTree": {},
       "dependencies": [
         {
-          "id": "COMPSCI115",
+          "courseId": "COMPSCI115",
           "title": "Computer Simulation"
         },
         {
-          "id": "COMPSCI151",
+          "courseId": "COMPSCI151",
           "title": "Digital Logic Design"
         },
         {
-          "id": "COMPSCI161",
+          "courseId": "COMPSCI161",
           "title": "Design and Analysis of Algorithms"
         },
         {
-          "id": "COMPSCI162",
+          "courseId": "COMPSCI162",
           "title": "Formal Languages and Automata"
         },
         {
-          "id": "COMPSCI177",
+          "courseId": "COMPSCI177",
           "title": "Applications of Probability in Computer Science"
         },
         {
-          "id": "COMPSCI178",
+          "courseId": "COMPSCI178",
           "title": "Machine Learning and Data-Mining"
         },
         {
-          "id": "I&CSCI51",
+          "courseId": "I&CSCI51",
           "title": "Introductory Computer Organization"
         }
       ],
@@ -473,41 +485,41 @@
       "prerequisiteTree": {},
       "dependencies": [
         {
-          "id": "COMPSCI111",
+          "courseId": "COMPSCI111",
           "title": "Digital Image Processing"
         },
         {
-          "id": "COMPSCI116",
+          "courseId": "COMPSCI116",
           "title": "Computational Photography and Vision"
         },
         {
-          "id": "COMPSCI117",
+          "courseId": "COMPSCI117",
           "title": "Project in Computer Vision"
         },
         {
-          "id": "COMPSCI151",
+          "courseId": "COMPSCI151",
           "title": "Digital Logic Design"
         },
         {
-          "id": "COMPSCI161",
+          "courseId": "COMPSCI161",
           "title": "Design and Analysis of Algorithms"
         },
         {
-          "id": "COMPSCI162",
+          "courseId": "COMPSCI162",
           "title": "Formal Languages and Automata"
         },
         {
-          "id": "COMPSCI177",
+          "courseId": "COMPSCI177",
           "title": "Applications of Probability in Computer Science"
         },
         {
-          "id": "COMPSCI178",
+          "courseId": "COMPSCI178",
           "title": "Machine Learning and Data-Mining"
         }
       ],
       "keywords": [
-        "Algorithms & Data Structures",
-        "Graphics & Visualization"
+        "Graphics & Visualization",
+        "Algorithms & Data Structures"
       ]
     },
     {
@@ -519,11 +531,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 31",
+                "courseId": "I&CSCI31",
                 "minGrade": "D-"
               },
               {
-                "courseId": "I&C SCI H32",
+                "courseId": "I&CSCIH32",
                 "minGrade": "D-"
               }
             ]
@@ -532,51 +544,51 @@
       },
       "dependencies": [
         {
-          "id": "COMPSCI111",
+          "courseId": "COMPSCI111",
           "title": "Digital Image Processing"
         },
         {
-          "id": "COMPSCI112",
+          "courseId": "COMPSCI112",
           "title": "Computer Graphics"
         },
         {
-          "id": "COMPSCI115",
+          "courseId": "COMPSCI115",
           "title": "Computer Simulation"
         },
         {
-          "id": "COMPSCI116",
+          "courseId": "COMPSCI116",
           "title": "Computational Photography and Vision"
         },
         {
-          "id": "COMPSCI117",
+          "courseId": "COMPSCI117",
           "title": "Project in Computer Vision"
         },
         {
-          "id": "COMPSCI118",
+          "courseId": "COMPSCI118",
           "title": "Introduction to Virtual Reality"
         },
         {
-          "id": "COMPSCI166",
+          "courseId": "COMPSCI166",
           "title": "Quantum Computation and Information"
         },
         {
-          "id": "COMPSCI169",
+          "courseId": "COMPSCI169",
           "title": "Introduction to Optimization"
         },
         {
-          "id": "COMPSCI177",
+          "courseId": "COMPSCI177",
           "title": "Applications of Probability in Computer Science"
         },
         {
-          "id": "COMPSCI178",
+          "courseId": "COMPSCI178",
           "title": "Machine Learning and Data-Mining"
         },
         {
-          "id": "COMPSCI184A",
+          "courseId": "COMPSCI184A",
           "title": "Artificial Intelligence in Biology and Medicine"
         },
         {
-          "id": "I&CSCI162",
+          "courseId": "I&CSCI162",
           "title": "Modeling and World Building"
         }
       ],

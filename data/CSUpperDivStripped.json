@@ -8,7 +8,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 45C",
+            "courseId": "I&CSCI45C",
             "minGrade": "D-"
           }
         ]
@@ -26,27 +26,27 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 46",
+                "courseId": "I&CSCI46",
                 "minGrade": "C"
               },
               {
-                "courseId": "CSE 46",
+                "courseId": "CSE46",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "courseId": "I&C SCI 6D",
+            "courseId": "I&CSCI6D",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "C"
               },
               {
-                "courseId": "I&C SCI 6N",
+                "courseId": "I&CSCI6N",
                 "minGrade": "C"
               }
             ]
@@ -64,17 +64,17 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 46",
+            "courseId": "I&CSCI46",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "C"
               },
               {
-                "courseId": "I&C SCI 6N",
+                "courseId": "I&CSCI6N",
                 "minGrade": "C"
               }
             ]
@@ -88,28 +88,28 @@
     {
       "id": "COMPSCI113",
       "title": "Computer Game Development",
-      "description": "Introduction to the principles of interactive 2D and 3D computer game development. Concepts in computer graphics, algorithms, software engineering, art and graphics, music and sound, story analysis, and artificial intelligence are presented and are the basis for student work.",
+      "description": "Introduction to the principles of interactive 2D and 3D computer game development. Concepts in computer graphics, algorithms, software engineering, ARTand graphics, music and sound, story analysis, and artificial intelligence are presented and are the basis for student work.",
       "prerequisiteTree": {
         "AND": [
           {
             "OR": [
               {
-                "courseId": "COMPSCI 112"
+                "courseId": "COMPSCI112"
               },
               {
-                "courseId": "COMPSCI 171"
+                "courseId": "COMPSCI171"
               },
               {
-                "courseId": "IN4MATX 121"
+                "courseId": "IN4MATX121"
               },
               {
-                "courseId": "ART 106B"
+                "courseId": "ART106B"
               },
               {
-                "courseId": "I&C SCI 163"
+                "courseId": "I&CSCI163"
               },
               {
-                "courseId": "I&C SCI 166"
+                "courseId": "I&CSCI166"
               }
             ]
           }
@@ -126,16 +126,16 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 112"
+            "courseId": "COMPSCI112"
           },
           {
             "OR": [
               {
-                "courseId": "I&C SCI 45C",
+                "courseId": "I&CSCI45C",
                 "minGrade": "C"
               },
               {
-                "courseId": "CSE 45C",
+                "courseId": "CSE45C",
                 "minGrade": "C"
               }
             ]
@@ -153,17 +153,17 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 6B",
+            "courseId": "I&CSCI6B",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "courseId": "I&C SCI 6N",
+                "courseId": "I&CSCI6N",
                 "minGrade": "C"
               },
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "C"
               }
             ]
@@ -171,11 +171,11 @@
           {
             "OR": [
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "C"
               },
               {
-                "courseId": "STATS 7",
+                "courseId": "STATS7",
                 "minGrade": "C"
               }
             ]
@@ -183,21 +183,21 @@
           {
             "OR": [
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "C"
               },
               {
-                "courseId": "STATS 120A",
+                "courseId": "STATS120A",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "courseId": "I&C SCI 51",
+            "courseId": "I&CSCI51",
             "minGrade": "C"
           },
           {
-            "courseId": "IN4MATX 43",
+            "courseId": "IN4MATX43",
             "minGrade": "C"
           }
         ]
@@ -213,33 +213,33 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 6D",
+            "courseId": "I&CSCI6D",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "C"
               },
               {
-                "courseId": "I&C SCI 6N",
+                "courseId": "I&CSCI6N",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "courseId": "MATH 2B",
+            "courseId": "MATH2B",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "courseId": "I&C SCI 46",
+                "courseId": "I&CSCI46",
                 "minGrade": "C"
               },
               {
-                "courseId": "CSE 46",
+                "courseId": "CSE46",
                 "minGrade": "C"
               }
             ]
@@ -257,33 +257,33 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 6D",
+            "courseId": "I&CSCI6D",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "C"
               },
               {
-                "courseId": "I&C SCI 6N",
+                "courseId": "I&CSCI6N",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "courseId": "MATH 2B",
+            "courseId": "MATH2B",
             "minGrade": "C"
           },
           {
             "OR": [
               {
-                "courseId": "I&C SCI 46",
+                "courseId": "I&CSCI46",
                 "minGrade": "C"
               },
               {
-                "courseId": "CSE 46",
+                "courseId": "CSE46",
                 "minGrade": "C"
               }
             ]
@@ -291,19 +291,19 @@
           {
             "OR": [
               {
-                "courseId": "COMPSCI 112",
+                "courseId": "COMPSCI112",
                 "minGrade": "D-"
               },
               {
-                "courseId": "COMPSCI 116",
+                "courseId": "COMPSCI116",
                 "minGrade": "D-"
               },
               {
-                "courseId": "COMPSCI 171",
+                "courseId": "COMPSCI171",
                 "minGrade": "D-"
               },
               {
-                "courseId": "COMPSCI 178",
+                "courseId": "COMPSCI178",
                 "minGrade": "D-"
               }
             ]
@@ -323,15 +323,15 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 6N"
+                "courseId": "I&CSCI6N"
               },
               {
-                "courseId": "MATH 3A"
+                "courseId": "MATH3A"
               }
             ]
           },
           {
-            "courseId": "I&C SCI 33"
+            "courseId": "I&CSCI33"
           }
         ]
       },
@@ -348,11 +348,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 45C",
+                "courseId": "I&CSCI45C",
                 "minGrade": "C"
               },
               {
-                "courseId": "I&C SCI 45J",
+                "courseId": "I&CSCI45J",
                 "minGrade": "C"
               }
             ]
@@ -360,11 +360,11 @@
           {
             "OR": [
               {
-                "courseId": "STATS 7",
+                "courseId": "STATS7",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "D-"
               }
             ]
@@ -384,11 +384,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 33",
+                "courseId": "I&CSCI33",
                 "minGrade": "C"
               },
               {
-                "courseId": "EECS 114",
+                "courseId": "EECS114",
                 "minGrade": "D-"
               }
             ]
@@ -408,26 +408,26 @@
           {
             "OR": [
               {
-                "courseId": "COMPSCI 122A",
+                "courseId": "COMPSCI122A",
                 "minGrade": "D-"
               },
               {
-                "courseId": "EECS 116",
+                "courseId": "EECS116",
                 "minGrade": "D-"
               }
             ]
           },
           {
-            "courseId": "I&C SCI 45J",
+            "courseId": "I&CSCI45J",
             "minGrade": "D-"
           },
           {
             "NOT": [
               {
-                "courseId": "COMPSCI 137"
+                "courseId": "COMPSCI137"
               },
               {
-                "courseId": "IN4MATX 124"
+                "courseId": "IN4MATX124"
               }
             ]
           }
@@ -445,17 +445,17 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 122A",
+            "courseId": "COMPSCI122A",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "courseId": "I&C SCI 53",
+                "courseId": "I&CSCI53",
                 "minGrade": "D-"
               },
               {
-                "courseId": "COMPSCI 143A",
+                "courseId": "COMPSCI143A",
                 "minGrade": "D-"
               }
             ]
@@ -473,21 +473,21 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 46",
+            "courseId": "I&CSCI46",
             "minGrade": "D-"
           },
           {
-            "courseId": "I&C SCI 51",
+            "courseId": "I&CSCI51",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "courseId": "COMPSCI 122A",
+                "courseId": "COMPSCI122A",
                 "minGrade": "D-"
               },
               {
-                "courseId": "EECS 116",
+                "courseId": "EECS116",
                 "minGrade": "D-"
               }
             ]
@@ -501,17 +501,17 @@
     {
       "id": "COMPSCI125",
       "title": "Next Generation Search Systems",
-      "description": "Discusses concepts and techniques related to all aspects of search systems. After considering basic search technology and the state-of-art systems, rapidly developing techniques for multimedia search, local search, event-search, and video-on-demand are explored.",
+      "description": "Discusses concepts and techniques related to all aspects of search systems. After considering basic search technology and the state-of-ARTsystems, rapidly developing techniques for multimedia search, local search, event-search, and video-on-demand are explored.",
       "prerequisiteTree": {
         "AND": [
           {
             "OR": [
               {
-                "courseId": "I&C SCI 45C",
+                "courseId": "I&CSCI45C",
                 "minGrade": "C"
               },
               {
-                "courseId": "I&C SCI 45J",
+                "courseId": "I&CSCI45J",
                 "minGrade": "C"
               }
             ]
@@ -519,11 +519,11 @@
           {
             "OR": [
               {
-                "courseId": "STATS 7",
+                "courseId": "STATS7",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "D-"
               }
             ]
@@ -553,11 +553,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 53",
+                "courseId": "I&CSCI53",
                 "minGrade": "D-"
               },
               {
-                "courseId": "COMPSCI 143A",
+                "courseId": "COMPSCI143A",
                 "minGrade": "D-"
               }
             ]
@@ -577,11 +577,11 @@
           {
             "OR": [
               {
-                "courseId": "EECS 55",
+                "courseId": "EECS55",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "D-"
               }
             ]
@@ -601,11 +601,11 @@
           {
             "OR": [
               {
-                "courseId": "COMPSCI 132",
+                "courseId": "COMPSCI132",
                 "minGrade": "D-"
               },
               {
-                "courseId": "EECS 148",
+                "courseId": "EECS148",
                 "minGrade": "D-"
               }
             ]
@@ -625,21 +625,21 @@
           {
             "OR": [
               {
-                "courseId": "COMPSCI 132",
+                "courseId": "COMPSCI132",
                 "minGrade": "D-"
               },
               {
-                "courseId": "EECS 148",
+                "courseId": "EECS148",
                 "minGrade": "D-"
               }
             ]
           },
           {
-            "courseId": "I&C SCI 53",
+            "courseId": "I&CSCI53",
             "minGrade": "D-"
           },
           {
-            "courseId": "COMPSCI 161",
+            "courseId": "COMPSCI161",
             "minGrade": "D-"
           }
         ]
@@ -657,23 +657,23 @@
           {
             "OR": [
               {
-                "courseId": "COMPSCI 132",
+                "courseId": "COMPSCI132",
                 "minGrade": "D-"
               },
               {
-                "courseId": "EECS 148",
+                "courseId": "EECS148",
                 "minGrade": "D-"
               }
             ]
           },
           {
-            "courseId": "I&C SCI 45J",
+            "courseId": "I&CSCI45J",
             "minGrade": "D-"
           },
           {
             "NOT": [
               {
-                "courseId": "COMPSCI 122B"
+                "courseId": "COMPSCI122B"
               }
             ]
           }
@@ -692,15 +692,15 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 51",
+                "courseId": "I&CSCI51",
                 "minGrade": "C"
               },
               {
-                "courseId": "CSE 31",
+                "courseId": "CSE31",
                 "minGrade": "C"
               },
               {
-                "courseId": "EECS 31",
+                "courseId": "EECS31",
                 "minGrade": "C"
               }
             ]
@@ -708,11 +708,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 46",
+                "courseId": "I&CSCI46",
                 "minGrade": "C"
               },
               {
-                "courseId": "CSE 46",
+                "courseId": "CSE46",
                 "minGrade": "C"
               }
             ]
@@ -732,15 +732,15 @@
           {
             "OR": [
               {
-                "courseId": "CSE 141",
+                "courseId": "CSE141",
                 "minGrade": "D-"
               },
               {
-                "courseId": "COMPSCI 141",
+                "courseId": "COMPSCI141",
                 "minGrade": "D-"
               },
               {
-                "courseId": "IN4MATX 101",
+                "courseId": "IN4MATX101",
                 "minGrade": "D-"
               }
             ]
@@ -760,11 +760,11 @@
           {
             "OR": [
               {
-                "courseId": "COMPSCI 142A",
+                "courseId": "COMPSCI142A",
                 "minGrade": "D-"
               },
               {
-                "courseId": "CSE 142",
+                "courseId": "CSE142",
                 "minGrade": "D-"
               }
             ]
@@ -784,11 +784,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 46",
+                "courseId": "I&CSCI46",
                 "minGrade": "D-"
               },
               {
-                "courseId": "CSE 46",
+                "courseId": "CSE46",
                 "minGrade": "D-"
               }
             ]
@@ -796,15 +796,15 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 51",
+                "courseId": "I&CSCI51",
                 "minGrade": "D-"
               },
               {
-                "courseId": "EECS 31",
+                "courseId": "EECS31",
                 "minGrade": "D-"
               },
               {
-                "courseId": "CSE 31",
+                "courseId": "CSE31",
                 "minGrade": "D-"
               }
             ]
@@ -822,7 +822,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 143A",
+            "courseId": "COMPSCI143A",
             "minGrade": "D-"
           }
         ]
@@ -838,7 +838,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 51",
+            "courseId": "I&CSCI51",
             "minGrade": "C"
           }
         ]
@@ -854,17 +854,17 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 46",
+            "courseId": "I&CSCI46",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "courseId": "I&C SCI 51",
+                "courseId": "I&CSCI51",
                 "minGrade": "D-"
               },
               {
-                "courseId": "EECS 31",
+                "courseId": "EECS31",
                 "minGrade": "D-"
               }
             ]
@@ -887,7 +887,7 @@
     {
       "id": "COMPSCI145B",
       "title": "Embedded Software Laboratory",
-      "description": "Laboratory section to accompany CSE 145A or COMPSCI 145A.",
+      "description": "Laboratory section to accompany CSE145A or COMPSCI145A.",
       "prerequisiteTree": {},
       "keywords": [
         "Embedded & Real-Time Systems"
@@ -900,11 +900,11 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 46",
+            "courseId": "I&CSCI46",
             "minGrade": "C"
           },
           {
-            "courseId": "I&C SCI 51",
+            "courseId": "I&CSCI51",
             "minGrade": "C"
           }
         ]
@@ -920,7 +920,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 33",
+            "courseId": "I&CSCI33",
             "minGrade": "D-"
           }
         ]
@@ -938,24 +938,24 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 33",
+                "courseId": "I&CSCI33",
                 "minGrade": "C"
               },
               {
-                "courseId": "CSE 43",
+                "courseId": "CSE43",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "courseId": "I&C SCI 51",
+            "courseId": "I&CSCI51",
             "minGrade": "C"
           },
           {
-            "courseId": "I&C SCI 6B"
+            "courseId": "I&CSCI6B"
           },
           {
-            "courseId": "I&C SCI 6D"
+            "courseId": "I&CSCI6D"
           }
         ]
       },
@@ -970,7 +970,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 151",
+            "courseId": "COMPSCI151",
             "minGrade": "D-"
           }
         ]
@@ -986,7 +986,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 151"
+            "courseId": "COMPSCI151"
           }
         ]
       },
@@ -1001,7 +1001,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 151",
+            "courseId": "COMPSCI151",
             "minGrade": "D-"
           }
         ]
@@ -1017,19 +1017,19 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 46",
+            "courseId": "I&CSCI46",
             "minGrade": "C"
           },
           {
-            "courseId": "I&C SCI 6B",
+            "courseId": "I&CSCI6B",
             "minGrade": "D-"
           },
           {
-            "courseId": "I&C SCI 6D",
+            "courseId": "I&CSCI6D",
             "minGrade": "D-"
           },
           {
-            "courseId": "MATH 2B",
+            "courseId": "MATH2B",
             "minGrade": "D-"
           }
         ]
@@ -1047,25 +1047,25 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 46",
+                "courseId": "I&CSCI46",
                 "minGrade": "C"
               },
               {
-                "courseId": "CSE 46",
+                "courseId": "CSE46",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "courseId": "MATH 2B",
+            "courseId": "MATH2B",
             "minGrade": "D-"
           },
           {
-            "courseId": "I&C SCI 6B",
+            "courseId": "I&CSCI6B",
             "minGrade": "D-"
           },
           {
-            "courseId": "I&C SCI 6D",
+            "courseId": "I&CSCI6D",
             "minGrade": "D-"
           }
         ]
@@ -1083,11 +1083,11 @@
           {
             "OR": [
               {
-                "courseId": "COMPSCI 161",
+                "courseId": "COMPSCI161",
                 "minGrade": "D-"
               },
               {
-                "courseId": "CSE 161",
+                "courseId": "CSE161",
                 "minGrade": "D-"
               }
             ]
@@ -1105,7 +1105,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 46",
+            "courseId": "I&CSCI46",
             "minGrade": "C"
           }
         ]
@@ -1121,7 +1121,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 161",
+            "courseId": "COMPSCI161",
             "minGrade": "D-"
           }
         ]
@@ -1139,11 +1139,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 6N",
+                "courseId": "I&CSCI6N",
                 "minGrade": "C+"
               },
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "C+"
               }
             ]
@@ -1151,7 +1151,7 @@
           {
             "OR": [
               {
-                "courseId": "COMPSCI 161",
+                "courseId": "COMPSCI161",
                 "minGrade": "D-"
               },
               {
@@ -1175,11 +1175,11 @@
           {
             "OR": [
               {
-                "courseId": "COMPSCI 161",
+                "courseId": "COMPSCI161",
                 "minGrade": "D-"
               },
               {
-                "courseId": "CSE 161",
+                "courseId": "CSE161",
                 "minGrade": "D-"
               }
             ]
@@ -1199,16 +1199,16 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 52"
+                "courseId": "I&CSCI52"
               },
               {
-                "courseId": "IN4MATX 43",
+                "courseId": "IN4MATX43",
                 "minGrade": "C"
               }
             ]
           },
           {
-            "courseId": "I&C SCI 167"
+            "courseId": "I&CSCI167"
           }
         ]
       },
@@ -1225,11 +1225,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 6N",
+                "courseId": "I&CSCI6N",
                 "minGrade": "D-"
               },
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "D-"
               }
             ]
@@ -1237,11 +1237,11 @@
           {
             "OR": [
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 7",
+                "courseId": "STATS7",
                 "minGrade": "D-"
               }
             ]
@@ -1249,11 +1249,11 @@
           {
             "OR": [
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 120A",
+                "courseId": "STATS120A",
                 "minGrade": "D-"
               }
             ]
@@ -1273,11 +1273,11 @@
           {
             "OR": [
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 7",
+                "courseId": "STATS7",
                 "minGrade": "D-"
               }
             ]
@@ -1285,21 +1285,21 @@
           {
             "OR": [
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 120A",
+                "courseId": "STATS120A",
                 "minGrade": "D-"
               }
             ]
           },
           {
-            "courseId": "I&C SCI 46",
+            "courseId": "I&CSCI46",
             "minGrade": "D-"
           },
           {
-            "courseId": "MATH 2B"
+            "courseId": "MATH2B"
           }
         ]
       },
@@ -1316,19 +1316,19 @@
           {
             "OR": [
               {
-                "courseId": "STATS 120A",
+                "courseId": "STATS120A",
                 "minGrade": "D-"
               },
               {
-                "courseId": "MATH 121A",
+                "courseId": "MATH121A",
                 "minGrade": "D-"
               },
               {
-                "courseId": "COMPSCI 178",
+                "courseId": "COMPSCI178",
                 "minGrade": "D-"
               },
               {
-                "courseId": "COMPSCI 273A",
+                "courseId": "COMPSCI273A",
                 "minGrade": "D-"
               }
             ]
@@ -1336,19 +1336,19 @@
           {
             "OR": [
               {
-                "courseId": "STATS 120B",
+                "courseId": "STATS120B",
                 "minGrade": "D-"
               },
               {
-                "courseId": "MATH 121A",
+                "courseId": "MATH121A",
                 "minGrade": "D-"
               },
               {
-                "courseId": "COMPSCI 178",
+                "courseId": "COMPSCI178",
                 "minGrade": "D-"
               },
               {
-                "courseId": "COMPSCI 273A",
+                "courseId": "COMPSCI273A",
                 "minGrade": "D-"
               }
             ]
@@ -1366,11 +1366,11 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 171",
+            "courseId": "COMPSCI171",
             "minGrade": "D-"
           },
           {
-            "courseId": "COMPSCI 172B",
+            "courseId": "COMPSCI172B",
             "minGrade": "D-"
           }
         ]
@@ -1386,7 +1386,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 171",
+            "courseId": "COMPSCI171",
             "minGrade": "C"
           }
         ]
@@ -1402,11 +1402,11 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 171",
+            "courseId": "COMPSCI171",
             "minGrade": "D-"
           },
           {
-            "courseId": "COMPSCI 178",
+            "courseId": "COMPSCI178",
             "minGrade": "D-"
           }
         ]
@@ -1422,29 +1422,29 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "MATH 2B",
+            "courseId": "MATH2B",
             "minGrade": "D-"
           },
           {
-            "courseId": "STATS 67",
+            "courseId": "STATS67",
             "minGrade": "D-"
           },
           {
-            "courseId": "I&C SCI 6B",
+            "courseId": "I&CSCI6B",
             "minGrade": "D-"
           },
           {
-            "courseId": "I&C SCI 6D",
+            "courseId": "I&CSCI6D",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "D-"
               },
               {
-                "courseId": "I&C SCI 6N",
+                "courseId": "I&CSCI6N",
                 "minGrade": "D-"
               }
             ]
@@ -1462,37 +1462,37 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 6B",
+            "courseId": "I&CSCI6B",
             "minGrade": "D-"
           },
           {
-            "courseId": "I&C SCI 6D",
+            "courseId": "I&CSCI6D",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "courseId": "I&C SCI 6N",
+                "courseId": "I&CSCI6N",
                 "minGrade": "D-"
               },
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "D-"
               }
             ]
           },
           {
-            "courseId": "MATH 2B",
+            "courseId": "MATH2B",
             "minGrade": "D-"
           },
           {
             "OR": [
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 7",
+                "courseId": "STATS7",
                 "minGrade": "D-"
               }
             ]
@@ -1500,11 +1500,11 @@
           {
             "OR": [
               {
-                "courseId": "STATS 67",
+                "courseId": "STATS67",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 120A",
+                "courseId": "STATS120A",
                 "minGrade": "D-"
               }
             ]
@@ -1522,7 +1522,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 171",
+            "courseId": "COMPSCI171",
             "minGrade": "D-"
           }
         ]
@@ -1538,7 +1538,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "I&C SCI 46",
+            "courseId": "I&CSCI46",
             "minGrade": "D-"
           }
         ]
@@ -1554,7 +1554,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 180A",
+            "courseId": "COMPSCI180A",
             "minGrade": "D-"
           }
         ]
@@ -1572,19 +1572,19 @@
           {
             "OR": [
               {
-                "courseId": "MATH 2D",
+                "courseId": "MATH2D",
                 "minGrade": "D-"
               },
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 7",
+                "courseId": "STATS7",
                 "minGrade": "D-"
               },
               {
-                "courseId": "STATS 8",
+                "courseId": "STATS8",
                 "minGrade": "D-"
               }
             ]
@@ -1604,11 +1604,11 @@
           {
             "OR": [
               {
-                "courseId": "I&C SCI 6N",
+                "courseId": "I&CSCI6N",
                 "minGrade": "D-"
               },
               {
-                "courseId": "MATH 3A",
+                "courseId": "MATH3A",
                 "minGrade": "D-"
               }
             ]
@@ -1626,7 +1626,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 184A"
+            "courseId": "COMPSCI184A"
           }
         ]
       },
@@ -1641,7 +1641,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 184A",
+            "courseId": "COMPSCI184A",
             "minGrade": "D-"
           }
         ]
@@ -1657,7 +1657,7 @@
       "prerequisiteTree": {
         "AND": [
           {
-            "courseId": "COMPSCI 184A",
+            "courseId": "COMPSCI184A",
             "minGrade": "C"
           }
         ]

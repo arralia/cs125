@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
-import useApiPost from "./useApiPost";
+import useApiPost from "../hooks/useApiPost";
+import { useEffect, useState } from "react";
+import ReadCookie from "./ReadCookie";
 
 export default function LoginForm({ setLogin }) {
   const {
@@ -8,17 +10,18 @@ export default function LoginForm({ setLogin }) {
     formState: { errors },
   } = useForm();
 
+  const [loggedIn, setLoggedIn] = useState(false);
+
   const { execute: postLogin, loading } = useApiPost({ api: "/api/login" });
 
   // this is the onSubmit function for the form
   const onSubmit = async (data) => {
     try {
       const response = await postLogin(data);
-      console.log("Server response:", response);
+      console.log("Server response:", response.data);
       if (response) {
-        console.log("Login successful! User exists.");
         // this line here sets a cookie in the frontend
-        document.cookie = `user_id=${response.userid}; path=/; max-age=3600; SameSite=Lax`
+        document.cookie = `username=${response.data.username}; path=/; max-age=3600; SameSite=Lax`;
         setLogin(false);
       }
     } catch (error) {
@@ -30,10 +33,24 @@ export default function LoginForm({ setLogin }) {
       }
     }
   };
-  // todo: put logic for checking if the user exists in the database
+
+  useEffect(() => {
+    // get the cookie for username and see if htye exist, if they do
+    if (document.cookie.includes("username")) {
+      setLoggedIn(true);
+      const username = ReadCookie("username");
+    } else {
+      setLoggedIn(false);
+    }
+  }, []);
 
   return (
     <div className="flex flex-col items-center bg-white">
+      {loggedIn && (
+        <p className="text-md font-bold mb-6 bg-gray-200 p-2 rounded-md">
+          Logged in as: {ReadCookie("username")}
+        </p>
+      )}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex items-center gap-4"
