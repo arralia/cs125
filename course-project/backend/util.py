@@ -1,26 +1,28 @@
 
-def extract_course_info(courses: list, user_info: dict) -> list:
+def narrow_down_courses(courses: list, user_info: dict) -> list:
     """This function will take the courses data from the database 
-    and just return a new json that only has the course ID and 
-    title of courses that are relevant to the user's context"""
+    and just return the courses that are relevant to the user's context"""
 
+    # Check the user's interests (mapped to keywords) and get the courses that are categorized under their interests
     interestedCourses = get_interested_courses(user_info.get("interests"), courses)
 
     # Check the prerequisiteTrees of the courses to make sure that this user has completed it
     eligibleCourses = get_eligible_courses(user_info.get("completedClasses"), courses)
 
-
     # Get the user's specialization courses. Can be empty set.
     specializationCourses = get_specialization_courses(user_info.get("specialization"), courses)
 
 
-    return [
-        {
-            "id": course["id"],
-            "title": course["title"],
-        }
-        for course in ( (interestedCourses & eligibleCourses) | (specializationCourses & eligibleCourses) )
-    ]
+    # return [
+    #     {
+    #         "id": course["id"],
+    #         "title": course["title"],
+    #     }
+    #     for course in ( (interestedCourses & eligibleCourses) | (specializationCourses & eligibleCourses) )
+    # ]
+
+    # Return the courses that they're eligible for and interested in combined with the courses that they're eligible for and count towards their specialization
+    return (interestedCourses & eligibleCourses) | (specializationCourses & eligibleCourses) 
 
 def get_interested_courses(interests: list, courses: list) -> set:
     """This function will return a set of course IDs that the user is interested in. Can return empty set."""
