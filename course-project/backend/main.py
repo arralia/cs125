@@ -95,8 +95,7 @@ async def all_classes():
         print("Received /api/allClassesData: Fetching all classes...")
         courses = list(db.get_collection("courses").find())
 
-        for course in courses:
-            course["_id"] = str(course["_id"])
+        util.stringify_ids(courses)
 
         print(f"Successfully fetched {len(courses)} classes")
         return {"data": courses}
@@ -194,8 +193,7 @@ async def api_interests_list():
 
     keywords = list(db.get_collection("keywords").find())
 
-    for keyword in keywords:
-        keyword["_id"] = str(keyword["_id"])
+    stringify_ids(keywords)
 
     return {
         "data": keywords,

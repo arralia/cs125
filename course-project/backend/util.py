@@ -78,3 +78,7 @@ def satisfies_prereqs(tree: dict, completed: set) -> bool:
 
     return True
 
+# Modifies the list directly
+def stringify_ids(courses: list):
+    for course in courses:
+            course["_id"] = str(course["_id"])
