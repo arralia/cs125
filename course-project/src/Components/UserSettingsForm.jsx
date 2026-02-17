@@ -183,9 +183,9 @@ export default function UserSettingsForm({ setSettings }) {
                       {interestsListResponse &&
                         interestsListResponse.data && // Access the 'data' array inside the object
                         Array.isArray(interestsListResponse.data) &&
-                        interestsListResponse.data.map((interests, index) => (
-                          <option key={index} value={interests}>
-                            {interests}
+                        interestsListResponse.data.map((interest, idx) => (
+                          <option key={idx} value={interest.keyword}>
+                            {interest.keyword}
                           </option>
                         ))}
                     </select>
