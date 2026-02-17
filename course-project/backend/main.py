@@ -140,8 +140,8 @@ async def api_recommended_classes(username: str):
     try:
         print("Received /api/recommendedClasses: Fetching recommended classes...")
         courses = list(db.get_collection("courses").find())
-        courses = util.extract_course_info(courses)
         print(f"Successfully fetched {len(courses)} classes")
+        print("courses: ", courses)
 
         print(f"Received /api/recommendedClasses with username: {username}")
         user_info = db.get_collection("users").find_one({"username": username})
@@ -190,14 +190,14 @@ async def api_specialization_info():
 
 @app.get("/api/interestsList")
 async def api_interests_list():
+
+    keywords = list(db.get_collection("keywords").find())
+
+    for keyword in keywords:
+        keyword["_id"] = str(keyword["_id"])
+
     return {
-        "data": [
-            "Math",
-            "Algorithms",
-            "Data Structures",
-            "Programming",
-            "Recursion",
-        ],
+        "data": keywords,
         "status": "ok",
         "message": "Interests list",
     }
