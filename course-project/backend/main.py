@@ -141,6 +141,7 @@ async def api_recommended_classes(username: str):
         print("Received /api/recommendedClasses: Fetching recommended classes...")
         courses = list(db.get_collection("courses").find())
         courses = util.extract_course_info(courses)
+        # TODO ALYSSIA EXTRACT COURSES TFIDF
         print(f"Successfully fetched {len(courses)} classes")
 
         print(f"Received /api/recommendedClasses with username: {username}")
