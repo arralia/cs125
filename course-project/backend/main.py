@@ -192,8 +192,8 @@ async def api_specialization_info():
 async def api_interests_list():
 
     keywords = list(db.get_collection("keywords").find())
-
-    stringify_ids(keywords)
+    util.stringify_ids(keywords)
+    keywords = get_keywords()
 
     return {
         "data": keywords,
