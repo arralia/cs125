@@ -1,0 +1,319 @@
+[
+  {
+    "specialization_name": "Algorithms",
+    "neededNum": 4,
+    "required_courses": [],
+    "elective_courses": [
+      {
+        "code": "COMPSCI162",
+        "title": "Formal Languages and Automata"
+      },
+      {
+        "code": "COMPSCI163",
+        "title": "Graph Algorithms"
+      },
+      {
+        "code": "COMPSCI164",
+        "title": "Computational Geometry"
+      },
+      {
+        "code": "COMPSCI165",
+        "title": "Project in Algorithms and Data Structures"
+      },
+      {
+        "code": "COMPSCI166",
+        "title": "Quantum Computation and Information"
+      },
+      {
+        "code": "COMPSCI167",
+        "title": "Introduction to Applied Cryptography"
+      },
+      {
+        "code": "COMPSCI169",
+        "title": "Introduction to Optimization"
+      }
+    ]
+  },
+  {
+    "specialization_name": "Architecture and Embedded Systems",
+    "neededNum": 4,
+    "required_courses": [],
+    "elective_courses": [
+      {
+        "code": "COMPSCI145",
+        "title": "Embedded Software"
+      },
+      {
+        "code": "COMPSCI147",
+        "title": "Internet of Things (IoT) Software and Systems"
+      },
+      {
+        "code": "COMPSCI151",
+        "title": "Digital Logic Design"
+      },
+      {
+        "code": "COMPSCI152",
+        "title": "Computer Architecture"
+      },
+      {
+        "code": "COMPSCI154",
+        "title": "Computer Design Laboratory"
+      }
+    ]
+  },
+  {
+    "specialization_name": "Bioinformatics",
+    "neededNum": 2,
+    "required_courses": [
+      {
+        "code": "COMPSCI184A",
+        "title": "Artificial Intelligence in Biology and Medicine"
+      }
+    ],
+    "elective_courses": [
+      {
+        "code": "COMPSCI172B",
+        "title": "Neural Networks and Deep Learning"
+      },
+      {
+        "code": "COMPSCI172C",
+        "title": "Artificial Intelligence Frontiers: Technical, Ethical, and Societal"
+      },
+      {
+        "code": "COMPSCI178",
+        "title": "Machine Learning and Data-Mining"
+      },
+      {
+        "code": "COMPSCI184C",
+        "title": "Computational Systems Biology"
+      },
+      {
+        "code": "COMPSCI189",
+        "title": "Project in Bioinformatics"
+      }
+    ]
+  },
+  {
+    "specialization_name": "General CS Track",
+    "neededNum": 11,
+    "required_courses": [],
+    "elective_courses": []
+  },
+  {
+    "specialization_name": "Information",
+    "neededNum": 4,
+    "required_courses": [
+      {
+        "code": "COMPSCI121",
+        "title": "Information Retrieval"
+      },
+      {
+        "code": "COMPSCI122A",
+        "title": "Introduction to Data Management"
+      },
+      {
+        "code": "COMPSCI178",
+        "title": "Machine Learning and Data-Mining"
+      }
+    ],
+    "elective_courses": [
+      {
+        "code": "I&CSCI45J",
+        "title": "Programming in Java as a Second Language"
+      },
+      {
+        "code": "COMPSCI122B",
+        "title": "Project in Databases and Web Applications"
+      },
+      {
+        "code": "COMPSCI122C",
+        "title": "Principles of Data Management"
+      },
+      {
+        "code": "COMPSCI122D",
+        "title": "Beyond SQL Data Management"
+      },
+      {
+        "code": "COMPSCI125",
+        "title": "Next Generation Search Systems"
+      },
+      {
+        "code": "COMPSCI132",
+        "title": "Computer Networks"
+      },
+      {
+        "code": "COMPSCI134",
+        "title": "Computer and Network Security"
+      },
+      {
+        "code": "COMPSCI141",
+        "title": "Concepts in Programming Languages"
+      },
+      {
+        "code": "COMPSCI142A",
+        "title": "Compilers and Interpreters"
+      },
+      {
+        "code": "COMPSCI143A",
+        "title": "Principles of Operating Systems"
+      },
+      {
+        "code": "COMPSCI163",
+        "title": "Graph Algorithms"
+      },
+      {
+        "code": "COMPSCI165",
+        "title": "Project in Algorithms and Data Structures"
+      },
+      {
+        "code": "COMPSCI167",
+        "title": "Introduction to Applied Cryptography"
+      },
+      {
+        "code": "COMPSCI179",
+        "title": "Algorithms for Probabilistic and Deterministic Graphical Models"
+      }
+    ]
+  },
+  {
+    "specialization_name": "Intelligent Systems",
+    "neededNum": 3,
+    "required_courses": [
+      {
+        "code": "COMPSCI171",
+        "title": "Introduction to Artificial Intelligence"
+      },
+      {
+        "code": "COMPSCI175",
+        "title": "Project in Artificial Intelligence"
+      },
+      {
+        "code": "COMPSCI178",
+        "title": "Machine Learning and Data-Mining"
+      }
+    ],
+    "elective_courses": [
+      {
+        "code": "COMPSCI116",
+        "title": "Computational Photography and Vision"
+      },
+      {
+        "code": "COMPSCI121",
+        "title": "Information Retrieval"
+      },
+      {
+        "code": "COMPSCI125",
+        "title": "Next Generation Search Systems"
+      },
+      {
+        "code": "COMPSCI162",
+        "title": "Formal Languages and Automata"
+      },
+      {
+        "code": "COMPSCI163",
+        "title": "Graph Algorithms"
+      },
+      {
+        "code": "COMPSCI164",
+        "title": "Computational Geometry"
+      },
+      {
+        "code": "COMPSCI169",
+        "title": "Introduction to Optimization"
+      },
+      {
+        "code": "COMPSCI177",
+        "title": "Applications of Probability in Computer Science"
+      },
+      {
+        "code": "COMPSCI179",
+        "title": "Algorithms for Probabilistic and Deterministic Graphical Models"
+      }
+    ]
+  },
+  {
+    "specialization_name": "Networked Systems",
+    "neededNum": 0,
+    "required_courses": [
+      {
+        "code": "COMPSCI132",
+        "title": "Computer Networks"
+      },
+      {
+        "code": "COMPSCI133",
+        "title": "Advanced Computer Networks"
+      },
+      {
+        "code": "COMPSCI134",
+        "title": "Computer and Network Security"
+      },
+      {
+        "code": "COMPSCI143A",
+        "title": "Principles of Operating Systems"
+      }
+    ],
+    "elective_courses": []
+  },
+  {
+    "specialization_name": "Systems and Software",
+    "neededNum": 3,
+    "required_courses": [],
+    "elective_courses": [
+      {
+        "code": "COMPSCI131",
+        "title": "Parallel and Distributed Computing"
+      },
+      {
+        "code": "COMPSCI141",
+        "title": "Concepts in Programming Languages"
+      },
+      {
+        "code": "COMPSCI142A",
+        "title": "Compilers and Interpreters"
+      },
+      {
+        "code": "COMPSCI142B",
+        "title": "Project in Compilers and Interpreters"
+      },
+      {
+        "code": "COMPSCI143A",
+        "title": "Principles of Operating Systems"
+      },
+      {
+        "code": "COMPSCI143B",
+        "title": "Project in Operating System Organization"
+      }
+    ]
+  },
+  {
+    "specialization_name": "Visual Computing",
+    "neededNum": 4,
+    "required_courses": [],
+    "elective_courses": [
+      {
+        "code": "COMPSCI111",
+        "title": "Digital Image Processing"
+      },
+      {
+        "code": "COMPSCI112",
+        "title": "Computer Graphics"
+      },
+      {
+        "code": "COMPSCI114",
+        "title": "Projects in Advanced 3D Computer Graphics"
+      },
+      {
+        "code": "COMPSCI116",
+        "title": "Computational Photography and Vision"
+      },
+      {
+        "code": "COMPSCI117",
+        "title": "Project in Computer Vision"
+      },
+      {
+        "code": "COMPSCI118",
+        "title": "Introduction to Virtual Reality"
+      }
+    ]
+  }
+]
