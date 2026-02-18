@@ -27,6 +27,7 @@ class Gemini:
     ):
 
         # TODO: add specialization requirements
+        # specialziation requirements is a list of courses that the student needs to take for their specialization
 
         print("Gemini being called: recomending a class")
         prompt = f"""### SYSTEM ROLE

@@ -14,10 +14,7 @@ load_dotenv()
 
 gemini = gemini.Gemini()
 
-if not TESTING:
-    db = Database()
-else:
-    db = None
+db = Database()
 
 app = FastAPI(title="FastAPI Backend")
 
@@ -142,7 +139,7 @@ async def api_recommended_classes(username: str):
         print(f"Successfully fetched {len(courses)} classes")
         print("courses: ", courses)
 
-        print(f"Received /api/recommendedClasses with username: {username}")
+        print(f"Receive2d /api/recommendedClasses with username: {username}")
         user_info = db.get_collection("users").find_one({"username": username})
 
         if user_info:
@@ -174,15 +171,12 @@ async def api_recommended_classes(username: str):
 @app.get("/api/specializationInfo")
 async def api_specialization_info():
 
+    specializations = list(db.get_collection("specializations").find())
+    util.stringify_ids(specializations)
+    print("specializations: ", specializations)
+
     return {
-        "data": [
-            {"specialization": "AI", "description": "Artificial Intelligence"},
-            {"specialization": "Algorithms", "description": "Algorithms"},
-            {
-                "specialization": "Formal Languages and Automata",
-                "description": "Formal Languages and Automata",
-            },
-        ],
+        "data": specializations,
         "status": "ok",
         "message": "Specialization info",
     }
@@ -193,7 +187,7 @@ async def api_interests_list():
 
     keywords = list(db.get_collection("keywords").find())
     util.stringify_ids(keywords)
-    keywords = get_keywords()
+    print("keywords: ", keywords)
 
     return {
         "data": keywords,

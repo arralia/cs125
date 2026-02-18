@@ -219,14 +219,13 @@ export default function UserSettingsForm({ setSettings }) {
                   className="w-64 p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
                 >
                   <option value="">Select a specialization...</option>
-                  {specializationListResponse?.data?.map((specialization) => (
-                    <option
-                      key={specialization.specialization}
-                      value={specialization.specialization}
-                    >
-                      {specialization.specialization}
-                    </option>
-                  ))}
+                  {specializationListResponse &&
+                    specializationListResponse.data &&
+                    specializationListResponse.data.map((spec, idx) => (
+                      <option key={idx} value={spec.specialization_name}>
+                        {spec.specialization_name}
+                      </option>
+                    ))}
                 </select>
               </div>
 
