@@ -34,7 +34,7 @@ def narrow_down_courses(courses: list, user_info: dict) -> list:
     # ]
 
     # Return the courses that they're eligible for and interested in combined with the courses that they're eligible for and count towards their specialization
-    return (interestedCourses & eligibleCourses) | (specializationCourses & eligibleCourses) 
+    return (interestedCourses & eligibleCourses),(specializationCourses & eligibleCourses) 
 
 def get_interested_courses(interests: list) -> set:
     """Return a set of course IDs related to the user's selected interest keywords."""

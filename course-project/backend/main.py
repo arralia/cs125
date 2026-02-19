@@ -144,8 +144,9 @@ async def api_recommended_classes(username: str):
 
         if user_info:
             print("user_info: ", user_info)
-            courses = util.narrow_down_courses(courses, user_info)
-            recommended_classes = gemini.recommend_class(user_info, courses, None)
+            # Sets of course IDs returned. Likely need to enrich them before passing into gemini (like difficulty)
+            courses, specialization_courses = util.narrow_down_courses(courses, user_info)
+            recommended_classes = gemini.recommend_class(user_info, courses, specialization_courses)
             print(f"Gemini output: {recommended_classes}")
             return {
                 "data": recommended_classes,
