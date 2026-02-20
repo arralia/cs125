@@ -1,8 +1,9 @@
 
-# from main import db
+from main import db
 import http.client
 import json
 import urllib
+import re
 
 conn = http.client.HTTPSConnection("anteaterapi.com")
 
@@ -114,10 +115,19 @@ def get_specialization_courses(specialization: str) -> set:
     """Return the course IDs that count towards a user's spec. Can return empty set if user has no spec."""
     specializationCourses = set()
     if specialization:
-        specialCourses = db.get_collection("specializations").find_one({"specialization_name": specialization})
-        if specialCourses and "courses" in specialCourses:
-            for course in specialCourses["courses"]:
-                specializationCourses.add(course["id"])
+        specialization_doc = db.get_collection("specializations").find_one({"specialization_name": specialization})
+        if specialization_doc:
+            # TODO: will likely need to subtract any courses they've already taken which decreases the required number of
+            # elective_courses we suggest. Maybe add it anyways? Definitely add more weight to the required_courses
+            # in their specialization, and secondary ranking to electice courses.
+            # Link to issue: https://github.com/users/arralia/projects/2/views/1?pane=issue&itemId=158633000&issue=arralia%7Ccs125%7C22
+
+            # Add all required courses
+            for course in specialization_doc.get("required_courses", []):
+                specializationCourses.add(course["code"])
+            # Add all elective courses (user can choose from any of these)
+            for course in specialization_doc.get("elective_courses", []):
+                specializationCourses.add(course["code"])
     return specializationCourses
 
 def satisfies_prereqs(tree: dict, completed: set) -> bool:
