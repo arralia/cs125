@@ -1,15 +1,60 @@
 
-from main import db
+# from main import db
+import http.client
+import json
+import urllib
+
+conn = http.client.HTTPSConnection("anteaterapi.com")
+
+def fetch_active_courses() -> set:
+    """Gets the course offerings for the most recently released WebSOC quarter through AnteaterAPI"""
+
+    year, season = fetch_most_recent_quarter()
+    departments = ["COMPSCI", "I&C SCI"]
+    all_courses = set()
+    for dept in departments:
+        encoded_dept = urllib.parse.quote(dept)
+        conn.request("GET", f"/v2/rest/websoc?year={year}&quarter={season}&department={encoded_dept}")
+        res = conn.getresponse()
+        data = res.read()
+        response_data = json.loads(data.decode("utf-8"))
+        # Extract and combine courses from response_data as needed
+        for school in response_data["data"]["schools"]:
+            for department in school["departments"]:
+                for course in department["courses"]:
+                    course_id = course["deptCode"].replace(" ", "") + course["courseNumber"] 
+                    all_courses.add(course_id)
+    print(f"Fetched {len(all_courses)} active courses in the I&SCI and COMPSCI deptsfrom AnteaterAPI for {season} {year}")
+    
+    if not all_courses:
+        # If list is empty, we parsed wrong or the API didn't fetch correctly
+        raise Exception(f"Failed to fetch active courses for term {season} {year} from AnteaterAPI")
+    return all_courses
+    
+def fetch_most_recent_quarter() -> list[str]:
+    conn.request("GET", "/v2/rest/websoc/terms")
+    res = conn.getresponse()
+    data = res.read()
+    response_data = json.loads(data.decode("utf-8"))
+    if response_data.get("ok"):
+        # The first element in the data field should be the most recent quarter, from my observations
+        most_recent_quarter = response_data.get("data")[0].get("shortName")
+        quarter_info = most_recent_quarter.split()
+        return quarter_info
+    raise Exception("Failed to fetch most recent term information")
 
 def narrow_down_courses(courses: list, user_info: dict) -> list:
-    """This function will take the courses data from the database 
-    and just return the courses that are relevant to the user's context"""
+    """ This function will take the courses data from the database 
+        and return the courses that are relevant to the user's context.
+        We never want to return NO courses here. Only case where that will 
+        happen is if the user is ineligible for every single CS upper div."""
     allCourseIds = set(course["id"] for course in courses)
 
     # Check the user's interests (mapped to keywords) and get the courses that are categorized under their interests
     interestedCourses = get_interested_courses(user_info.get("interests"))
     if not interestedCourses:
         # If user has no selected interests, consider all courses as interested
+        print("User has no selected interest tags.")
         interestedCourses = allCourseIds.copy()
 
     # Check the prerequisiteTrees of the courses to make sure that this user has completed it
@@ -23,6 +68,7 @@ def narrow_down_courses(courses: list, user_info: dict) -> list:
     specializationCourses = get_specialization_courses(user_info.get("specialization"))
     if not specializationCourses:
         # If user has no specialization, consider all courses as specialization courses
+        print("User has no specialization courses.")
         specializationCourses = allCourseIds.copy()
 
     # return [
@@ -33,8 +79,10 @@ def narrow_down_courses(courses: list, user_info: dict) -> list:
     #     for course in ( (interestedCourses & eligibleCourses) | (specializationCourses & eligibleCourses) )
     # ]
 
-    # Return the courses that they're eligible for and interested in combined with the courses that they're eligible for and count towards their specialization
-    return (interestedCourses & eligibleCourses),(specializationCourses & eligibleCourses) 
+    activeCourses = fetch_active_courses()
+    print(f'{len((interestedCourses&eligibleCourses) - activeCourses)} interested and eligible courses are not active for this quarter; {len((specializationCourses&eligibleCourses) - activeCourses)} specialization and eligible courses are not active for this quarter')
+    
+    return (interestedCourses & eligibleCourses & activeCourses),(specializationCourses & eligibleCourses & activeCourses) 
 
 def get_interested_courses(interests: list) -> set:
     """Return a set of course IDs related to the user's selected interest keywords."""
@@ -66,12 +114,10 @@ def get_specialization_courses(specialization: str) -> set:
     """Return the course IDs that count towards a user's spec. Can return empty set if user has no spec."""
     specializationCourses = set()
     if specialization:
-        db.get_collection("specializations").find_one({"specialization_name": specialization})
-        specializations = list(db.get_collection("specializations").find())
-        specialCourses = [c for c in specializations if c["specialization_name"] == specialization]
-        specialCourses = specialCourses[0]["courses"] if specialCourses else []
-        for course in specialCourses:
-             specializationCourses.add(course["id"])
+        specialCourses = db.get_collection("specializations").find_one({"specialization_name": specialization})
+        if specialCourses and "courses" in specialCourses:
+            for course in specialCourses["courses"]:
+                specializationCourses.add(course["id"])
     return specializationCourses
 
 def satisfies_prereqs(tree: dict, completed: set) -> bool:
