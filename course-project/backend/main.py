@@ -126,7 +126,7 @@ async def api_course_info(courseid: str = None):
 
 
 @app.get("/api/recommendedClasses")
-async def api_recommended_classes(username: str):
+async def api_recommended_classes(username: str | None = None):
     """
     Returns the recommended classes for a given user
     """
@@ -154,10 +154,16 @@ async def api_recommended_classes(username: str):
                 "message": "Recommended classes",
             }
         else:
+            active_course_ids = util.fetch_active_courses()
+            active_courses = [
+                {"id": course["id"], "title": course["title"]}
+                for course in courses
+                if course["id"] in active_course_ids
+            ]
             return {
-                "data": None,
+                "data": active_courses,
                 "status": "error",
-                "message": "User not found",
+                "message": "User not found, recommending all active courses instead",
             }
 
     except Exception as e:

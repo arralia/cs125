@@ -4,15 +4,11 @@ import { useEffect, useState } from "react";
 import ReadCookie from "./ReadCookie";
 
 export default function LoginForm({ setLogin }) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const { execute: postLogin, loading } = useApiPost({ api: "/api/login" });
+  const { execute: postLogin } = useApiPost({ api: "/api/login" });
 
   // this is the onSubmit function for the form
   const onSubmit = async (data) => {
@@ -34,11 +30,17 @@ export default function LoginForm({ setLogin }) {
     }
   };
 
+  const handleLogout = () => {
+    document.cookie = "username=; path=/; max-age=0; SameSite=Lax";
+    setLoggedIn(false);
+    setLogin(false);
+  };
+
   useEffect(() => {
     // get the cookie for username and see if htye exist, if they do
     if (document.cookie.includes("username")) {
       setLoggedIn(true);
-      const username = ReadCookie("username");
+      // const username = ReadCookie("username");
     } else {
       setLoggedIn(false);
     }
@@ -51,22 +53,33 @@ export default function LoginForm({ setLogin }) {
           Logged in as: {ReadCookie("username")}
         </p>
       )}
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex items-center gap-4"
-      >
-        <input
-          {...register("username")}
-          placeholder="Unique User ID"
-          className="border border-gray-300 rounded-md py-2 px-4 hover:border-blue-500"
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600 cursor-pointer"
+      { !loggedIn && (
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex items-center gap-4"
         >
-          Login
+          <input
+            {...register("username")}
+            placeholder="Unique User ID"
+            className="border border-gray-300 rounded-md py-2 px-4 hover:border-blue-500"
+          />
+          <button
+            type="submit"
+            className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600 cursor-pointer"
+          >
+            Login
+          </button>
+        </form>
+      )}
+      {loggedIn && (
+        <button
+          type="button"
+          onClick={handleLogout}
+          className="mt-3 bg-red-500 text-white py-2 px-6 rounded-md hover:bg-red-600 cursor-pointer"
+        >
+          Logout
         </button>
-      </form>
+      )}
     </div>
   );
 }

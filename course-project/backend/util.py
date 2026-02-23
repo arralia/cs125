@@ -3,7 +3,6 @@ from main import db
 import http.client
 import json
 import urllib
-import re
 
 conn = http.client.HTTPSConnection("anteaterapi.com")
 
