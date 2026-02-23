@@ -13,6 +13,10 @@ export default function LoginForm({ setLogin }) {
   // this is the onSubmit function for the form
   const onSubmit = async (data) => {
     try {
+      if (data.username.trim() === "") {
+        alert("Please enter a username");
+        return;
+      }
       const response = await postLogin(data);
       console.log("Server response:", response.data);
       if (response) {
