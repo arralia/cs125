@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import useApiPost from "../hooks/useApiPost";
-import ReadCookie from "./ReadCookie";
+import { SetCookie } from "./CookieUtils";
 
 export default function CreateAccountForm({ setDisplayLoginPage, toggleForm }) {
   const { register, handleSubmit } = useForm();
@@ -18,7 +18,7 @@ export default function CreateAccountForm({ setDisplayLoginPage, toggleForm }) {
       console.log("Server response:", response);
       if (response && response.status === "ok" && response.data) {
         // Sets a cookie in the frontend
-        document.cookie = `username=${response.data.username}; path=/; max-age=3600; SameSite=Lax`;
+        SetCookie("username", response.data.username, 3600);
         setDisplayLoginPage(false);
       } else if (response && response.status === "error") {
         alert(response.message || "Registration failed");
