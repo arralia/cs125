@@ -8,6 +8,10 @@ from database import Database
 import gemini
 import util
 
+# Workaround for SSL certificate verification issues on macOS
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 TESTING = False
 
 # Load environment variables from .env
@@ -141,13 +145,11 @@ async def api_recommended_classes(username: str | None = None):
         print("Received /api/recommendedClasses: Fetching recommended classes...")
         courses = list(db.get_collection("courses").find())
         print(f"Successfully fetched {len(courses)} classes")
-        print("courses: ", courses)
 
-        print(f"Receive2d /api/recommendedClasses with username: {username}")
+        print(f"Received /api/recommendedClasses with username: {username}")
         user_info = db.get_collection("users").find_one({"username": username})
-
+        print("user_info: ", user_info)
         if user_info:
-            print("user_info: ", user_info)
             # Sets of course IDs returned. Likely need to enrich them before passing into gemini (like difficulty)
             courses, specialization_courses = util.narrow_down_courses(
                 courses, user_info
@@ -188,7 +190,6 @@ async def api_specialization_info():
 
     specializations = list(db.get_collection("specializations").find())
     util.stringify_ids(specializations)
-    print("specializations: ", specializations)
 
     return {
         "data": specializations,
@@ -202,7 +203,7 @@ async def api_interests_list():
 
     keywords = list(db.get_collection("keywords").find())
     util.stringify_ids(keywords)
-    print("keywords: ", keywords)
+    print("Number of keywords: ", len(keywords))
 
     return {
         "data": keywords,
@@ -250,7 +251,7 @@ async def api_login(request: LoginRequest):
                 "status": "error",
                 "message": "Invalid password or username",
             }
-            
+
     except Exception as e:
         print(f"Error processing login: {e}")
         return {

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import useApiPost from "../hooks/useApiPost";
 import { useEffect, useState } from "react";
-import ReadCookie from "./CookieUtils";
+import { ReadCookie, SetCookie } from "./CookieUtils";
 
 export default function LoginForm({ setDisplayLoginPage, toggleForm }) {
   const { register, handleSubmit } = useForm();
@@ -22,7 +22,7 @@ export default function LoginForm({ setDisplayLoginPage, toggleForm }) {
       console.log("Server response:", response);
       if (response && response.status === "ok" && response.data) {
         // this line here sets a cookie in the frontend
-        document.cookie = `username=${response.data.username}; path=/; max-age=3600; SameSite=Lax`;
+        SetCookie("username", response.data.username, 3600);
         setDisplayLoginPage(false);
       } else if (response && response.status === "error") {
         alert(response.message || "Login failed");
