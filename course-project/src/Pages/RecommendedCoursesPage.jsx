@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import useApiGet from "../hooks/useApiGet";
-import ClassCardCollection from "../components/ClassCardCollection";
-import ReadCookie from "../components/ReadCookie";
+import ClassCardCollection from "../Components/ClassCardCollection";
+import ReadCookie from "../Components/ReadCookie";
 
 export default function RecommendedCoursesPage() {
   const [recommendedClasses, setRecommendedClasses] = useState([]);
@@ -11,17 +11,20 @@ export default function RecommendedCoursesPage() {
     api: "/api/recommendedClasses",
   });
   // TODO: better way to make sure recommended classes re-render than interval polling...
-  const getRecommendedClasses = useCallback((nextUsername) => {
-    execute({ params: { username: nextUsername || "" } }).then((res) => {
-      setRecommendedClasses(res.data);
-    });
-  }, [execute]);
+  const getRecommendedClasses = useCallback(
+    (nextUsername) => {
+      execute({ params: { username: nextUsername || "" } }).then((res) => {
+        setRecommendedClasses(res.data);
+      });
+    },
+    [execute],
+  );
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       const currentUsername = ReadCookie("username") || "";
       setUsername((prevUsername) =>
-        prevUsername === currentUsername ? prevUsername : currentUsername
+        prevUsername === currentUsername ? prevUsername : currentUsername,
       );
     }, 1000);
 

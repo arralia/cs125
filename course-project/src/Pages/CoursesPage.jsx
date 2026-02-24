@@ -1,6 +1,6 @@
 import useApiGet from "../hooks/useApiGet";
 import { useEffect, useState } from "react";
-import ClassCardCollection from "../components/ClassCardCollection";
+import ClassCardCollection from "../Components/ClassCardCollection";
 
 export default function CoursesPage() {
   const [classes, setClasses] = useState([]);

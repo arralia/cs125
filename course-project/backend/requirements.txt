@@ -5,3 +5,4 @@ pydantic
 pymongo
 google-genai
 certifi
+passlib

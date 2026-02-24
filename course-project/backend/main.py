@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pydantic import BaseModel
+from passlib.context import CryptContext
 from database import Database
 import gemini
 import util
@@ -15,6 +16,8 @@ load_dotenv()
 gemini = gemini.Gemini()
 
 db = Database()
+
+pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 
 app = FastAPI(title="FastAPI Backend")
 
@@ -30,6 +33,7 @@ app.add_middleware(
 
 class LoginRequest(BaseModel):
     username: str
+    password: str
 
 
 class UserSetInfoRequest(BaseModel):
@@ -145,8 +149,12 @@ async def api_recommended_classes(username: str | None = None):
         if user_info:
             print("user_info: ", user_info)
             # Sets of course IDs returned. Likely need to enrich them before passing into gemini (like difficulty)
-            courses, specialization_courses = util.narrow_down_courses(courses, user_info)
-            recommended_classes = gemini.recommend_class(user_info, courses, specialization_courses)
+            courses, specialization_courses = util.narrow_down_courses(
+                courses, user_info
+            )
+            recommended_classes = gemini.recommend_class(
+                user_info, courses, specialization_courses
+            )
             print(f"Gemini output: {recommended_classes}")
             return {
                 "data": recommended_classes,
@@ -207,48 +215,100 @@ async def api_interests_list():
 async def api_login(request: LoginRequest):
 
     username = request.username
+    password = request.password
 
     try:
         print(f"Received /api/login with username: {username}")
         # Find user, exclude _id for clean JSON response
-        user_info = db.get_collection("users").find_one(
-            {"username": username}, {"_id": 0}
-        )
+        user_info = db.get_collection("users").find_one({"username": username})
 
         if user_info:
             print("user_info found: ", user_info)
-            return {
-                "data": user_info,
-                "status": "ok",
-                "message": "User info",
-            }
+            # Verify password
+            stored_password = user_info.get("password")
+            if stored_password and pwd_context.verify(password, stored_password):
+                # Remove password from response and stringify _id
+                if "_id" in user_info:
+                    user_info["_id"] = str(user_info["_id"])
+                if "password" in user_info:
+                    del user_info["password"]
+
+                return {
+                    "data": user_info,
+                    "status": "ok",
+                    "message": "Login successful",
+                }
+            else:
+                return {
+                    "data": None,
+                    "status": "error",
+                    "message": "Invalid password or username",
+                }
         else:
-            print(f"User {username} not found, creating new user.")
-            new_user = {
-                "username": username,
-                "completedClasses": [],
-                "interests": [],
-                "specialization": "",
-                "quartersLeft": 4,
-            }
-            # Insert the new user
-            db.get_collection("users").insert_one(new_user)
-
-            # Remove _id which insert_one adds, so we can return clean JSON
-            if "_id" in new_user:
-                del new_user["_id"]
-
             return {
-                "data": new_user,
-                "status": "ok",
-                "message": "New user created",
+                "data": None,
+                "status": "error",
+                "message": "Invalid password or username",
             }
+            
     except Exception as e:
         print(f"Error processing login: {e}")
         return {
             "data": None,
             "status": "error",
             "message": "Failed to process login",
+        }
+
+
+@app.post("/api/register")
+async def api_register(request: LoginRequest):
+    username = request.username
+    password = request.password
+
+    try:
+        print(f"Received /api/register with username: {username}")
+        # Check if user already exists
+        existing_user = db.get_collection("users").find_one({"username": username})
+
+        if existing_user:
+            return {
+                "data": None,
+                "status": "error",
+                "message": "Username already exists",
+            }
+
+        # Hash the password
+        hashed_password = pwd_context.hash(password)
+
+        new_user = {
+            "username": username,
+            "password": hashed_password,
+            "completedClasses": [],
+            "interests": [],
+            "specialization": "",
+            "quartersLeft": 4,
+        }
+
+        # Insert the new user
+        db.get_collection("users").insert_one(new_user)
+
+        # Prepare user info for response (exclude password and _id)
+        if "_id" in new_user:
+            del new_user["_id"]
+        if "password" in new_user:
+            del new_user["password"]
+
+        return {
+            "data": new_user,
+            "status": "ok",
+            "message": "User registered successfully",
+        }
+    except Exception as e:
+        print(f"Error processing registration: {e}")
+        return {
+            "data": None,
+            "status": "error",
+            "message": "Failed to register user",
         }
 
 

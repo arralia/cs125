@@ -3,7 +3,10 @@
 import { CircleUserRound, LibraryBig, Settings } from "lucide-react";
 import SearchBar from "./SearchBar";
 
-export default function NavBar({ setLogin, setSettings }) {
+export default function NavBar({
+  setDisplayLoginPage,
+  setDisplaySettingsPage,
+}) {
   return (
     // nav bar, will add links and stuff with react router later
     <nav className="flex p-4 bg-blue-500 items-center justify-between">
@@ -15,8 +18,14 @@ export default function NavBar({ setLogin, setSettings }) {
         <SearchBar />
       </div>
       <div className="flex items-center pr-4 gap-4 text-white cursor-pointer">
-        <Settings className="size-8" onClick={() => setSettings(true)} />
-        <CircleUserRound className="size-8" onClick={() => setLogin(true)} />
+        <Settings
+          className="size-8"
+          onClick={() => setDisplaySettingsPage(true)}
+        />
+        <CircleUserRound
+          className="size-8"
+          onClick={() => setDisplayLoginPage(true)}
+        />
       </div>
     </nav>
   );
