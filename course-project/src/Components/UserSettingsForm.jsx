@@ -7,7 +7,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { useEffect, useState } from "react";
 import useApiPost from "../hooks/useApiPost";
 import useApiGet from "../hooks/useApiGet";
-import ReadCookie from "./ReadCookie";
+import { ReadCookie } from "./CookieUtils";
 
 export default function UserSettingsForm({ setDisplaySettingsPage }) {
   const {
@@ -15,7 +15,6 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
     control,
     handleSubmit,
     reset, // <-- This function can force-update the entire form at once (Added by Gemini AI)
-    formState: { errors },
   } = useForm({
     defaultValues: {
       completedClasses: [],
@@ -50,7 +49,7 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
     api: "/api/getUserInfo",
   });
 
-  const { execute: sendUserInfo, response: setUserInfoResponse } = useApiPost({
+  const { execute: sendUserInfo } = useApiPost({
     api: "/api/setUserInfo",
   });
 
@@ -349,3 +348,36 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
   );
 }
 
+// this is the origianl interests page here temporarily because we wanna test out a new
+// version where they students just select like their interests
+
+// <div className="flex flex-col gap-4">
+//             <h3 className="text-xl font-semibold mb-2">
+//               Self-Assessment Interests
+//             </h3>
+//             {strengths.map((interests) => (
+//               <div
+//                 key={interests.name}
+//                 className="flex gap-4 justify-between items-center bg-gray-50 p-3 rounded-lg"
+//               >
+//                 <label className="font-medium text-gray-700">
+//                   {interests.name}
+//                 </label>
+//                 <div className="flex gap-3 justify-end items-center">
+//                   <label className="text-xs text-gray-500">1</label>
+//                   <input
+//                     id={interests.name}
+//                     type="range"
+//                     min="1"
+//                     max="5"
+//                     step="1"
+//                     className="w-30 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+//                     {...register(`strengths.${interests.name}`, {
+//                       valueAsNumber: true,
+//                     })}
+//                   />
+//                   <label className="text-xs text-gray-500">5</label>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>

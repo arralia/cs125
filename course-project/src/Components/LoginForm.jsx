@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import useApiPost from "../hooks/useApiPost";
 import { useEffect, useState } from "react";
-import ReadCookie from "./ReadCookie";
+import ReadCookie from "./CookieUtils";
 
 export default function LoginForm({ setDisplayLoginPage, toggleForm }) {
   const { register, handleSubmit } = useForm();

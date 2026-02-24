@@ -18,6 +18,7 @@ dist-ssr/
 .eslintcache
 
 # Python / Backend
+backend/__pycache__
 __pycache__/
 *.py[cod]
 *$py.class
