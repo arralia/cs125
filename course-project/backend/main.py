@@ -7,6 +7,7 @@ from passlib.context import CryptContext
 from database import Database
 import gemini
 import util
+from user import User
 
 # Workaround for SSL certificate verification issues on macOS
 import ssl
@@ -56,11 +57,8 @@ class Username(BaseModel):
 async def root():
     return {"message": "Welcome to the FastAPI Backend!"}
 
-
 """
-
 This section is for the class information
-
 """
 
 
