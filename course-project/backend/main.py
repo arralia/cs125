@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pydantic import BaseModel
@@ -11,6 +11,7 @@ from user import User
 
 # Workaround for SSL certificate verification issues on macOS
 import ssl
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 TESTING = False
@@ -56,6 +57,15 @@ class Username(BaseModel):
 @app.get("/")
 async def root():
     return {"message": "Welcome to the FastAPI Backend!"}
+
+
+def get_current_user(username: str | None = None) -> User:
+    """Dependency to get a User object for the given username."""
+    user = User(db, username)
+    if username:
+        user.load()
+    return user
+
 
 """
 This section is for the class information
@@ -132,28 +142,28 @@ async def api_course_info(courseid: str = None):
 
 
 @app.get("/api/recommendedClasses")
-async def api_recommended_classes(username: str | None = None):
+async def api_recommended_classes(user: User = Depends(get_current_user)):
     """
     Returns the recommended classes for a given user
     """
 
-    # return {"data": [], "status": "ok", "message": "Recommended classes"}
-
     try:
-        print("Received /api/recommendedClasses: Fetching recommended classes...")
-        courses = list(db.get_collection("courses").find())
-        print(f"Successfully fetched {len(courses)} classes")
+        print(f"Received /api/recommendedClasses for user: {user.username}")
 
-        print(f"Received /api/recommendedClasses with username: {username}")
-        user_info = db.get_collection("users").find_one({"username": username})
+        user_info = user.get_user_info()
         print("user_info: ", user_info)
+
         if user_info:
-            # Sets of course IDs returned. Likely need to enrich them before passing into gemini (like difficulty)
-            courses, specialization_courses = util.narrow_down_courses(
-                courses, user_info
+            # Fetch all courses
+            courses = list(db.get_collection("courses").find())
+
+            # Using the new retrieval method in User class
+            interested_eligible, specialization_eligible = (
+                user.retrieve_recommended_classes()
             )
+
             recommended_classes = gemini.recommend_class(
-                user_info, courses, specialization_courses
+                user_info, interested_eligible, specialization_eligible
             )
             print(f"Gemini output: {recommended_classes}")
             return {
@@ -162,6 +172,7 @@ async def api_recommended_classes(username: str | None = None):
                 "message": "Recommended classes",
             }
         else:
+            courses = list(db.get_collection("courses").find())
             active_course_ids = util.fetch_active_courses()
             active_courses = [
                 {"id": course["id"], "title": course["title"]}
@@ -312,16 +323,14 @@ async def api_register(request: LoginRequest):
 
 
 @app.post("/api/setUserInfo")
-async def api_set_user_info(request: UserSetInfoRequest):
+async def api_set_user_info(
+    request: UserSetInfoRequest, user: User = Depends(get_current_user)
+):
     print(f"Saving info for user: {request.username}")
 
-    user_collection = db.get_collection("users")
-
-    # Upsert: Update if exists, insert if not
+    # Use the User object's update method
     user_data = request.model_dump()
-    user_collection.update_one(
-        {"username": request.username}, {"$set": user_data}, upsert=True
-    )
+    user.update_user_info(user_data)
 
     return {
         "status": "ok",
@@ -330,19 +339,23 @@ async def api_set_user_info(request: UserSetInfoRequest):
 
 
 @app.get("/api/getUserInfo")
-async def api_get_user_info(username: str = None):
-    print(f"api_get_user_info called with username: {username}")
+async def api_get_user_info(user: User = Depends(get_current_user)):
+    print(f"api_get_user_info called for user: {user.username}")
 
-    if not username:
+    if not user.username:
         return None
 
-    user_collection = db.get_collection("users")
-    user = user_collection.find_one({"username": username}, {"_id": 0})
+    user_info = user.get_user_info()
 
-    if user:
-        print(f"User {username}: loading user info from DB")
+    if user_info:
+        # Create a copy to modify (strip _id)
+        response_data = user_info.copy()
+        if "_id" in response_data:
+            del response_data["_id"]
+
+        print(f"User {user.username}: loading user info from DB")
         return {
-            "data": user,
+            "data": response_data,
             "status": "ok",
             "message": "User info",
         }
@@ -350,7 +363,7 @@ async def api_get_user_info(username: str = None):
     # Fallback/Default for new users
     return {
         "data": {
-            "username": username,
+            "username": user.username,
             "completedClasses": [],
             "interests": [],
             "specialization": "",
