@@ -34,6 +34,13 @@ export default function LoginForm({ setLogin }) {
     }
   };
 
+  const handleLogout = () => {
+    document.cookie = "username=; path=/; max-age=0; SameSite=Lax";
+    window.dispatchEvent(new Event("username-cookie-changed"));
+    setLoggedIn(false);
+    setDisplayLoginPage(false);
+  };
+
   useEffect(() => {
     // get the cookie for username and see if htye exist, if they do
     if (document.cookie.includes("username")) {

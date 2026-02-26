@@ -1,9 +1,9 @@
 import NavBar from "./components/NavBar";
-import UserSettingsPage from "./pages/UserSettingsPage";
-import LoginPage from "./pages/LoginPage";
+import UserSettingsPage from "./Pages/UserSettingsPage";
+import LoginPage from "./Pages/LoginPage";
 import { useState } from "react";
-import CoursesPage from "./pages/CoursesPage";
-import RecommendedCoursesPage from "./pages/RecommendedCoursesPage";
+import CoursesPage from "./Pages/CoursesPage";
+import RecommendedCoursesPage from "./Pages/RecommendedCoursesPage";
 
 function App() {
   const [loginPrompt, setLogin] = useState(false);
