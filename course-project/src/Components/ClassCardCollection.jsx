@@ -1,8 +1,8 @@
 import Card from "./Card";
 
-export default function ClassCardCollection({ data }) {
+export default function ClassCardCollection({ data, className }) {
   return (
-    <div className="flex flex-col p-4 gap-4">
+    <div className={`grid gap-4 ${className || "grid-cols-1"}`}>
       {data?.map((item, index) => (
         <Card
           key={index} // Keys help React track list items

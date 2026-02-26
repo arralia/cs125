@@ -25,14 +25,14 @@ export default function UserSettingsPage({ setDisplaySettingsPage }) {
   }, [setDisplaySettingsPage]);
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center bg-black/40 backdrop-blur-sm z-50 p-4">
-      <div className="relative flex flex-col justify-left z-50 max-w-2xl w-full mx-auto bg-white p-10 rounded-lg shadow-xl">
+    <div className="fixed inset-0 flex justify-center items-center bg-slate-900/40 backdrop-blur-md z-50 p-4 transition-all">
+      <div className="relative flex flex-col justify-left z-50 w-full max-w-2xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-2xl border border-slate-100">
         <button
           type="button"
           onClick={() => setDisplaySettingsPage(false)}
-          className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-lg leading-none cursor-pointer"
+          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors leading-none cursor-pointer"
         >
-          ×
+          ✕
         </button>
         <UserSettingsForm setDisplaySettingsPage={setDisplaySettingsPage} />
       </div>

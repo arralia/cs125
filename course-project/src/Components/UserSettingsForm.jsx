@@ -113,29 +113,33 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-6">User Settings</h2>
+      <h2 className="text-3xl font-extrabold text-slate-900 mb-6 tracking-tight">
+        User Settings
+      </h2>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
-        <div className="flex flex-row gap-2">
-          <label className="text-xl font-semibold">User ID:</label>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+          <label className="text-sm font-semibold text-slate-500 uppercase tracking-wide">
+            User ID:
+          </label>
           <input
             type="text"
             {...register("username")}
-            className="text-xl font-semibold"
+            className="text-lg font-bold text-slate-900 bg-transparent outline-none flex-1"
             readOnly
           />
         </div>
 
-        <div className="flex">
+        <div className="flex bg-slate-100 p-1 rounded-xl w-fit">
           <button
             type="button"
-            className="text-xl font-bold outline px-3 rounded-l-md hover:text-blue-700"
+            className={`px-6 py-2 rounded-lg font-semibold text-sm transition-all ${settingsPage === "Interests" ? "bg-white text-indigo-600 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
             onClick={() => setSettingsPage("Interests")}
           >
             Interests
           </button>
           <button
             type="button"
-            className="text-xl font-bold outline px-3 rounded-r-md hover:text-blue-700"
+            className={`px-6 py-2 rounded-lg font-semibold text-sm transition-all ${settingsPage === "Classes" ? "bg-white text-indigo-600 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
             onClick={() => setSettingsPage("Classes")}
           >
             Classes
@@ -148,37 +152,39 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
             to work with the interests section*/}
 
             <div className="flex justify-between items-center mb-2">
-              <h3 className="text-xl font-semibold">Interests</h3>
+              <h3 className="text-xl font-bold text-slate-800">
+                Your Interests
+              </h3>
               <button
                 type="button"
                 onClick={() => interestsAppend({ interests: "" })}
-                className="bg-green-500 text-white px-3 py-1 rounded-md text-sm hover:bg-green-600 transition-colors"
+                className="bg-indigo-50 text-indigo-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-100 transition-colors shadow-sm"
               >
-                + Add Interests
+                + Add Interest
               </button>
             </div>
 
             {interests?.length === 0 && (
-              <div className="py-10 text-center border-2 border-dashed border-gray-200 rounded-xl bg-gray-50 text-gray-400">
-                No interests added yet. Click "+ Add Interests" to begin.
+              <div className="py-12 text-center border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50/50 text-slate-400">
+                No interests added yet. Click "+ Add Interest" to begin.
               </div>
             )}
 
-            <div className="flex flex-col gap-3 max-h-[320px] overflow-y-auto pr-2">
+            <div className="flex flex-col gap-3 max-h-[400px] overflow-y-auto pr-2 scrollbar-custom">
               {interests?.map((interestsItem, index) => (
                 <div
                   key={interestsItem.id}
-                  className="flex flex-col sm:flex-row gap-4 bg-white p-4 rounded-lg shadow-sm border border-gray-200 items-end"
+                  className="flex flex-col sm:flex-row gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-200 items-end hover:shadow-md transition-all"
                 >
                   <div className="flex-1 w-full">
-                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">
-                      Interests
+                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+                      Interest Area
                     </label>
                     <select
                       {...register(`interests.${index}.interests`)}
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
                     >
-                      <option value="">Select a interests...</option>
+                      <option value="">Select an interest...</option>
                       {interestsListResponse &&
                         interestsListResponse.data && // Access the 'data' array inside the object
                         Array.isArray(interestsListResponse.data) &&
@@ -193,10 +199,17 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
                   <button
                     type="button"
                     onClick={() => interestsRemove(index)}
-                    className="p-2 text-red-500 hover:bg-red-50 rounded-md transition-colors"
-                    title="Remove interests"
+                    className="p-3 text-red-500 bg-red-50 hover:bg-red-100 rounded-xl transition-colors"
+                    title="Remove interest"
                   >
-                    x
+                    <svg
+                      xmlns="http://www.w3.org/20兆/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                    </svg>
                   </button>
                 </div>
               ))}
@@ -209,13 +222,15 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
 
             <div
               id="specialization"
-              className="flex flex-row gap-4 justify-between"
+              className="flex flex-col sm:flex-row gap-6 justify-between bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"
             >
-              <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold">Specialization</h3>
+              <div className="flex flex-col gap-2 flex-1">
+                <h3 className="text-lg font-bold text-slate-800">
+                  Specialization
+                </h3>
                 <select
                   {...register("specialization")}
-                  className="w-64 p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  className="w-full max-w-xs px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
                 >
                   <option value="">Select a specialization...</option>
                   {specializationListResponse &&
@@ -229,23 +244,27 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
               </div>
 
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold">Quarters Left</h3>
+                <h3 className="text-lg font-bold text-slate-800">
+                  Quarters Left
+                </h3>
 
                 <input
                   type="number"
                   min="0"
                   {...register("quartersLeft", { valueAsNumber: true })}
-                  placeholder="Enter quarters left..."
-                  className="w-32 p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                  placeholder="e.g. 4"
+                  className="w-32 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
                 />
               </div>
             </div>
 
             <div
               id="classes"
-              className="flex justify-between items-center mb-2"
+              className="flex justify-between items-center mt-4 mb-2"
             >
-              <h3 className="text-xl font-semibold">Classes Taken</h3>
+              <h3 className="text-xl font-bold text-slate-800">
+                Classes Taken
+              </h3>
               <button
                 type="button"
                 onClick={() =>
@@ -255,31 +274,31 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
                     difficulty: 3,
                   })
                 }
-                className="bg-green-500 text-white px-3 py-1 rounded-md text-sm hover:bg-green-600 transition-colors"
+                className="bg-indigo-50 text-indigo-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-100 transition-colors shadow-sm"
               >
                 + Add Class
               </button>
             </div>
 
             {(completedClasses?.length || 0) === 0 && (
-              <div className="py-10 text-center border-2 border-dashed border-gray-200 rounded-xl bg-gray-50 text-gray-400">
+              <div className="py-12 text-center border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50/50 text-slate-400">
                 No classes added yet. Click "+ Add Class" to begin.
               </div>
             )}
 
-            <div className="flex flex-col gap-3 max-h-[320px] overflow-y-auto pr-2">
+            <div className="flex flex-col gap-3 max-h-[360px] overflow-y-auto pr-2 scrollbar-custom">
               {completedClasses?.map((classItem, index) => (
                 <div
                   key={classItem.id}
-                  className="flex flex-col sm:flex-row gap-4 bg-white p-4 rounded-lg shadow-sm border border-gray-200 items-end"
+                  className="flex flex-col sm:flex-row gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-200 items-end hover:shadow-md transition-all"
                 >
                   <div className="flex-1 w-full">
-                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">
+                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
                       Class Name
                     </label>
                     <select
                       {...register(`completedClasses.${index}.className`)}
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
                     >
                       <option value="">Select a class...</option>
                       {classListResponse &&
@@ -293,24 +312,26 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
                     </select>
                   </div>
 
-                  <div className="w-full sm:w-24">
-                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">
+                  <div className="w-full sm:w-28">
+                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
                       Grade
                     </label>
                     <input
                       type="text"
-                      placeholder="A-"
+                      placeholder="e.g. A-"
                       {...register(`completedClasses.${index}.grade`)}
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
                     />
                   </div>
 
                   <div className="w-full sm:w-40">
-                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1 text-center">
+                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 text-center">
                       Difficulty
                     </label>
-                    <div className="flex gap-2 items-center">
-                      <span className="text-xs text-gray-400">1</span>
+                    <div className="flex gap-2 items-center px-2 py-2.5">
+                      <span className="text-xs font-semibold text-slate-400">
+                        1
+                      </span>
                       <input
                         type="range"
                         min="1"
@@ -318,19 +339,28 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
                         {...register(`completedClasses.${index}.difficulty`, {
                           valueAsNumber: true,
                         })}
-                        className="w-max h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                        className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                       />
-                      <span className="text-xs text-gray-400">5</span>
+                      <span className="text-xs font-semibold text-slate-400">
+                        5
+                      </span>
                     </div>
                   </div>
 
                   <button
                     type="button"
                     onClick={() => completedClassesRemove(index)}
-                    className="p-2 text-red-500 hover:bg-red-50 rounded-md transition-colors"
+                    className="p-3 text-red-500 bg-red-50 hover:bg-red-100 rounded-xl transition-colors"
                     title="Remove Class"
                   >
-                    x
+                    <svg
+                      xmlns="http://www.w3.org/20兆/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                    </svg>
                   </button>
                 </div>
               ))}
@@ -340,8 +370,8 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
 
         <input
           type="submit"
-          value="Save Settings"
-          className="mt-4 bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700 transition-colors cursor-pointer shadow-md"
+          value="Save Changes"
+          className="mt-4 bg-indigo-600 text-white py-4 px-6 rounded-xl font-bold hover:bg-indigo-700 transition-colors cursor-pointer shadow-sm hover:shadow-md"
         />
       </form>
     </div>

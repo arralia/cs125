@@ -19,12 +19,13 @@ export default function CoursesPage() {
   }, [execute]);
 
   return (
-    <div className="flex flex-col justify-center items-center bg-blue-100 max-w-sm w-full mx-auto rounded-lg m-4">
-      <h1 className="text-2xl font-bold mb-2 p-2 text-white bg-blue-400 rounded-lg px-8 m-2">
-        All Courses
-      </h1>
-      <div className="flex flex-col items-center max-h-[620px] overflow-y-auto pr-2 scrollbar-custom bg-black/10 rounded-lg m-2">
-        <ClassCardCollection data={classes} />
+    <div className="flex flex-col bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden h-full">
+      <div className="p-6 border-b border-slate-100 bg-slate-50/50">
+        <h2 className="text-xl font-bold text-slate-800">All Courses</h2>
+        <p className="text-sm text-slate-500 mt-1">Browse the full catalog</p>
+      </div>
+      <div className="p-6 max-h-[600px] overflow-y-auto scrollbar-custom">
+        <ClassCardCollection data={classes} className="grid-cols-1" />
       </div>
     </div>
   );
