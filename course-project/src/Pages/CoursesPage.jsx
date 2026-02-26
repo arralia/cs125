@@ -15,7 +15,7 @@ export default function CoursesPage() {
     execute().then((res) => {
       setClasses(res?.data);
     });
-    // We pass an empty array [] below so this only runs ONCE on mount
+    //
   }, [execute]);
 
   return (
@@ -24,7 +24,7 @@ export default function CoursesPage() {
         <h2 className="text-xl font-bold text-slate-800">All Courses</h2>
         <p className="text-sm text-slate-500 mt-1">Browse the full catalog</p>
       </div>
-      <div className="p-6 max-h-[600px] overflow-y-auto scrollbar-custom">
+      <div className="p-6 flex-1 min-h-0 overflow-y-auto scrollbar-custom ">
         <ClassCardCollection data={classes} className="grid-cols-1" />
       </div>
     </div>

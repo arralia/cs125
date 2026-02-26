@@ -6,6 +6,7 @@ class User:
         self.db = database
         self.username = username
         self.data = None
+        self.user_filters = {}
 
     def load(self):
         """Fetch user data from the database and cache it."""
@@ -13,6 +14,12 @@ class User:
             {"username": self.username}
         )
         return self.data
+
+    def set_user_filters(self, user_filters):
+        self.user_filters = user_filters
+
+    def get_user_filters(self):
+        return self.user_filters
 
     def refresh(self):
         """Force a refresh of the cached user data."""
