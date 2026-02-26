@@ -52,21 +52,18 @@ export default function RecommendedCoursesPage() {
             onClick={() => getRecommendedClasses(username)}
             className="text-sm font-semibold py-2 px-5 text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm shadow-indigo-200 rounded-xl transition-all hover:shadow-md cursor-pointer whitespace-nowrap"
           >
-            <ListFilter />
+            Refresh Recommendations
           </button>
           <button
             onClick={() => getRecommendedClasses(username)}
             className="text-sm font-semibold py-2 px-5 text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm shadow-indigo-200 rounded-xl transition-all hover:shadow-md cursor-pointer whitespace-nowrap"
           >
-            Refresh Recommendations
+            <ListFilter />
           </button>
         </div>
       </div>
       <div className="p-6 max-h-[600px] overflow-y-auto scrollbar-custom bg-slate-50/20">
-        <e
-          data={recommendedClasses}
-          className="grid-cols-1 sm:grid-cols-2"
-        />
+        <e data={recommendedClasses} className="grid-cols-1 sm:grid-cols-2" />
       </div>
     </div>
   );
