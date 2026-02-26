@@ -3,9 +3,15 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pydantic import BaseModel
+from passlib.context import CryptContext
 from database import Database
 import gemini
 import util
+from user import User
+
+# Workaround for SSL certificate verification issues on macOS
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 TESTING = False
 
@@ -14,10 +20,9 @@ load_dotenv()
 
 gemini = gemini.Gemini()
 
-if not TESTING:
-    db = Database()
-else:
-    db = None
+db = Database()
+
+pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 
 app = FastAPI(title="FastAPI Backend")
 
@@ -33,6 +38,7 @@ app.add_middleware(
 
 class LoginRequest(BaseModel):
     username: str
+    password: str
 
 
 class UserSetInfoRequest(BaseModel):
@@ -51,11 +57,8 @@ class Username(BaseModel):
 async def root():
     return {"message": "Welcome to the FastAPI Backend!"}
 
-
 """
-
 This section is for the class information
-
 """
 
 
@@ -129,7 +132,7 @@ async def api_course_info(courseid: str = None):
 
 
 @app.get("/api/recommendedClasses")
-async def api_recommended_classes(username: str):
+async def api_recommended_classes(username: str | None = None):
     """
     Returns the recommended classes for a given user
     """
@@ -140,15 +143,18 @@ async def api_recommended_classes(username: str):
         print("Received /api/recommendedClasses: Fetching recommended classes...")
         courses = list(db.get_collection("courses").find())
         print(f"Successfully fetched {len(courses)} classes")
-        print("courses: ", courses)
 
         print(f"Received /api/recommendedClasses with username: {username}")
         user_info = db.get_collection("users").find_one({"username": username})
-
+        print("user_info: ", user_info)
         if user_info:
-            print("user_info: ", user_info)
-            courses = util.narrow_down_courses(courses, user_info)
-            recommended_classes = gemini.recommend_class(user_info, courses, None)
+            # Sets of course IDs returned. Likely need to enrich them before passing into gemini (like difficulty)
+            courses, specialization_courses = util.narrow_down_courses(
+                courses, user_info
+            )
+            recommended_classes = gemini.recommend_class(
+                user_info, courses, specialization_courses
+            )
             print(f"Gemini output: {recommended_classes}")
             return {
                 "data": recommended_classes,
@@ -156,10 +162,16 @@ async def api_recommended_classes(username: str):
                 "message": "Recommended classes",
             }
         else:
+            active_course_ids = util.fetch_active_courses()
+            active_courses = [
+                {"id": course["id"], "title": course["title"]}
+                for course in courses
+                if course["id"] in active_course_ids
+            ]
             return {
-                "data": None,
+                "data": active_courses,
                 "status": "error",
-                "message": "User not found",
+                "message": "User not found, recommending all active courses instead",
             }
 
     except Exception as e:
@@ -174,15 +186,11 @@ async def api_recommended_classes(username: str):
 @app.get("/api/specializationInfo")
 async def api_specialization_info():
 
+    specializations = list(db.get_collection("specializations").find())
+    util.stringify_ids(specializations)
+
     return {
-        "data": [
-            {"specialization": "AI", "description": "Artificial Intelligence"},
-            {"specialization": "Algorithms", "description": "Algorithms"},
-            {
-                "specialization": "Formal Languages and Automata",
-                "description": "Formal Languages and Automata",
-            },
-        ],
+        "data": specializations,
         "status": "ok",
         "message": "Specialization info",
     }
@@ -193,7 +201,7 @@ async def api_interests_list():
 
     keywords = list(db.get_collection("keywords").find())
     util.stringify_ids(keywords)
-    keywords = get_keywords()
+    print("Number of keywords: ", len(keywords))
 
     return {
         "data": keywords,
@@ -206,48 +214,100 @@ async def api_interests_list():
 async def api_login(request: LoginRequest):
 
     username = request.username
+    password = request.password
 
     try:
         print(f"Received /api/login with username: {username}")
         # Find user, exclude _id for clean JSON response
-        user_info = db.get_collection("users").find_one(
-            {"username": username}, {"_id": 0}
-        )
+        user_info = db.get_collection("users").find_one({"username": username})
 
         if user_info:
             print("user_info found: ", user_info)
-            return {
-                "data": user_info,
-                "status": "ok",
-                "message": "User info",
-            }
+            # Verify password
+            stored_password = user_info.get("password")
+            if stored_password and pwd_context.verify(password, stored_password):
+                # Remove password from response and stringify _id
+                if "_id" in user_info:
+                    user_info["_id"] = str(user_info["_id"])
+                if "password" in user_info:
+                    del user_info["password"]
+
+                return {
+                    "data": user_info,
+                    "status": "ok",
+                    "message": "Login successful",
+                }
+            else:
+                return {
+                    "data": None,
+                    "status": "error",
+                    "message": "Invalid password or username",
+                }
         else:
-            print(f"User {username} not found, creating new user.")
-            new_user = {
-                "username": username,
-                "completedClasses": [],
-                "interests": [],
-                "specialization": "",
-                "quartersLeft": 4,
-            }
-            # Insert the new user
-            db.get_collection("users").insert_one(new_user)
-
-            # Remove _id which insert_one adds, so we can return clean JSON
-            if "_id" in new_user:
-                del new_user["_id"]
-
             return {
-                "data": new_user,
-                "status": "ok",
-                "message": "New user created",
+                "data": None,
+                "status": "error",
+                "message": "Invalid password or username",
             }
+
     except Exception as e:
         print(f"Error processing login: {e}")
         return {
             "data": None,
             "status": "error",
             "message": "Failed to process login",
+        }
+
+
+@app.post("/api/register")
+async def api_register(request: LoginRequest):
+    username = request.username
+    password = request.password
+
+    try:
+        print(f"Received /api/register with username: {username}")
+        # Check if user already exists
+        existing_user = db.get_collection("users").find_one({"username": username})
+
+        if existing_user:
+            return {
+                "data": None,
+                "status": "error",
+                "message": "Username already exists",
+            }
+
+        # Hash the password
+        hashed_password = pwd_context.hash(password)
+
+        new_user = {
+            "username": username,
+            "password": hashed_password,
+            "completedClasses": [],
+            "interests": [],
+            "specialization": "",
+            "quartersLeft": 4,
+        }
+
+        # Insert the new user
+        db.get_collection("users").insert_one(new_user)
+
+        # Prepare user info for response (exclude password and _id)
+        if "_id" in new_user:
+            del new_user["_id"]
+        if "password" in new_user:
+            del new_user["password"]
+
+        return {
+            "data": new_user,
+            "status": "ok",
+            "message": "User registered successfully",
+        }
+    except Exception as e:
+        print(f"Error processing registration: {e}")
+        return {
+            "data": None,
+            "status": "error",
+            "message": "Failed to register user",
         }
 
 

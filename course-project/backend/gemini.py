@@ -21,16 +21,15 @@ class Gemini:
         )
         return response
 
-    def recommend_class(
-        self, user_info=None, class_info=None, specialization_requirements=None
-
-    ):
-
-        # TODO: add specialization requirements
-
+    def recommend_class(self, user_info=None, interested_courses=None, specialization_courses=None, reviews=None):
+        """Recommend classes for a student based on their profile, course catalog, and specialization requirements.
+                user_info (dict): The student's profile, including completed classes, interests, strengths, quarters left, and specialization.
+                courses (set): course IDs that student is eligible for and interested in
+                specialization_courses (set): course IDs that student is eligible for and count towards their specialization"""
+        
         print("Gemini being called: recomending a class")
         prompt = f"""### SYSTEM ROLE
-            You are the UCI ICS Academic Adviser. You are an expert in the UC Irvine Information and Computer Sciences curriculum. Your goal is to recommend the best courses for a student based on their academic history and self-reported strengths.
+            You are the UCI ICS Academic Adviser. You are an expert in the UC Irvine Information and Computer Sciences curriculum. Your goal is to recommend the best courses for a student based on their academic history and self-reported interests.
 
             ### RAW STUDENT DATA
             The following is the student's current profile in JSON format:
@@ -42,21 +41,25 @@ class Gemini:
 
             ### EXTERNAL CONTEXT
             <specialization_requirements>
-            {specialization_requirements}
+            {specialization_courses}
             </specialization_requirements>
             
-            <course_catalog_and_reviews>
-            {class_info}
-            </course_catalog_and_reviews>
+            <interested_courses>
+            {interested_courses}
+            </interested_courses>
+
+            <reviews>
+            {reviews}
+            </reviews>
 
             ### OPERATIONAL GUIDELINES
             1. DATA EXTRACTION: Parse the completedClasses array. Note that the student has already taken these courses; do NOT recommend them. Only valid if there is a student profile. Do NOT recommend a course where the student has not completed all its prerequisites that is located in the prerequisite tree section. make sure 
             The student completed all the prereqs for the course. This is mandatory and essential to take into account. When you are going to recommend a course, check the prerequisite tree section and see if the inputted courses
             The student put under completedClasses has the name of that course; if not, then do not recommend the course.
             2. INTEREST ANALYSIS: Look at the `interests` list. These are areas where the student has expressed specific interest. Cross-reference this with the `grade` received in `completedClasses` (e.g., an A- in a difficulty 3 class indicates high aptitude in that subject). Only valid if there is a student profile.
-            3. ALIGNMENT: Prioritize courses from the <specialization_requirements> that match the student's specialization (e.g., "specialization"). Only valid if there is a student profile.
-            4. FURTHER ALIGNMENT: Take into account the "quartersLeft" and "coursesLeft" field in the student profile. If the student is on "crunch time" (e.g., quartersLeft=1 and coursesLeft=3), prioritize easier courses that are more likely to be successfully completed. Only valid if there is a student profile.
-            5. REVIEW CHECK: Scan <course_catalog_and_reviews> for positive peer feedback to ensure a high-quality student experience.
+            3. ALIGNMENT: Prioritize courses from the <specialization_courses>. Also prioritize courses from <interested_courses>, but not as highly as the courses in <specialization_courses>. Only valid if there is a student profile.
+            4. FURTHER ALIGNMENT: Take into account the "quartersLeft" and "coursesLeft" fields in the student profile. If the student is on "crunch time" (e.g., quartersLeft=1 and coursesLeft=3), prioritize easier courses that are more likely to be successfully completed. Only valid if there is a student profile.
+            5. REVIEW CHECK: Scan <reviews> for positive peer feedback to ensure a high-quality student experience. Low-rated courses with negative feedback should be ranked lower.
 
             ### CONSTRAINTS
             - Return ONLY a valid JSON object.
