@@ -6,6 +6,7 @@ export default function ClassFiltersForm({
   courses,
   setCourses,
   setShowFilters,
+  fetchClasses,
 }) {
   const { register, handleSubmit } = useForm({
     defaultValues: {
@@ -28,12 +29,15 @@ export default function ClassFiltersForm({
     setShowFilters(false);
     const filteredClasses = [];
     if (!courses) return;
+    if(data.interests.length === 0){
+      fetchClasses();
+      return;
+    }
     for (const course of courses) {
       const hasMatchingInterest =
-        data.interests.length === 0 ||
-        (Array.isArray(course.keywords) &&
+        Array.isArray(course.keywords) &&
         //&& course.difficulty <= data.difficulty filter for difficulty doesnt work yet since class doesnt have that attribute
-          course.keywords.some((keyword) => data.interests.includes(keyword)));
+          course.keywords.some((keyword) => data.interests.includes(keyword));
 
       if (hasMatchingInterest) {
         filteredClasses.push(course);

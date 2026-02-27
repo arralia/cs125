@@ -24,7 +24,7 @@ export default function CoursesPage() {
   // Use useEffect to trigger the fetch once
   useEffect(() => {
     fetchClasses();
-  }, [fetchClasses]);
+  }, [fetchClasses, selectedQuarter]);
 
   // Click outside handler
   useEffect(() => {
@@ -93,6 +93,7 @@ export default function CoursesPage() {
                   courses={classes}
                   setCourses={setClasses}
                   setShowFilters={setShowFilters}
+                  fetchClasses={fetchClasses}
                 />
               </div>
             )}
