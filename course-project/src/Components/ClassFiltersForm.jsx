@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import useApiGet from "../hooks/useApiGet";
 
 export default function ClassFiltersForm({
-  recommendedClasses,
-  setRecommendedClasses,
+  courses,
+  setCourses,
   setShowFilters,
 }) {
   const { register, handleSubmit } = useForm({
@@ -27,16 +27,19 @@ export default function ClassFiltersForm({
     console.log("Filter Data:", data);
     setShowFilters(false);
     const filteredClasses = [];
-    if (!recommendedClasses) return;
-    for (const course of recommendedClasses) {
-      if (
-        course.difficulty <= data.difficulty &&
-        data.interests.includes(course.interest)
-      ) {
+    if (!courses) return;
+    for (const course of courses) {
+      const hasMatchingInterest =
+        data.interests.length === 0 ||
+        (Array.isArray(course.keywords) &&
+        //&& course.difficulty <= data.difficulty filter for difficulty doesnt work yet since class doesnt have that attribute
+          course.keywords.some((keyword) => data.interests.includes(keyword)));
+
+      if (hasMatchingInterest) {
         filteredClasses.push(course);
       }
     }
-    setRecommendedClasses(filteredClasses);
+    setCourses(filteredClasses);
   };
   return (
     <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl w-80 sm:w-96">
@@ -44,23 +47,23 @@ export default function ClassFiltersForm({
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
         {/* Difficulty Slider */}
-        <div className="flex flex-col gap-3">
-          <div className="flex justify-between items-center">
-            <label className="text-sm font-bold text-slate-500 uppercase tracking-wider">
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-row items-center justify-between gap-4">
+            <label className="text-sm font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">
               Max Difficulty
             </label>
-          </div>
-          <div className="flex gap-4 items-center px-2 py-2">
-            <span className="text-xs font-semibold text-slate-400">1</span>
-            <input
-              type="range"
-              min="1"
-              max="5"
-              step="1"
-              {...register("difficulty", { valueAsNumber: true })}
-              className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
-            />
-            <span className="text-xs font-semibold text-slate-400">5</span>
+            <div className="flex gap-3 items-center flex-1 max-w-[200px]">
+              <span className="text-xs font-semibold text-slate-400">1</span>
+              <input
+                type="range"
+                min="1"
+                max="5"
+                step="1"
+                {...register("difficulty", { valueAsNumber: true })}
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+              />
+              <span className="text-xs font-semibold text-slate-400">5</span>
+            </div>
           </div>
         </div>
 
@@ -88,7 +91,7 @@ export default function ClassFiltersForm({
                   </span>
                 </label>
               ))}
-              {/*this part is a place holder for loading, written by ai*/}
+            {/*this part is a place holder for loading, written by ai*/}
             {(!interestsListResponse || !interestsListResponse.data) && (
               <div className="animate-pulse flex flex-col gap-2">
                 {[1, 2, 3, 4].map((i) => (

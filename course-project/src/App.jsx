@@ -33,14 +33,14 @@ function App() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start flex-1 min-h-0 pb-4">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start flex-1 min-h-0 pb-4">
           {/* Main Content Area: Recommended Courses */}
-          <div className="lg:col-span-2 h-full flex flex-col min-h-0">
+          <div className="lg:col-span-3 h-full flex flex-col min-h-0">
             <RecommendedCoursesPage />
           </div>
 
           {/* Sidebar Area: All Courses */}
-          <div className="lg:col-span-1 h-full flex flex-col min-h-0">
+          <div className="lg:col-span-2 h-full flex flex-col min-h-0">
             <CoursesPage />
           </div>
         </div>
