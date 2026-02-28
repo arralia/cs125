@@ -110,6 +110,8 @@ async def all_classes():
 
         util.stringify_ids(courses)
 
+        print(courses)
+
         print(f"Successfully fetched {len(courses)} classes")
         return {"data": courses}
 
