@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useApiPost from "../hooks/useApiPost";
 import { useEffect, useState } from "react";
 import { ReadCookie, SetCookie } from "./CookieUtils";
+import { User } from "lucide-react";
 
 export default function LoginForm({ setDisplayLoginPage, toggleForm }) {
   const { register, handleSubmit } = useForm();
@@ -56,55 +57,63 @@ export default function LoginForm({ setDisplayLoginPage, toggleForm }) {
   return (
     <div className="flex flex-col items-center bg-white">
       {loggedIn && (
-        <div className="flex items-center flex-col justify-center items-center gap-4">
-          <h2 className="text-2xl font-bold mb-2">Account</h2>
-          <div className="flex flex-row gap-4">
-            <p className="text-md font-bold bg-gray-200 p-2 rounded-md">
-              Logged in as: {ReadCookie("username")}
-            </p>
+        <div className="flex flex-col items-center justify-center gap-6 w-full py-4">
+          <div className="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mb-2">
+            <User className="w-8 h-8" />
+          </div>
+          <h2 className="text-2xl font-bold text-slate-800">Your Account</h2>
+          <div className="flex flex-col gap-4 w-full">
+            <div className="bg-slate-50 border border-slate-100 p-4 rounded-xl text-center">
+              <p className="text-sm text-slate-500 mb-1">Signed in as</p>
+              <p className="text-lg font-bold text-slate-800">
+                {ReadCookie("username")}
+              </p>
+            </div>
             <button
               type="button"
               onClick={handleLogout}
-              className="bg-red-500 text-white py-2 px-6 rounded-md hover:bg-red-600 cursor-pointer"
+              className="w-full bg-rose-500 text-white py-3 px-6 rounded-xl font-semibold hover:bg-rose-600 shadow-sm transition-colors cursor-pointer"
             >
-              Logout
+              Sign Out
             </button>
           </div>
         </div>
       )}
       {!loggedIn && (
-        <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-bold mb-2">Login</h2>
-          <p className="text-gray-600 mb-8">
+        <div className="flex flex-col items-center w-full">
+          <h2 className="text-3xl font-extrabold text-slate-900 mb-2">
+            Welcome Back
+          </h2>
+          <p className="text-slate-500 mb-8 text-center">
             Enter your unique user ID to login
           </p>
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col items-center gap-4"
+            className="flex flex-col w-full gap-4"
           >
             <input
               {...register("username")}
               placeholder="Unique User ID"
-              className="border border-gray-300 rounded-md py-2 px-4 hover:border-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-400"
             />
             <input
               {...register("password")}
               type="password"
               placeholder="Password"
-              className="border border-gray-300 rounded-md py-2 px-4 hover:border-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-400"
             />
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 mt-2">
               <button
                 type="button"
                 onClick={toggleForm}
-                className="bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600 cursor-pointer"
+                className="w-full sm:w-1/2 bg-slate-100 text-slate-700 py-3 px-6 rounded-xl font-semibold hover:bg-slate-200 transition-colors cursor-pointer"
               >
                 Register
               </button>
               <button
                 type="submit"
-                className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600 cursor-pointer"
+                className="w-full sm:w-1/2 bg-indigo-600 text-white py-3 px-6 rounded-xl font-semibold shadow-sm hover:bg-indigo-700 hover:shadow transition-all cursor-pointer"
               >
                 Login
               </button>

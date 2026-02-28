@@ -8,11 +8,15 @@ export default function Card({ className, description }) {
   }
 
   return (
-    <div className="flex flex-col justify-center bg-blue-300 rounded-lg shadow-md max-w-sm transition-all hover:shadow-lg  hover:scale-101">
-      <div className="text-lg text-white p-2 text-center bg-blue-400 rounded-t-lg">
-        {className}
+    <div className="group flex flex-col bg-white rounded-2xl shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 hover:border-indigo-300 transition-all duration-300 cursor-pointer overflow-hidden">
+      <div className="px-5 py-4 border-b border-slate-100 bg-slate-50/80 group-hover:bg-indigo-50/80 transition-colors">
+        <h3 className="text-lg font-bold text-slate-800 tracking-tight">
+          {className}
+        </h3>
       </div>
-      <div className="text-lg text-white p-4 rounded-b-lg">{description}</div>
+      <div className="p-5 flex-1 bg-white">
+        <p className="text-slate-600 leading-relaxed text-sm">{description}</p>
+      </div>
     </div>
   );
 }

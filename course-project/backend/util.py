@@ -1,10 +1,10 @@
-
 from main import db
 import http.client
 import json
 import urllib
 
 conn = http.client.HTTPSConnection("anteaterapi.com")
+
 
 def fetch_active_courses() -> set:
     """Gets the course offerings for the most recently released WebSOC quarter through AnteaterAPI"""
@@ -14,7 +14,10 @@ def fetch_active_courses() -> set:
     all_courses = set()
     for dept in departments:
         encoded_dept = urllib.parse.quote(dept)
-        conn.request("GET", f"/v2/rest/websoc?year={year}&quarter={season}&department={encoded_dept}")
+        conn.request(
+            "GET",
+            f"/v2/rest/websoc?year={year}&quarter={season}&department={encoded_dept}",
+        )
         res = conn.getresponse()
         data = res.read()
         response_data = json.loads(data.decode("utf-8"))
@@ -22,15 +25,22 @@ def fetch_active_courses() -> set:
         for school in response_data["data"]["schools"]:
             for department in school["departments"]:
                 for course in department["courses"]:
-                    course_id = course["deptCode"].replace(" ", "") + course["courseNumber"] 
+                    course_id = (
+                        course["deptCode"].replace(" ", "") + course["courseNumber"]
+                    )
                     all_courses.add(course_id)
-    print(f"Fetched {len(all_courses)} active courses in the I&SCI and COMPSCI deptsfrom AnteaterAPI for {season} {year}")
-    
+    print(
+        f"Fetched {len(all_courses)} active courses in the I&SCI and COMPSCI deptsfrom AnteaterAPI for {season} {year}"
+    )
+
     if not all_courses:
         # If list is empty, we parsed wrong or the API didn't fetch correctly
-        raise Exception(f"Failed to fetch active courses for term {season} {year} from AnteaterAPI")
+        raise Exception(
+            f"Failed to fetch active courses for term {season} {year} from AnteaterAPI"
+        )
     return all_courses
-    
+
+
 def fetch_most_recent_quarter() -> list[str]:
     conn.request("GET", "/v2/rest/websoc/terms")
     res = conn.getresponse()
@@ -43,11 +53,12 @@ def fetch_most_recent_quarter() -> list[str]:
         return quarter_info
     raise Exception("Failed to fetch most recent term information")
 
+
 def narrow_down_courses(courses: list, user_info: dict) -> list:
-    """ This function will take the courses data from the database 
-        and return the courses that are relevant to the user's context.
-        We never want to return NO courses here. Only case where that will 
-        happen is if the user is ineligible for every single CS upper div."""
+    """This function will take the courses data from the database
+    and return the courses that are relevant to the user's context.
+    We never want to return NO courses here. Only case where that will
+    happen is if the user is ineligible for every single CS upper div."""
     allCourseIds = set(course["id"] for course in courses)
 
     # Check the user's interests (mapped to keywords) and get the courses that are categorized under their interests
@@ -60,7 +71,7 @@ def narrow_down_courses(courses: list, user_info: dict) -> list:
     # Check the prerequisiteTrees of the courses to make sure that this user has completed it
     eligibleCourses = get_eligible_courses(user_info.get("completedClasses"), courses)
     if not eligibleCourses:
-        # If user has no completed classes and they're ineligible for all CS upper 
+        # If user has no completed classes and they're ineligible for all CS upper
         # TODO: Potentially up our game to suggest it some ICS classes that they should take to unlock upper divs
         raise Exception("User is ineligible for all CS upper div courses.")
 
@@ -80,9 +91,14 @@ def narrow_down_courses(courses: list, user_info: dict) -> list:
     # ]
 
     activeCourses = fetch_active_courses()
-    print(f'{len((interestedCourses&eligibleCourses) - activeCourses)} interested and eligible courses are not active for this quarter; {len((specializationCourses&eligibleCourses) - activeCourses)} specialization and eligible courses are not active for this quarter')
-    
-    return (interestedCourses & eligibleCourses & activeCourses),(specializationCourses & eligibleCourses & activeCourses) 
+    print(
+        f"{len((interestedCourses & eligibleCourses) - activeCourses)} interested and eligible courses are not active for this quarter; {len((specializationCourses & eligibleCourses) - activeCourses)} specialization and eligible courses are not active for this quarter"
+    )
+
+    return (interestedCourses & eligibleCourses & activeCourses), (
+        specializationCourses & eligibleCourses & activeCourses
+    )
+
 
 def get_interested_courses(interests: list) -> set:
     """Return a set of course IDs related to the user's selected interest keywords."""
@@ -92,10 +108,13 @@ def get_interested_courses(interests: list) -> set:
         # the keywords collection in our database
         keywords = db.get_collection("keywords").find_one()
         for keyword in interests:
-            keyword_courses = [k for k in keywords["keywords"] if k["keyword"] == keyword]
+            keyword_courses = [
+                k for k in keywords["keywords"] if k["keyword"] == keyword
+            ]
             for course in keyword_courses[0]["courses"]:
                 interestedCourses.add(course["id"])
     return interestedCourses
+
 
 def get_eligible_courses(completed: list, courses: list) -> set:
     """Return a set of course IDs that the user is eligible for based on their stored completedClasses list."""
@@ -110,11 +129,14 @@ def get_eligible_courses(completed: list, courses: list) -> set:
                 eligibleCourses.add(course["id"])
     return eligibleCourses
 
+
 def get_specialization_courses(specialization: str) -> set:
     """Return the course IDs that count towards a user's spec. Can return empty set if user has no spec."""
     specializationCourses = set()
     if specialization:
-        specialization_doc = db.get_collection("specializations").find_one({"specialization_name": specialization})
+        specialization_doc = db.get_collection("specializations").find_one(
+            {"specialization_name": specialization}
+        )
         if specialization_doc:
             # TODO: will likely need to subtract any courses they've already taken which decreases the required number of
             # elective_courses we suggest. Maybe add it anyways? Definitely add more weight to the required_courses
@@ -128,6 +150,7 @@ def get_specialization_courses(specialization: str) -> set:
             for course in specialization_doc.get("elective_courses", []):
                 specializationCourses.add(course["code"])
     return specializationCourses
+
 
 def satisfies_prereqs(tree: dict, completed: set) -> bool:
     if not tree:
@@ -144,7 +167,8 @@ def satisfies_prereqs(tree: dict, completed: set) -> bool:
 
     return True
 
+
 # Modifies the list directly
 def stringify_ids(courses: list):
     for course in courses:
-            course["_id"] = str(course["_id"])
+        course["_id"] = str(course["_id"])
