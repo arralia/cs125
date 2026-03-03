@@ -6,6 +6,11 @@ import urllib
 conn = http.client.HTTPSConnection("anteaterapi.com")
 
 
+class UserIneligibleForAllCSUpperDivsError(Exception):
+    """Raised when a user is ineligible for all CS upper-division courses."""
+    pass
+
+
 def fetch_active_courses() -> set:
     """Gets the course offerings for the most recently released WebSOC quarter through AnteaterAPI"""
 
@@ -54,33 +59,29 @@ def fetch_most_recent_quarter() -> list[str]:
     raise Exception("Failed to fetch most recent term information")
 
 
-def narrow_down_courses(courses: list, user_info: dict) -> list:
+def narrow_down_courses(courses: list, user_info: dict) -> tuple[set, set]:
     """This function will take the courses data from the database
     and return the courses that are relevant to the user's context.
     We never want to return NO courses here. Only case where that will
     happen is if the user is ineligible for every single CS upper div."""
     allCourseIds = set(course["id"] for course in courses)
+    completedClasses = user_info.get("completedClasses", [])
 
-    # Check the user's interests (mapped to keywords) and get the courses that are categorized under their interests
-    interestedCourses = get_interested_courses(user_info.get("interests"))
-    if not interestedCourses:
-        # If user has no selected interests, consider all courses as interested
-        print("User has no selected interest tags.")
-        interestedCourses = allCourseIds.copy()
+    # Get the courses in courses param that user is eligible for, based on their completed classes
+    eligibleCourses = get_eligible_courses(completedClasses, courses)
 
-    # Check the prerequisiteTrees of the courses to make sure that this user has completed it
-    eligibleCourses = get_eligible_courses(user_info.get("completedClasses"), courses)
-    if not eligibleCourses:
-        # If user has no completed classes and they're ineligible for all CS upper
-        # TODO: Potentially up our game to suggest it some ICS classes that they should take to unlock upper divs
-        raise Exception("User is ineligible for all CS upper div courses.")
-
-    # Get the user's specialization courses
-    specializationCourses = get_specialization_courses(user_info.get("specialization"))
+    # Get the user's specialization courses: required for their spec or a list of options they need to choose from. 
+    # Can be empty, in that case no courses to give any extra weight to which is fine
+    requiredSpecCourses, optionsSpecCourses, neededNum = get_specialization_courses(
+        user_info.get("specialization", ""), completedClasses
+    )
+    specializationCourses = requiredSpecCourses | optionsSpecCourses
     if not specializationCourses:
-        # If user has no specialization, consider all courses as specialization courses
-        print("User has no specialization courses.")
         specializationCourses = allCourseIds.copy()
+    
+    # Check the user's interests (mapped to keywords) and get the courses that are categorized under their interests.
+    # Can be empty, in that case no courses to give any extra weight to which is fine
+    interestedCourses = get_interested_courses(user_info.get("interests", []))
 
     # return [
     #     {
@@ -99,21 +100,52 @@ def narrow_down_courses(courses: list, user_info: dict) -> list:
         specializationCourses & eligibleCourses & activeCourses
     )
 
+def get_weighted_courses(courses: list, user_info: dict) -> list[dict]:
+    """Returns a list of courses sorted by relevance to the user, where relevance is determined by:
+       - Courses that are both in the user's interests and specialization get highest weight
+       - Courses that are in the user's specialization but not interests get second highest weight
+       - Courses that are in the user's interests but not specialization get third highest weight
+       - All other courses get lowest weight
+    """
+    interested, specialization = narrow_down_courses(courses, user_info)
+    # We want narrow_down_courses to only return interested courses if exist or specialization courses if exist
+    weighted_courses = []
+    for course in courses:
+        course_id = course["id"]
+        if course_id in interested and course_id in specialization:
+            weight = 3
+        elif course_id in specialization:
+            weight = 2
+        elif course_id in interested:
+            weight = 1
+        else:
+            weight = 0
+        weighted_courses.append((weight, course))
+    
+    # Sort by weight (descending) and then by course title (ascending)
+    weighted_courses.sort(key=lambda x: (-x[0], x[1]["title"]))
+    
+    return [course for weight, course in weighted_courses]
+
 
 def get_interested_courses(interests: list) -> set:
     """Return a set of course IDs related to the user's selected interest keywords."""
-    # Extract courses that are in user's interests
-    interestedCourses = set()
-    if interests:
-        # the keywords collection in our database
-        keywords = db.get_collection("keywords").find_one()
-        for keyword in interests:
-            keyword_courses = [
-                k for k in keywords["keywords"] if k["keyword"] == keyword
-            ]
-            for course in keyword_courses[0]["courses"]:
-                interestedCourses.add(course["id"])
-    return interestedCourses
+    if not interests:
+        return set()
+
+    # User interests seem to be stored as [{"interests": "Algorithms"}, ...] 
+    users_interests = {
+        i.get("interests") for i in interests
+    }
+
+    interest_courses = {
+        c["id"]
+        for doc in db.get_collection("keywords").find()
+        if doc.get("keyword") in users_interests
+        for c in doc.get("courses")
+    }
+
+    return interest_courses
 
 
 def get_eligible_courses(completed: list, courses: list) -> set:
@@ -121,35 +153,67 @@ def get_eligible_courses(completed: list, courses: list) -> set:
     eligibleCourses = set()
     if completed:
         # might be unnecessary space removal but just in case
-        completed = {c["className"].replace(" ", "") for c in completed}
+        completed = {c["className"].replace(" ", "") for c in completed if c.get("className")}
         for course in courses:
             # If the user has completed all prerequisites in this course
             tree = course.get("prerequisiteTree", {})
             if satisfies_prereqs(tree, completed):
                 eligibleCourses.add(course["id"])
+    else:
+        # If user has no completed classes and they're ineligible for all CS upper
+        # TODO: Potentially up our game to suggest it some ICS classes that they should take to unlock upper divs
+        raise UserIneligibleForAllCSUpperDivsError(
+            "User is ineligible for all CS upper div courses."
+        )
     return eligibleCourses
 
 
-def get_specialization_courses(specialization: str) -> set:
-    """Return the course IDs that count towards a user's spec. Can return empty set if user has no spec."""
-    specializationCourses = set()
-    if specialization:
-        specialization_doc = db.get_collection("specializations").find_one(
-            {"specialization_name": specialization}
-        )
-        if specialization_doc:
-            # TODO: will likely need to subtract any courses they've already taken which decreases the required number of
-            # elective_courses we suggest. Maybe add it anyways? Definitely add more weight to the required_courses
-            # in their specialization, and secondary ranking to electice courses.
-            # Link to issue: https://github.com/users/arralia/projects/2/views/1?pane=issue&itemId=158633000&issue=arralia%7Ccs125%7C22
+def get_specialization_courses(specialization: str, completed: list) -> tuple[set,set,int]:
+    """Return course IDs that can satisfy a user's specialization requirements.
+       The first set in the tuple is utterly important required courses that take higher priority than the
+       second set in the tuple, which is for their specialization but not strictly necessary.
+    
+    Uses specialization schema:
+    - required_courses always count
+    - elective_courses count only when neededNum > 0
+    - if neededNum > 0 and elective_courses is empty, treat as unrestricted
+      (e.g., General CS Track where essentially any upper-div course can count)
+    """
+    # If user does not have a specialization or is General CS, all upper divs count.
+    # Return empty sets and rest of logic is handled by caller.
+    if not specialization or specialization == "General CS Track":
+        return set(), set(), 0
 
-            # Add all required courses
-            for course in specialization_doc.get("required_courses", []):
-                specializationCourses.add(course["code"])
-            # Add all elective courses (user can choose from any of these)
-            for course in specialization_doc.get("elective_courses", []):
-                specializationCourses.add(course["code"])
-    return specializationCourses
+    specialization_doc = db.get_collection("specializations").find_one(
+        {"specialization_name": specialization}
+    )
+    needed_num = specialization_doc.get("neededNum") # assuming this gets parsed as an integer correctly
+    required_courses = specialization_doc.get("required_courses")
+    elective_courses = specialization_doc.get("elective_courses")
+
+    completed_ids = set()
+    # Completed could be none if user has no completed classes, so we check before processing
+    if completed:
+        completed_ids.update({c["className"] for c in completed})
+
+    # The required courses listed under this user's specialization that they haven't completed yet. These take high priority
+    necessary_spec_courses = {
+        course.get("code")
+        for course in required_courses
+        if course.get("code") not in completed_ids
+    }
+
+    choose_spec_courses = set()
+    for course in {c.get("code") for c in elective_courses}:
+        if course in completed_ids:
+            # If user has already completed one of the elective courses in the select-n-of-list, decrement the needed_num
+            needed_num -= 1
+        else:
+            # Otherwise, add it to the list of courses to rank/recommend
+            choose_spec_courses.add(course)
+
+    # Either of these two courses sets can be empty, but when they're not, weight them higher for ranking
+    return (necessary_spec_courses, choose_spec_courses, needed_num)
 
 
 def satisfies_prereqs(tree: dict, completed: set) -> bool:
