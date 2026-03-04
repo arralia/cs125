@@ -5,6 +5,11 @@ import urllib
 
 conn = http.client.HTTPSConnection("anteaterapi.com")
 
+def clean_course_name(courses: list[str]) -> list[str]:
+    for course in courses:
+        course["id"] = course["id"].replace("I&C SCI", "ICS ").replace("COMPSCI", "CS ")
+    return courses
+
 
 class UserIneligibleForAllCSUpperDivsError(Exception):
     """Raised when a user is ineligible for all CS upper-division courses."""
