@@ -142,32 +142,35 @@ async def api_course_info(courseid: str = None):
 
 
 @app.get("/api/recommendedClasses")
-async def api_recommended_classes(user: User = Depends(get_current_user)):
+async def api_recommended_classes(
+    user: User = Depends(get_current_user), next_quarter_only: bool = True
+):
     """
     Returns the recommended classes for a given user
     """
 
     try:
-        print(f"Received /api/recommendedClasses for user: {user.username}")
+        print(
+            f"Received /api/recommendedClasses for user: {user.username}, next_quarter_only: {next_quarter_only}"
+        )
 
         user_info = user.get_user_info()
         print("user_info: ", user_info)
 
         if user_info:
-            # Fetch all courses
-            courses = list(db.get_collection("courses").find())
-
             # Using the new retrieval method in User class
-            interested_eligible, specialization_eligible = (
-                user.retrieve_recommended_classes()
-            )
+            # interested_eligible, specialization_eligible = (
+            #     user.retrieve_recommended_classes()
+            # )
 
-            recommended_classes = gemini.recommend_class(
-                user_info, interested_eligible, specialization_eligible
-            )
-            print(f"Gemini output: {recommended_classes}")
+            # recommended_classes = gemini.recommend_class(
+            #     user_info, interested_eligible, specialization_eligible
+            # )
+
             return {
-                "data": recommended_classes,
+                "data": user.retrieve_recommended_classes(
+                    next_quarter_only=next_quarter_only
+                ),
                 "status": "ok",
                 "message": "Recommended classes",
             }
@@ -186,6 +189,7 @@ async def api_recommended_classes(user: User = Depends(get_current_user)):
             }
 
     except Exception as e:
+        raise e
         print(f"Error fetching recommended classes: {e}")
         return {
             "data": None,

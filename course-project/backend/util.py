@@ -5,6 +5,7 @@ import urllib
 
 conn = http.client.HTTPSConnection("anteaterapi.com")
 
+
 def clean_course_name(courses: list[str]) -> list[str]:
     for course in courses:
         course["id"] = course["id"].replace("I&C SCI", "ICS ").replace("COMPSCI", "CS ")
@@ -59,15 +60,19 @@ def fetch_most_recent_quarter() -> list[str]:
     raise Exception("Failed to fetch most recent term information")
 
 
-def narrow_down_courses(courses: list, user_info: dict) -> list:
+def narrow_down_courses(
+    courses: list, user_info: dict, next_quarter_only: bool = True
+) -> list:
     """This function will take the courses data from the database
     and return the courses that are relevant to the user's context.
     We never want to return NO courses here. Only case where that will
     happen is if the user is ineligible for every single CS upper div."""
     allCourseIds = set(course["id"] for course in courses)
+    print("running narrow_down_courses")
 
     # Check the user's interests (mapped to keywords) and get the courses that are categorized under their interests
     interestedCourses = get_interested_courses(user_info.get("interests"))
+    print(f"interestedCourses: {interestedCourses}")
     if not interestedCourses:
         # If user has no selected interests, consider all courses as interested
         print("User has no selected interest tags.")
@@ -95,14 +100,24 @@ def narrow_down_courses(courses: list, user_info: dict) -> list:
     #     for course in ( (interestedCourses & eligibleCourses) | (specializationCourses & eligibleCourses) )
     # ]
 
-    activeCourses = fetch_active_courses()
-    print(
-        f"{len((interestedCourses & eligibleCourses) - activeCourses)} interested and eligible courses are not active for this quarter; {len((specializationCourses & eligibleCourses) - activeCourses)} specialization and eligible courses are not active for this quarter"
-    )
+    # added by gemini to remove completed classes that the user took, this part
+    # bascially just formats the completed classes properly 
+    completed = {
+        c["className"].replace(" ", "") for c in user_info.get("completedClasses", [])
+    }
 
-    return (interestedCourses & eligibleCourses & activeCourses), (
-        specializationCourses & eligibleCourses & activeCourses
-    )
+    if next_quarter_only:
+        activeCourses = fetch_active_courses()
+        print(
+            f"{len((interestedCourses & eligibleCourses) - activeCourses)} interested and eligible courses are not active for this quarter; {len((specializationCourses & eligibleCourses) - activeCourses)} specialization and eligible courses are not active for this quarter"
+        )
+        return (interestedCourses & eligibleCourses & activeCourses) - completed, (
+            specializationCourses & eligibleCourses & activeCourses
+        ) - completed
+
+    return (interestedCourses & eligibleCourses) - completed, (
+        specializationCourses & eligibleCourses
+    ) - completed
 
 
 def get_interested_courses(interests: list) -> set:
@@ -110,14 +125,19 @@ def get_interested_courses(interests: list) -> set:
     # Extract courses that are in user's interests
     interestedCourses = set()
     if interests:
-        # the keywords collection in our database
-        keywords = db.get_collection("keywords").find_one()
-        for keyword in interests:
-            keyword_courses = [
-                k for k in keywords["keywords"] if k["keyword"] == keyword
-            ]
-            for course in keyword_courses[0]["courses"]:
-                interestedCourses.add(course["id"])
+        for interest_dict in interests:
+            # Safely extract the keyword string from the dict
+            keyword_str = interest_dict.get("interests")
+            if not keyword_str:
+                continue
+
+            # Query the db for that specific keyword document
+            keyword_doc = db.get_collection("keywords").find_one(
+                {"keyword": keyword_str}
+            )
+            if keyword_doc and "courses" in keyword_doc:
+                for course in keyword_doc["courses"]:
+                    interestedCourses.add(course.get("id"))
     return interestedCourses
 
 
@@ -178,9 +198,10 @@ def stringify_ids(courses: list):
     for course in courses:
         course["_id"] = str(course["_id"])
 
+
 # takes the class list given from the front end form, and
 # and checks if they do not have like a name selected or if the name is empty
-# then removes them 
+# then removes them
 def clean_empty_classes(courses: list):
     new_courses = []
     for course in courses:
@@ -189,10 +210,12 @@ def clean_empty_classes(courses: list):
         new_courses.append(course)
     return new_courses
 
+
 def clean_empty_interests(interests: list):
     new_interests = []
+    print("interests: ", interests)
     for interest in interests:
-        if interest.get("keyword") == "" or interest.get("keyword") is None:
+        if interest.get("interests") == "" or interest.get("interests") is None:
             continue
         new_interests.append(interest)
     return new_interests

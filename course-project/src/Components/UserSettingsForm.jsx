@@ -12,7 +12,7 @@ import { ReadCookie } from "./CookieUtils";
 import UserInterestsForm from "./UserInterestsForm";
 import UserClassesForm from "./UserClassesForm";
 
-export default function UserSettingsForm({ setDisplaySettingsPage }) {
+export default function UserSettingsForm( ) {
   const {
     register,
     control,

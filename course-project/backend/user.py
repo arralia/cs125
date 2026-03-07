@@ -68,13 +68,21 @@ class User:
         util.stringify_ids(courses)
         return courses
 
-    def retrieve_recommended_classes(self, quarter: str = None) -> list:
+    def retrieve_recommended_classes(
+        self, quarter: str = None, next_quarter_only: bool = True
+    ) -> list:
         """
         Retrieves the recommended classes for the user for the given quarter
         """
         # Fetching all courses to pass to narrow_down_courses
         # Note: In a larger app, you'd probably want to cache this list as well
         courses = self.retrieve_all_courses()
-        util.narrow_down_courses(courses, self.get_user_info())
-        
-        return courses
+        interested_eligible, specialization_eligible = util.narrow_down_courses(
+            courses, self.get_user_info(), next_quarter_only=next_quarter_only
+        )
+
+        # Merge them and convert to a list of dicts to match what the frontend expects
+        narrowed_down_ids = list(interested_eligible | specialization_eligible)
+        narrowed_courses = [c for c in courses if c.get("id") in narrowed_down_ids]
+
+        return narrowed_courses

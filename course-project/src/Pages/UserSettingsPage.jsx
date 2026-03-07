@@ -34,7 +34,7 @@ export default function UserSettingsPage({ setDisplaySettingsPage }) {
         >
           ✕
         </button>
-        <UserSettingsForm setDisplaySettingsPage={setDisplaySettingsPage} />
+        <UserSettingsForm />
       </div>
     </div>
   );
