@@ -11,6 +11,15 @@ export default function RecommendedCoursesPage() {
   const { execute } = useApiGet({
     api: "/api/recommendedClasses",
   });
+
+  const [activeQuarter, setActiveQuarter] = useState({
+    season: "Upcoming",
+    year: "Quarter",
+  });
+
+  const { execute: fetchQuarter } = useApiGet({
+    api: "/api/activeQuarter",
+  });
   // TODO: better way to make sure recommended classes re-render than interval polling...
   const getRecommendedClasses = useCallback(
     (nextUsername, nextQuarterOnlyStr) => {
@@ -39,6 +48,14 @@ export default function RecommendedCoursesPage() {
   }, []);
 
   useEffect(() => {
+    fetchQuarter().then((res) => {
+      if (res?.season && res?.year) {
+        setActiveQuarter({ season: res.season, year: res.year });
+      }
+    });
+  }, [fetchQuarter]);
+
+  useEffect(() => {
     getRecommendedClasses(username, isNextQuarterOnly);
   }, [getRecommendedClasses, username, isNextQuarterOnly]);
 
@@ -56,7 +73,7 @@ export default function RecommendedCoursesPage() {
         <div className="flex gap-4 items-center shrink-0">
           <label className="flex items-center gap-3 cursor-pointer h-[40px] px-5 shadow-sm shadow-indigo-200 rounded-xl transition-all hover:shadow-md bg-indigo-600 hover:bg-indigo-700">
             <span className="text-sm font-semibold text-white select-none whitespace-nowrap">
-              Next Quarter Only
+              {activeQuarter.season} {activeQuarter.year} Only
             </span>
             <div className="relative flex items-center">
               <input

@@ -8,6 +8,7 @@ export default function ClassCardCollection({ data, className }) {
           key={index} // Keys help React track list items
           className={item.id}
           description={item.title}
+          index={index}
         />
       ))}
     </div>

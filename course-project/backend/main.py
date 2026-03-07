@@ -59,6 +59,16 @@ async def root():
     return {"message": "Welcome to the FastAPI Backend!"}
 
 
+@app.get("/api/activeQuarter")
+async def api_get_active_quarter():
+    try:
+        year, season = util.fetch_most_recent_quarter()
+        return {"year": year, "season": season}
+    except Exception as e:
+        print(f"Error fetching active quarter: {e}")
+        return {"year": "...", "season": "Upcoming"}
+
+
 def get_current_user(username: str | None = None) -> User:
     """Dependency to get a User object for the given username."""
     user = User(db, username)

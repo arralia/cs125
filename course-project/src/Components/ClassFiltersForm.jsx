@@ -70,11 +70,11 @@ export default function ClassFiltersForm({
   };
   return (
     <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl w-80 sm:w-96">
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">Class Filters</h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-2">Class Filters</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
         {/* Maximum GPA Input */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
           <div className="flex flex-row items-center justify-between gap-4">
             <label className="text-sm font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">
               Min Average GPA
