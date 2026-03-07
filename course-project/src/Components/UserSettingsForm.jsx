@@ -76,7 +76,7 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
   });
 
   const onSubmit = (data) => {
-    setDisplaySettingsPage(false);
+
     console.log("Clean JSON data:", data);
     // if the user is not logged in, save the data to local storage (generated with gemini ai)
     if (!data.username) {

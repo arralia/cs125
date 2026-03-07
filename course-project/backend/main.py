@@ -110,8 +110,6 @@ async def all_classes():
 
         util.stringify_ids(courses)
 
-        print(courses)
-
         print(f"Successfully fetched {len(courses)} classes")
         return {"data": courses}
 
@@ -325,11 +323,10 @@ async def api_register(request: LoginRequest):
 
 
 @app.post("/api/setUserInfo")
-async def api_set_user_info(
-    request: UserSetInfoRequest, user: User = Depends(get_current_user)
-):
+async def api_set_user_info(request: UserSetInfoRequest):
     print(f"Saving info for user: {request.username}")
 
+    user = User(db, request.username)
     # Use the User object's update method
     user_data = request.model_dump()
     user.update_user_info(user_data)
