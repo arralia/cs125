@@ -29,7 +29,7 @@ export default function UserInterestsForm({
         </div>
       )}
 
-      <div className="flex flex-col gap-3 max-h-[400px] overflow-y-auto pr-2 scrollbar-custom">
+      <div className="flex flex-col gap-3">
         {interests?.map((interestsItem, index) => (
           <div
             key={interestsItem.id}

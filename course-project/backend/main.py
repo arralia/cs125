@@ -327,6 +327,8 @@ async def api_set_user_info(request: UserSetInfoRequest):
     print(f"Saving info for user: {request.username}")
 
     user = User(db, request.username)
+    request.completedClasses = util.clean_empty_classes(request.completedClasses)
+    request.interests = util.clean_empty_interests(request.interests)
     # Use the User object's update method
     user_data = request.model_dump()
     user.update_user_info(user_data)

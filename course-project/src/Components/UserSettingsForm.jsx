@@ -5,6 +5,7 @@
 
 import { useForm, useFieldArray } from "react-hook-form";
 import { useEffect, useState } from "react";
+import { CheckCircle } from "lucide-react";
 import useApiPost from "../hooks/useApiPost";
 import useApiGet from "../hooks/useApiGet";
 import { ReadCookie } from "./CookieUtils";
@@ -28,6 +29,7 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
   });
 
   const [settingsPage, setSettingsPage] = useState("Interests");
+  const [showNotification, setShowNotification] = useState(false);
 
   const {
     fields: completedClasses,
@@ -75,15 +77,22 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
     api: "/api/specializationInfo",
   });
 
-  const onSubmit = (data) => {
-
+  const onSubmit = async (data) => {
     console.log("Clean JSON data:", data);
     // if the user is not logged in, save the data to local storage (generated with gemini ai)
     if (!data.username) {
       console.log("No user logged in, saving to local storage");
       localStorage.setItem("userSettings", JSON.stringify(data));
+      setShowNotification(true);
+      setTimeout(() => setShowNotification(false), 3000);
     } else {
-      sendUserInfo(data);
+      try {
+        await sendUserInfo(data);
+        setShowNotification(true);
+        setTimeout(() => setShowNotification(false), 3000);
+      } catch (error) {
+        console.error("Failed to save user info:", error);
+      }
     }
   };
 
@@ -167,12 +176,24 @@ export default function UserSettingsForm({ setDisplaySettingsPage }) {
           />
         )}
 
-        <input
-          type="submit"
-          value="Save Changes"
-          className="mt-4 bg-indigo-600 text-white py-4 px-6 rounded-xl font-bold hover:bg-indigo-700 transition-colors cursor-pointer shadow-sm hover:shadow-md"
-        />
+        <div className="relative mt-4">
+          <button
+            type="submit"
+            className="w-full bg-indigo-600 text-white py-4 px-6 rounded-xl font-bold hover:bg-indigo-700 transition-all cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98] active:shadow-inner"
+          >
+            Save Changes
+          </button>
+        </div>
       </form>
+
+      {showNotification && (
+        <div className="fixed top-6 right-6 z-[60] flex items-center gap-3 bg-white border border-slate-100 text-slate-800 px-5 py-3.5 rounded-xl shadow-2xl animate-in slide-in-from-top-5 fade-in duration-300 pointer-events-none">
+          <CheckCircle className="w-5 h-5 text-green-500" />
+          <span className="font-semibold text-sm tracking-wide">
+            Settings saved successfully!
+          </span>
+        </div>
+      )}
     </div>
   );
 }

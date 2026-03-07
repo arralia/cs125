@@ -177,3 +177,22 @@ def satisfies_prereqs(tree: dict, completed: set) -> bool:
 def stringify_ids(courses: list):
     for course in courses:
         course["_id"] = str(course["_id"])
+
+# takes the class list given from the front end form, and
+# and checks if they do not have like a name selected or if the name is empty
+# then removes them 
+def clean_empty_classes(courses: list):
+    new_courses = []
+    for course in courses:
+        if course.get("className") == "" or course.get("className") is None:
+            continue
+        new_courses.append(course)
+    return new_courses
+
+def clean_empty_interests(interests: list):
+    new_interests = []
+    for interest in interests:
+        if interest.get("keyword") == "" or interest.get("keyword") is None:
+            continue
+        new_interests.append(interest)
+    return new_interests
