@@ -63,11 +63,18 @@ class User:
             print(f"Error updating user info: {e}")
             return False
 
+    def retrieve_all_courses(self):
+        courses = list(self.db.get_collection("courses").find())
+        util.stringify_ids(courses)
+        return courses
+
     def retrieve_recommended_classes(self, quarter: str = None) -> list:
         """
         Retrieves the recommended classes for the user for the given quarter
         """
         # Fetching all courses to pass to narrow_down_courses
         # Note: In a larger app, you'd probably want to cache this list as well
-        courses = list(self.db.get_collection("courses").find())
-        return util.narrow_down_courses(courses, self.get_user_info())
+        courses = self.retrieve_all_courses()
+        util.narrow_down_courses(courses, self.get_user_info())
+        
+        return courses
