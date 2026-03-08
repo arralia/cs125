@@ -84,12 +84,11 @@ class User:
             # Merge them and convert to a list of dicts to match what the frontend expects
             narrowed_down_ids = list(interested_eligible | specialization_eligible)
             narrowed_courses = [c for c in courses if c.get("id") in narrowed_down_ids]
+            return narrowed_courses
 
         except util.UserIneligibleForAllCSUpperDivsError:
             # TODO: Maybe toast to tell them they're ineligible for all CS upper divs for now.
             # If we have time, we can smartly suggest some ICS courses
             # Right now, catching it just to raise it is pointless.
             raise Exception("User is ineligible for all CS upper div courses.")
-
-        return narrowed_courses
         
