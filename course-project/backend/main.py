@@ -186,20 +186,18 @@ async def api_recommended_classes(
             }
         else:
             courses = list(db.get_collection("courses").find())
-            active_course_ids = util.fetch_active_courses()
-            active_courses = [
+            upper_divs = util.get_only_upper_divs(courses)
+            all_upper_divs = [
                 {"id": course["id"], "title": course["title"]}
-                for course in courses
-                if course["id"] in active_course_ids
+                for course in upper_divs
             ]
             return {
-                "data": active_courses,
+                "data": all_upper_divs,
                 "status": "error",
-                "message": "User not found, recommending all active courses instead",
+                "message": "User not found, recommending all upper division courses instead",
             }
 
     except Exception as e:
-        raise e
         print(f"Error fetching recommended classes: {e}")
         return {
             "data": None,
