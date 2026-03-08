@@ -14,17 +14,23 @@ load_dotenv()
 conn = http.client.HTTPSConnection("anteaterapi.com")
 
 def fetch_course_grades(courses):
-    """Fetches the grade distribution for a list of courses from AnteaterAPI and returns a dictionary mapping course IDs to their grade distributions.
+    """Fetches aggregate grade distribution for each course from AnteaterAPI and returns a dictionary mapping course IDs to grade data.
        Parameter is list of course documents from our courses collection, so IDs are already in the format COMPSCI161 or I&CSCI33.
        
-       Returns a dictionary where keys are course IDs and values are the unformatted grade distribution data returned by the API for that course."""
+       Returns a dictionary where keys are course IDs and values are the API 'data' list from /v2/rest/grades/aggregateByCourse."""
     course_grades = {}
     for course in courses:
         dept_code, course_number = extract_course_code(course["id"])
         if not dept_code or not course_number:
             raise Exception(f"Struggled to extract dept code and course number from: {course['id']}")
-          
-        conn.request("GET", f"/v2/rest/grades/raw?department={dept_code}&courseNumber={course_number}")
+
+        query_dept = "I&C SCI" if dept_code == "I&CSCI" else dept_code
+        encoded_dept = urllib.parse.quote_plus(query_dept)
+        conn.request(
+            "GET",
+            f"/v2/rest/grades/aggregateByCourse?department={encoded_dept}&courseNumber={course_number}",
+        )
+        # print(f"/v2/rest/grades/aggregateByCourse?department={encoded_dept}&courseNumber={course_number}")
         res = conn.getresponse()
         data = res.read()
         response_data = json.loads(data.decode("utf-8"))
@@ -72,11 +78,12 @@ def update_courses_with_data(mongo_uri=None):
         grades = fetch_course_grades(stripped_courses)
         for courseID, gradeData in grades.items():
             gpa = get_aggregate_gpa(gradeData)
-            # collection.update_one({"id": courseID}, {"$set": {"averageGPA": gpa}})
+            # Update each course with a new averageGPA field
+            collection.update_one({"id": courseID}, {"$set": {"averageGPA": gpa}})
             print(f"Course {courseID} has an average GPA of {gpa}")
+            if gpa is None:
+                print(f"Course {courseID} has an average GPA of {gpa}")
 
-        # Update each course document with the corresponding grade distribution, assigning it to a new field called "gradeData"
-        
     except Exception as e:
         print(f"✗ Error: {e}")
         sys.exit(1)
@@ -87,24 +94,10 @@ def update_courses_with_data(mongo_uri=None):
 
 
 def get_aggregate_gpa(grade_data: json) -> float:
-    """Get the aggregated GPA for a course across all offerings"""
-    # Parse department and course number from course_id (e.g., "COMPSCI161")
-    total_weighted_gpa = 0
-    total_students = 0
-    
-    for section in grade_data:
-        # Calculate total students (excluding W/P/NP grades)
-        section_students = (
-            section["gradeACount"] + section["gradeBCount"] + 
-            section["gradeCCount"] + section["gradeDCount"] + 
-            section["gradeFCount"]
-        )
-        
-        if section_students > 0 and section.get("averageGPA"):
-            total_weighted_gpa += section["averageGPA"] * section_students
-            total_students += section_students
-    
-    return total_weighted_gpa / total_students if total_students > 0 else None
+    """Get the aggregate GPA from /v2/rest/grades/aggregateByCourse response data."""
+    if not grade_data:
+        return None
+    return grade_data[0].get("averageGPA")
 
 
 def extract_course_code(text):
