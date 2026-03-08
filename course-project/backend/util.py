@@ -12,6 +12,15 @@ def clean_course_name(courses: list[str]) -> list[str]:
     return courses
 
 
+def get_only_upper_divs(courses: list[dict]) -> list[dict]:
+    """Return only courses whose IDs begin with COMPSCI."""
+    return [
+        course
+        for course in courses
+        if course["id"].startswith("COMPSCI")
+    ]
+
+
 class UserIneligibleForAllCSUpperDivsError(Exception):
     """Raised when a user is ineligible for all CS upper-division courses."""
     pass

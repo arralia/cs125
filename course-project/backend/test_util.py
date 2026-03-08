@@ -1,7 +1,7 @@
 # test_util.py
 import sys
 sys.path.append('.')
-from util import fetch_active_courses, narrow_down_courses
+from util import UserIneligibleForAllCSUpperDivsError, fetch_active_courses, narrow_down_courses
 
 def test_fetch_active_courses():
     result = fetch_active_courses()
@@ -22,10 +22,9 @@ def test_narrow_down_courses():
     }
     try:
         interested, specialization = narrow_down_courses(courses, user_info)
-        print("Interested & Eligible:", interested)
-        print("Specialization & Eligible:", specialization)
-    except Exception as e:
-        print("Exception:", e)
+    except UserIneligibleForAllCSUpperDivsError as e:
+        # Handle this case, suggest I&CSCI courses instead that would unlock the most upper divs
+        print(str(e))
 
 if __name__ == "__main__":
     test_fetch_active_courses()
