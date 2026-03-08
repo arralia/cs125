@@ -77,12 +77,18 @@ class User:
         # Fetching all courses to pass to narrow_down_courses
         # Note: In a larger app, you'd probably want to cache this list as well
         courses = self.retrieve_all_courses()
-        interested_eligible, specialization_eligible = util.narrow_down_courses(
-            courses, self.get_user_info(), next_quarter_only=next_quarter_only
-        )
+        try:
+            interested_eligible, specialization_eligible = util.narrow_down_courses(
+                 courses, self.get_user_info(), next_quarter_only=next_quarter_only
+            )
+            # Merge them and convert to a list of dicts to match what the frontend expects
+            narrowed_down_ids = list(interested_eligible | specialization_eligible)
+            narrowed_courses = [c for c in courses if c.get("id") in narrowed_down_ids]
+            return narrowed_courses
 
-        # Merge them and convert to a list of dicts to match what the frontend expects
-        narrowed_down_ids = list(interested_eligible | specialization_eligible)
-        narrowed_courses = [c for c in courses if c.get("id") in narrowed_down_ids]
-
-        return narrowed_courses
+        except util.UserIneligibleForAllCSUpperDivsError:
+            # TODO: Maybe toast to tell them they're ineligible for all CS upper divs for now.
+            # If we have time, we can smartly suggest some ICS courses
+            # Right now, catching it just to raise it is pointless.
+            raise Exception("User is ineligible for all CS upper div courses.")
+        
