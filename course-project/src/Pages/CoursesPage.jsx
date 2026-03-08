@@ -5,6 +5,7 @@ import { ChevronDownIcon, ListFilter } from "lucide-react";
 import ClassFiltersForm from "../Components/ClassFiltersForm";
 
 export default function CoursesPage() {
+  const [allClasses, setAllClasses] = useState([]);
   const [classes, setClasses] = useState([]);
   const [selectedQuarter, setSelectedQuarter] = useState("All Courses");
   const [showFilters, setShowFilters] = useState(false);
@@ -17,6 +18,7 @@ export default function CoursesPage() {
 
   const fetchClasses = useCallback(() => {
     execute().then((res) => {
+      setAllClasses(res?.data);
       setClasses(res?.data);
     });
   }, [execute]);
@@ -90,10 +92,9 @@ export default function CoursesPage() {
             {showFilters && (
               <div className="absolute right-0 top-full mt-2 z-30 origin-top-right">
                 <ClassFiltersForm
-                  courses={classes}
+                  courses={allClasses}
                   setCourses={setClasses}
                   setShowFilters={setShowFilters}
-                  fetchClasses={fetchClasses}
                 />
               </div>
             )}

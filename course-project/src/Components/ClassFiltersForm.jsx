@@ -6,11 +6,10 @@ export default function ClassFiltersForm({
   courses,
   setCourses,
   setShowFilters,
-  fetchClasses,
 }) {
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      difficulty: 3,
+      averageGPA: "",
       interests: [],
     },
   });
@@ -29,17 +28,41 @@ export default function ClassFiltersForm({
     setShowFilters(false);
     const filteredClasses = [];
     if (!courses) return;
-    if(data.interests.length === 0){
-      fetchClasses();
+
+    // checks to see if the form is empty
+    const hasInterests = data.interests && data.interests.length > 0;
+    const hasGpa =
+      !isNaN(data.averageGPA) &&
+      data.averageGPA !== "" &&
+      data.averageGPA !== null;
+
+    if (!hasInterests && !hasGpa) {
+      setCourses(courses);
       return;
     }
-    for (const course of courses) {
-      const hasMatchingInterest =
-        Array.isArray(course.keywords) &&
-        //&& course.difficulty <= data.difficulty filter for difficulty doesnt work yet since class doesnt have that attribute
-          course.keywords.some((keyword) => data.interests.includes(keyword));
 
-      if (hasMatchingInterest) {
+    for (const course of courses) {
+      let matches = true;
+
+      // Filter by interests
+      if (hasInterests) {
+        const hasMatchingInterest =
+          Array.isArray(course.keywords) &&
+          course.keywords.some((keyword) => data.interests.includes(keyword));
+        if (!hasMatchingInterest) matches = false;
+      }
+
+      // Filter by average GPA
+      if (hasGpa) {
+        console.log("hasGpa", hasGpa);
+        const classGpa = parseFloat(course.averageGPA);
+        if (isNaN(classGpa) || classGpa < data.averageGPA) {
+          console.log("classGpa", classGpa);
+          matches = false;
+        }
+      }
+
+      if (matches) {
         filteredClasses.push(course);
       }
     }
@@ -47,26 +70,25 @@ export default function ClassFiltersForm({
   };
   return (
     <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl w-80 sm:w-96">
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">Class Filters</h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-2">Class Filters</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
-        {/* Difficulty Slider */}
-        <div className="flex flex-col gap-2">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        {/* Maximum GPA Input */}
+        <div className="flex flex-col">
           <div className="flex flex-row items-center justify-between gap-4">
             <label className="text-sm font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">
-              Max Difficulty
+              Min Average GPA
             </label>
             <div className="flex gap-3 items-center flex-1 max-w-[200px]">
-              <span className="text-xs font-semibold text-slate-400">1</span>
               <input
-                type="range"
-                min="1"
-                max="5"
-                step="1"
-                {...register("difficulty", { valueAsNumber: true })}
-                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                type="number"
+                step="0.01"
+                min="0"
+                max="4.0"
+                placeholder="e.g. 3.5"
+                {...register("averageGPA", { valueAsNumber: true })}
+                className="w-full text-sm font-semibold text-slate-700 bg-slate-100 border border-slate-200 rounded-lg px-3 py-2 outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-slate-400"
               />
-              <span className="text-xs font-semibold text-slate-400">5</span>
             </div>
           </div>
         </div>

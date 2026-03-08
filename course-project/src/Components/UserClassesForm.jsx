@@ -70,7 +70,7 @@ export default function UserClassesForm({
         </div>
       )}
 
-      <div className="flex flex-col gap-3 max-h-[360px] overflow-y-auto pr-2 scrollbar-custom">
+      <div className="flex flex-col gap-3">
         {completedClasses?.map((classItem, index) => (
           <div
             key={classItem.id}

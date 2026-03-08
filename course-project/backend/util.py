@@ -5,6 +5,7 @@ import urllib
 
 conn = http.client.HTTPSConnection("anteaterapi.com")
 
+
 def clean_course_name(courses: list[str]) -> list[str]:
     for course in courses:
         course["id"] = course["id"].replace("I&C SCI", "ICS ").replace("COMPSCI", "CS ")
@@ -64,7 +65,7 @@ def fetch_most_recent_quarter() -> list[str]:
     raise Exception("Failed to fetch most recent term information")
 
 
-def narrow_down_courses(courses: list, user_info: dict) -> tuple[set, set]:
+def narrow_down_courses(courses: list, user_info: dict, next_quarter_only: bool = True) -> tuple[set, set]:
     """This function will take the courses data from the database
     and return the courses that are relevant to the user's context.
     We never want to return NO courses here. Only case where that will
@@ -81,6 +82,25 @@ def narrow_down_courses(courses: list, user_info: dict) -> tuple[set, set]:
         user_info.get("specialization", ""), completedClasses
     )
     specializationCourses = requiredSpecCourses | optionsSpecCourses
+    print("running narrow_down_courses")
+
+    # Check the user's interests (mapped to keywords) and get the courses that are categorized under their interests
+    interestedCourses = get_interested_courses(user_info.get("interests"))
+    print(f"interestedCourses: {interestedCourses}")
+    if not interestedCourses:
+        # If user has no selected interests, consider all courses as interested
+        print("User has no selected interest tags.")
+        interestedCourses = allCourseIds.copy()
+
+    # Check the prerequisiteTrees of the courses to make sure that this user has completed it
+    eligibleCourses = get_eligible_courses(user_info.get("completedClasses"), courses)
+    if not eligibleCourses:
+        # If user has no completed classes and they're ineligible for all CS upper
+        # TODO: Potentially up our game to suggest it some ICS classes that they should take to unlock upper divs
+        raise Exception("User is ineligible for all CS upper div courses.")
+
+    # Get the user's specialization courses
+    specializationCourses = get_specialization_courses(user_info.get("specialization"))
     if not specializationCourses:
         specializationCourses = allCourseIds.copy()
     
@@ -96,14 +116,51 @@ def narrow_down_courses(courses: list, user_info: dict) -> tuple[set, set]:
     #     for course in ( (interestedCourses & eligibleCourses) | (specializationCourses & eligibleCourses) )
     # ]
 
-    activeCourses = fetch_active_courses()
-    print(
-        f"{len((interestedCourses & eligibleCourses) - activeCourses)} interested and eligible courses are not active for this quarter; {len((specializationCourses & eligibleCourses) - activeCourses)} specialization and eligible courses are not active for this quarter"
-    )
+    # added by gemini to remove completed classes that the user took, this part
+    # bascially just formats the completed classes properly 
+    completed = {
+        c["className"].replace(" ", "") for c in user_info.get("completedClasses", [])
+    }
 
-    return (interestedCourses & eligibleCourses & activeCourses), (
-        specializationCourses & eligibleCourses & activeCourses
-    )
+    if next_quarter_only:
+        activeCourses = fetch_active_courses()
+        print(
+            f"{len((interestedCourses & eligibleCourses) - activeCourses)} interested and eligible courses are not active for this quarter; {len((specializationCourses & eligibleCourses) - activeCourses)} specialization and eligible courses are not active for this quarter"
+        )
+        return (interestedCourses & eligibleCourses & activeCourses) - completed, (
+            specializationCourses & eligibleCourses & activeCourses
+        ) - completed
+
+    return (interestedCourses & eligibleCourses) - completed, (
+        specializationCourses & eligibleCourses
+    ) - completed
+
+def get_weighted_courses(courses: list, user_info: dict) -> list[dict]:
+    """Returns a list of courses sorted by relevance to the user, where relevance is determined by:
+       - Courses that are both in the user's interests and specialization get highest weight
+       - Courses that are in the user's specialization but not interests get second highest weight
+       - Courses that are in the user's interests but not specialization get third highest weight
+       - All other courses get lowest weight
+    """
+    interested, specialization = narrow_down_courses(courses, user_info)
+    # We want narrow_down_courses to only return interested courses if exist or specialization courses if exist
+    weighted_courses = []
+    for course in courses:
+        course_id = course["id"]
+        if course_id in interested and course_id in specialization:
+            weight = 3
+        elif course_id in specialization:
+            weight = 2
+        elif course_id in interested:
+            weight = 1
+        else:
+            weight = 0
+        weighted_courses.append((weight, course))
+    
+    # Sort by weight (descending) and then by course title (ascending)
+    weighted_courses.sort(key=lambda x: (-x[0], x[1]["title"]))
+    
+    return [course for weight, course in weighted_courses]
 
 def get_weighted_courses(courses: list, user_info: dict) -> list[dict]:
     """Returns a list of courses sorted by relevance to the user, where relevance is determined by:
@@ -135,22 +192,23 @@ def get_weighted_courses(courses: list, user_info: dict) -> list[dict]:
 
 def get_interested_courses(interests: list) -> set:
     """Return a set of course IDs related to the user's selected interest keywords."""
-    if not interests:
-        return set()
+    # Extract courses that are in user's interests
+    interestedCourses = set()
+    if interests:
+        for interest_dict in interests:
+            # Safely extract the keyword string from the dict
+            keyword_str = interest_dict.get("interests")
+            if not keyword_str:
+                continue
 
-    # User interests seem to be stored as [{"interests": "Algorithms"}, ...] 
-    users_interests = {
-        i.get("interests") for i in interests
-    }
-
-    interest_courses = {
-        c["id"]
-        for doc in db.get_collection("keywords").find()
-        if doc.get("keyword") in users_interests
-        for c in doc.get("courses")
-    }
-
-    return interest_courses
+            # Query the db for that specific keyword document
+            keyword_doc = db.get_collection("keywords").find_one(
+                {"keyword": keyword_str}
+            )
+            if keyword_doc and "courses" in keyword_doc:
+                for course in keyword_doc["courses"]:
+                    interestedCourses.add(course.get("id"))
+    return interestedCourses
 
 
 def get_eligible_courses(completed: list, courses: list) -> set:
@@ -241,3 +299,25 @@ def satisfies_prereqs(tree: dict, completed: set) -> bool:
 def stringify_ids(courses: list):
     for course in courses:
         course["_id"] = str(course["_id"])
+
+
+# takes the class list given from the front end form, and
+# and checks if they do not have like a name selected or if the name is empty
+# then removes them
+def clean_empty_classes(courses: list):
+    new_courses = []
+    for course in courses:
+        if course.get("className") == "" or course.get("className") is None:
+            continue
+        new_courses.append(course)
+    return new_courses
+
+
+def clean_empty_interests(interests: list):
+    new_interests = []
+    print("interests: ", interests)
+    for interest in interests:
+        if interest.get("interests") == "" or interest.get("interests") is None:
+            continue
+        new_interests.append(interest)
+    return new_interests

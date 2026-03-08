@@ -26,7 +26,7 @@ export default function UserSettingsPage({ setDisplaySettingsPage }) {
 
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-slate-900/40 backdrop-blur-md z-50 p-4 transition-all">
-      <div className="relative flex flex-col justify-left z-50 w-full max-w-2xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-2xl border border-slate-100">
+      <div className="relative flex flex-col justify-left z-50 w-full max-w-2xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto scrollbar-custom">
         <button
           type="button"
           onClick={() => setDisplaySettingsPage(false)}
@@ -34,7 +34,7 @@ export default function UserSettingsPage({ setDisplaySettingsPage }) {
         >
           ✕
         </button>
-        <UserSettingsForm setDisplaySettingsPage={setDisplaySettingsPage} />
+        <UserSettingsForm />
       </div>
     </div>
   );
