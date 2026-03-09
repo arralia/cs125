@@ -47,6 +47,10 @@ class User:
         info = self.get_user_info()
         return info.get("quartersLeft", 0) if info else 0
 
+    def get_easier_classes_preference(self):
+        info = self.get_user_info()
+        return info.get("easierClasses", False) if info else False
+
     def update_user_info(self, user_info):
         """Update user info in DB and sync local cache."""
         try:
@@ -81,6 +85,12 @@ class User:
             interested_eligible, specialization_eligible = util.narrow_down_courses(
                  courses, self.get_user_info(), next_quarter_only=next_quarter_only
             )
+
+            # TODO: Implement easier classes preference
+            if self.get_easier_classes_preference():
+                pass
+
+
             # Merge them and convert to a list of dicts to match what the frontend expects
             narrowed_down_ids = list(interested_eligible | specialization_eligible)
             narrowed_courses = [c for c in courses if c.get("id") in narrowed_down_ids]

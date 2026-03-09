@@ -11,6 +11,12 @@ export default function UserInterestsForm({
     <div className="flex flex-col gap-4">
       {/* this section was written orginally by gemini ai for the class selection, but i alterned it 
       to work with the interests section*/}
+      <div className="flex bg-slate-50 justify-start items-center mb-2 rounded-xl border border-slate-200 shadow-sm p-2 px-4 w-fit">
+        <span className="text-lg font-bold text-slate-800 mr-2">
+          Easier Classes?
+        </span>
+        <input className="w-5 h-5" type="checkbox" {...register("easierClasses")} />
+      </div>
 
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-xl font-bold text-slate-800">Your Interests</h3>

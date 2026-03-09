@@ -25,6 +25,7 @@ export default function UserSettingsForm( ) {
       username: ReadCookie("username") || "",
       quartersLeft: 0,
       specialization: "",
+      easierClasses: false,
     },
   });
 

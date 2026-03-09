@@ -48,6 +48,7 @@ class UserSetInfoRequest(BaseModel):
     specialization: str
     username: str | None = None
     quartersLeft: int | None = None
+    easierClasses: bool | None = None
 
 
 class Username(BaseModel):
@@ -188,8 +189,7 @@ async def api_recommended_classes(
             courses = list(db.get_collection("courses").find())
             upper_divs = util.get_only_upper_divs(courses)
             all_upper_divs = [
-                {"id": course["id"], "title": course["title"]}
-                for course in upper_divs
+                {"id": course["id"], "title": course["title"]} for course in upper_divs
             ]
             return {
                 "data": all_upper_divs,
@@ -338,17 +338,24 @@ async def api_register(request: LoginRequest):
 async def api_set_user_info(request: UserSetInfoRequest):
     print(f"Saving info for user: {request.username}")
 
-    user = User(db, request.username)
-    request.completedClasses = util.clean_empty_classes(request.completedClasses)
-    request.interests = util.clean_empty_interests(request.interests)
-    # Use the User object's update method
-    user_data = request.model_dump()
-    user.update_user_info(user_data)
+    try:
+        user = User(db, request.username)
+        request.completedClasses = util.clean_empty_classes(request.completedClasses)
+        request.interests = util.clean_empty_interests(request.interests)
+        # Use the User object's update method
+        user_data = request.model_dump()
+        user.update_user_info(user_data)
 
-    return {
-        "status": "ok",
-        "message": "User info set successfully",
-    }
+        return {
+            "status": "ok",
+            "message": "User info set successfully",
+        }
+    except Exception as e:
+        print(f"Error processing user info: {e}")
+        return {
+            "status": "error",
+            "message": "Failed to set user info",
+        }
 
 
 @app.get("/api/getUserInfo")
@@ -381,6 +388,7 @@ async def api_get_user_info(user: User = Depends(get_current_user)):
             "interests": [],
             "specialization": "",
             "quartersLeft": 4,
+            "easierClasses": False,
         },
         "status": "ok",
         "message": "Default user info",
