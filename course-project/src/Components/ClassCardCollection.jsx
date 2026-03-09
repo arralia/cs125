@@ -1,6 +1,6 @@
-import Card from "./Card";
+import Card from "./ClassCard";
 
-export default function ClassCardCollection({ data, className }) {
+export default function ClassCardCollection({ data, className, showIndex }) {
   return (
     <div className={`grid gap-4 ${className || "grid-cols-1"}`}>
       {data?.map((item, index) => (
@@ -8,7 +8,7 @@ export default function ClassCardCollection({ data, className }) {
           key={index} // Keys help React track list items
           className={item.id}
           description={item.title}
-          index={index}
+          index={showIndex ? index : undefined}
         />
       ))}
     </div>

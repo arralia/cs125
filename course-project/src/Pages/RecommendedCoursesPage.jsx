@@ -94,10 +94,11 @@ export default function RecommendedCoursesPage() {
           </button>
         </div>
       </div>
-      <div className="p-6 flex-1 min-h-0 overflow-y-auto scrollbar-custom bg-slate-50/20">
+      <div className="p-6 flex-1 overflow-y-auto scrollbar-custom bg-slate-50/20">
         <ClassCardCollection
           data={recommendedClasses}
           className="grid-cols-1 sm:grid-cols-2"
+          showIndex={true}
         />
       </div>
     </div>

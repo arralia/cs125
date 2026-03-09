@@ -108,25 +108,6 @@ export default function UserClassesForm({
               />
             </div>
 
-            <div className="w-full sm:w-40">
-              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 text-center">
-                Difficulty
-              </label>
-              <div className="flex gap-2 items-center px-2 py-2.5">
-                <span className="text-xs font-semibold text-slate-400">1</span>
-                <input
-                  type="range"
-                  min="1"
-                  max="5"
-                  {...register(`completedClasses.${index}.difficulty`, {
-                    valueAsNumber: true,
-                  })}
-                  className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
-                />
-                <span className="text-xs font-semibold text-slate-400">5</span>
-              </div>
-            </div>
-
             <button
               type="button"
               onClick={() => completedClassesRemove(index)}

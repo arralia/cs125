@@ -19,11 +19,7 @@ export default function NavBar({
               Course Recommender
             </div>
           </div>
-
-          <div className="hidden md:block flex-1 max-w-md mx-8">
-            <SearchBar />
-          </div>
-
+          
           <div className="flex items-center gap-4 text-slate-500">
             <button
               onClick={() => setDisplaySettingsPage(true)}
