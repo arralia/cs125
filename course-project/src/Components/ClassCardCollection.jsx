@@ -1,4 +1,4 @@
-import Card from "./ClassCard";
+import Card from "./Card";
 
 export default function ClassCardCollection({ data, className, showIndex }) {
   return (
@@ -8,7 +8,9 @@ export default function ClassCardCollection({ data, className, showIndex }) {
           key={index} // Keys help React track list items
           className={item.id}
           description={item.title}
+          informalDescription={item.description}
           index={showIndex ? index : undefined}
+          gpa={item.averageGPA}
         />
       ))}
     </div>

@@ -1,7 +1,13 @@
 import { cleanCourseName } from "../Util/Util";
 
 // Card class to display class information
-export default function Card({ className, description, index }) {
+export default function Card({
+  className,
+  description,
+  informalDescription,
+  index,
+  gpa,
+}) {
   // just a null check to see if the data is loaded yet
   // if it is null, it will display "Loading..."
   if (className === null || description === null) {
@@ -18,13 +24,24 @@ export default function Card({ className, description, index }) {
               {index + 1}
             </div>
           )}
-          <h3 className="text-lg font-bold text-slate-800 tracking-tight">
+          <h3 className="px-4 py-1.5 bg-white border border-slate-200 rounded-xl text-indigo-600 font-bold text-base tracking-tight whitespace-nowrap shrink-0 transition-all group-hover:border-indigo-300 group-hover:bg-indigo-50/50">
             {cleanCourseName(className)}
           </h3>
+          <p className="text-sm text-slate-600">{description}</p>
+          <div className="flex flex-col items-end shrink-0 ml-auto">
+            <span className="text-[10px]  font-bold text-indigo-600 uppercase leading-none">
+              GPA
+            </span>
+            <span className="text-sm font-bold text-slate-700">
+              {gpa ? gpa.toFixed(2) : "N/A"}
+            </span>
+          </div>
         </div>
       </div>
       <div className="p-5 flex-1 bg-white">
-        <p className="text-slate-600 leading-relaxed text-sm">{description}</p>
+        <p className="text-slate-600 leading-relaxed text-sm">
+          {informalDescription}
+        </p>
       </div>
     </div>
   );
