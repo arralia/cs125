@@ -64,7 +64,7 @@ export default function RecommendedCoursesPage() {
       <div className="p-6 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center bg-slate-50/50 gap-4">
         <div>
           <h2 className="text-xl font-bold text-slate-800">
-            Recommended for You
+            Classes Recommended for You
           </h2>
           <p className="text-sm text-slate-500 mt-1">
             Based on your interests and degree progress

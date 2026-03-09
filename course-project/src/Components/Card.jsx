@@ -28,14 +28,14 @@ export default function Card({
             {cleanCourseName(className)}
           </h3>
           <p className="text-sm text-slate-600">{description}</p>
-          <div className="flex flex-col items-end shrink-0 ml-auto">
+          {/* <div className="flex flex-col items-end shrink-0 ml-auto">
             <span className="text-[10px]  font-bold text-indigo-600 uppercase leading-none">
               GPA
             </span>
             <span className="text-sm font-bold text-slate-700">
               {gpa ? gpa.toFixed(2) : "N/A"}
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="p-5 flex-1 bg-white">
