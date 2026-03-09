@@ -1,0 +1,176 @@
+[
+  {
+    "courseName": "COMPSCI116",
+    "instructor": "N/A",
+    "difficulty": 4,
+    "description": "Interesting class, pretty tough homeworks all relating to computer vision and computational photography. Homeworks in Python/Numpy and were on demosaicing, stitching together a panorama mosaic, quilting using dynamic programming, object detection, and face warping. Lecture is kind of unrelated to the homework so be prepared to try to decipher the homework on your own / use TA office hours to do the assignments."
+  },
+  {
+    "courseName": "COMPSCI121",
+    "instructor": "N/A",
+    "difficulty": 4,
+    "description": "Fyi for CS majors: this class is restricted to INF, BIM, and SE majors initially, so you will not be able to enroll in this class initially and will have to wait until around the end of week 9 to enroll\n\nReally good, but unexpectedly tough class in course load (FORGOT TO MENTION ITS BECAUSE I DID THIS SOLO LMAO). Three projects, all in Python:\n\n- Tokenizer (really easy)\n- Web crawler (a bot that basically goes through and catalogs webpages to be searched through later - annoying when it’s the last few days and everyone is running their bot and the servers die because someone made their bot bad)\n- Search engine (really really cool but also pretty challenging. Have to do some witchcraft with vectors and you have to make your search engine queries be faster than some set time)\n\nAlso some tough concepts too (having to do with the vector witchcraft). Took this with Krone-Martins who was pretty darn good but I think the other people who teach it are also fine"
+  },
+  {
+    "courseName": "COMPSCI122a",
+    "instructor": "N/A",
+    "difficulty": 3,
+    "description": "Pretty darn useful class since SQL databases are used a ton in industry (though NoSQL is the newer tech) and you practice using SQL a lot. Lots of people say it can be kinda tough and challenging and dry and SQL queries can be weird to wrap your head around if your predicate logic is not super solid (I think at least. I thought the material wasn’t too bad and doing SQL queries was actually kinda interesting to me and I attribute a lot of that to me being too logic-brained)\n\nWong-Ma is probably your best pick here, but I think the (one?) other prof. is fine too?"
+  },
+  {
+    "courseName": "COMPSCI122b",
+    "instructor": "N/A",
+    "difficulty": 5,
+    "description": "From what I’ve heard (haven’t taken it), a pretty solid class with a very infamously heavy workload. You basically do fullstack development and make a whole application with a frontend user interface and a backend server from scratch. The prof. Chen Li who teaches this most often actually curves down the grades so be wary. This class also uses Java a good bit.\n\nFull stack web app. Herold and Chen Li have the same material, and there's plenty of documentation for the assignments and even code samples in case you get stuck. Overall a solid project class, though I wish there were fewer read only operations. First two projects are the core of the web app, third project is an xml parser + extra functionality. Last two projects were swapped out for more deployment based assignments like mysql replication and docker/k8 deployments. The class is pretty front loaded in terms of workload so the first three projects are by far the heaviest. – banh mi (nahtE)"
+  },
+  {
+    "courseName": "COMPSCI122c",
+    "instructor": "N/A",
+    "difficulty": 5,
+    "description": "Haven’t taken this one too, and I’ve heard it is one of the toughest classes implementation-wise from some people who I consider to be really good students so something to keep in mind. Believe you have to be real good with your C too"
+  },
+  {
+    "courseName": "COMPSCI122d",
+    "instructor": "N/A",
+    "difficulty": 3,
+    "description": "Really good course! Not sure who’ll be teaching it in the future (I took it with Michael Carey who’s supposed to be retiring but he is teaching it Spring 2023 but mb that’s just his last class) but for me at least, you played around with a NoSQL database for a couple of weeks before moving onto a new one. Again, despite me feeling like it wasn’t too bad and the material seemed fine, I know a good bit of other people felt it was challenging at times. NoSQL databases are also pretty popular as an alternative to SQL databases so I highly recommend"
+  },
+  {
+    "courseName": "COMPSCI125",
+    "instructor": "N/A",
+    "difficulty": 1,
+    "description": "I don’t like it. It’s basically the mobile dev class and idk the content is kinda interesting i guess but gosh i do not care for mobile development so being behind on making the app and just having the course material pass through one ear and out the other doesn’t make for a too fun or engaging time. I think it’s going to be an easy A though? Judging by what I’ve heard in previous qtrs where TAs are pretty lenient with grading"
+  },
+  {
+    "courseName": "COMPSCI130",
+    "instructor": "N/A",
+    "difficulty": 2,
+    "description": "(Formerly CS 190 in S25) - Great class, great professor and introduction to security. There are some hands on projects/ctfs, first being on dealing buffer attacks, the second being web security, and last being network security. All the programming languages you need for the projects you can learn on the go (Python, HTML, JS, SQL, Reading C code). You learn a lot about various topics in computing, from hardware to web security. There is a final exam which you have to definitely study for, but not too challenging of a class. I highly recommend as an intro to security. -Anonymous Reviewer (2025)"
+  },
+  {
+    "courseName": "COMPSCI132",
+    "instructor": "N/A",
+    "difficulty": 3,
+    "description": "All three professors go by a pretty old textbook which teaches some older technology. Levorato is the easiest of the three, the other two are more difficult from what I’ve seen. Levorato's class tends to fill up quickly though, so don't bank on getting his class. You can do better on youtube university. This knowledge isn't really needed by the vast majority of CS majors, so I would not recommend to take unless you want to become a network engineer, but again, there are much better sources online.  -Anonymous Reviewer (2025)"
+  },
+  {
+    "courseName": "COMPSCI133",
+    "instructor": "N/A",
+    "difficulty": 3,
+    "description": "Most of the class is on configuring dynamic routing protocols on virtual Cisco Routers. Lectures are half lecturing and half office hours for project work. There is some DNS hands on in the class as well and some lectures on modern networking topics (Automation, Satellites, etc). Beware that this class is all manually configuring routers on the CLI. So if you don't want to become a network engineer, I wouldn't suggest taking it. Also note, that this isn't really representative of what you would do as a network engineer, it’s just a small portion of what you would do on the job.  -Anonymous Reviewer (2025)"
+  },
+  {
+    "courseName": "COMPSCI134",
+    "instructor": "N/A",
+    "difficulty": 4,
+    "description": "2/3 of the class is cryptography, the other 1/3 is protocol security. I found this class to be quite fun as I actually learned the underlying mechanisms of security mechanisms that we take for granted, but the class was mostly theoretical. No coding projects, only three homeworks (participation) and four exams. You really need to understand the topics to do well on the exams. It's a little math heavy and will bring back some topics from ICS 6D, but you can pick them up again easily. If you want to learn how SSL/TLS and other security protocols work under the hood with all the math, then I suggest taking this class.  -Anonymous Reviewer (2025)"
+  },
+  {
+    "courseName": "COMPSCI141",
+    "instructor": "N/A",
+    "difficulty": 3,
+    "description": "It’s the Klefstad class! As in, 4 weekly deadlines, super messy disorganization, and completely useless lectures! I also just don’t like Klefstad as a person! Don’t take this at all unless you really need it as a prerequisite for some good classes.\n\nIf anyone else teaches this class, then it’ll probably be fine. It’s a class that genuinely does have some interesting topics, but it is super held back with the mess of Klefstad’s class. The only other plus is that it’s *technically* an easy A, but still stressful with dealing with the course structure and the constant deadlines."
+  },
+  {
+    "courseName": "COMPSCI142a",
+    "instructor": "N/A",
+    "difficulty": 2,
+    "description": "This is the class that’s worth taking with CS 141 as a prereq and while that class was a mess, this class is soooo good. It’s 99% of the time taught by Demsky, and he is probably just the nicest professor I’ve had in being accommodating. The whole class uses Java and you write a compiler, a program that translates high-level code like Python into machine code like assembly (something you use in ics 51). The compiler project is in 5 stages and you can literally turn in any stage of the project late till the end of the quarter for at minimum 90% credit. The compiler project itself is also really really neat to work through, you get a lot of test cases, the concepts are interesting, it’s just a really really good class. Definitely one of my favorites and worth taking CS 141 for me at least."
+  },
+  {
+    "courseName": "COMPSCI142b",
+    "instructor": "N/A",
+    "difficulty": 5,
+    "description": "This class is like CS 142a but on steroids and also just has much less guidance and direction. The prof is really passionate about it and offering the chance for anyone to do an incomplete was nice, but I really don’t recommend taking this class just because the concepts are kinda crazy and it just feels like you’re just all on your own and fed to the wolves as not many other people take it and it’s much more like a grad level class (I was in a class with like 13 people and the discord channel was just dead for that class).\n\n*9 months after writing this i am finally hopefully making up my incomplete.*"
+  },
+  {
+    "courseName": "COMPSCI143a",
+    "instructor": "N/A",
+    "difficulty": 2,
+    "description": "Took it with Sani, and did the optional project. Pintos is great for learning more about C and working with an extensive codebase, and even follows suckless philosophy. That said, I think the strongest component of the course was the project, and even then we were only required to do the first part (thread scheduler) -- it should be noted that he does NOT provide extensive help with the project, so you're basically on your own. I would not recommend attempting the project if you're not familiar with C already. Exams were mc/fill in the blank and overall the course felt a little too basic, especially if you did well in 53. Course recommended textbook does a good job of covering the material he brushes over in lecture. – banh mi (nahtE)\n\nTook with Burtsev (who no longer teaches here). Was a great class with him. It’s an okay class from what I’ve heard at least with Sani, there’s an optional project which is pretty hard but apparently pretty interesting. With Bic it’s pretty bad though in terms of just not learning a lot but being easy. This class concepts can actually be pretty useful stuff depending on what you want to do in industry so you could or you could not take it. If you liked ics 53, then this class is more stuff in that area. – pkfire\n\n*Above was written by pkfire, but I, original author, have actually taken it with Bic since then, and all I can say is that it is incredibly easy and also the most disengaged I've ever been in a class. it's literally just zybooks and a midterm and final (you gotta do some of the written questions from the zybooks but that's all participation). got an a- because I flushed out the content from my head and got an A-/B on the midterm/final but most definitely an easy A if I put just some semblance of effort. extremely unengaging class overall though but up your wheel house if you really really like 53 stuff*"
+  },
+  {
+    "courseName": "COMPSCI143b",
+    "instructor": "N/A",
+    "difficulty": 1,
+    "description": "Took it with Bic and did both projects in C. If you do it in Python you don't really get anything out of it, and even in C I was struggling to find benefits. Ok course if you want an excuse to get better at a language you're brand new to, waste of time otherwise. If you're looking to get more in depth with os, just take 143a w/ Sani and then do the rest of the pintos project since it's open source. – banh mi (nahtE)\n\nHave not taken, but this is basically a free class if you’re looking to just fill up a project course. If you’re looking to learn something, I wouldn’t take this class. There are two assignments, one is about processes and the other is about virtual memory and for some reason in an OS project class you’re allowed to write them up in Python. You have to pay for Bic’s book just so you can take the two knowledge checks. (Note: Klefstad’s class simply is a ripoff of [this MIT course](https://pdos.csail.mit.edu/6.828/2018/overview.html) and he has his weird C coding style rules, including functions only being allowed to have 5 lines each) – pkfire"
+  },
+  {
+    "courseName": "COMPSCI145",
+    "instructor": "N/A",
+    "difficulty": 1,
+    "description": "Breadboard class! It was pretty easy and fun when I took it with Givargis. I only had to watch like 6 lecture videos that focused on project stuff and that was that. Pretty basic C code you have to use, the harder part is actually getting the hardware to work because it can be kinda finicky but still pretty darn easy. Have to buy parts though so that can be annoying but I recommend still."
+  },
+  {
+    "courseName": "COMPSCI146",
+    "instructor": "N/A",
+    "difficulty": 3,
+    "description": "Basically a shell scripting class, heard it’s alright but the only person who teaches it is Hayes. Take at your own risk."
+  },
+  {
+    "courseName": "COMPSCI147",
+    "instructor": "N/A",
+    "difficulty": 1,
+    "description": "Think it’s kinda like CS 145 in that you put together stuff and have to pay for parts.\n\nIOT, generally an easy A. You choose your final project for this class so you get out what you put into it. I found this class to be pretty fun once you get past wiring problems, but also not really low level since you just use arduino libraries to solve everything. Overall a solid (and slightly cheaper) first introduction to embedded systems, bluetooth, sensors and wiring diagrams. – contributed by Banh Mi (nahtE)"
+  },
+  {
+    "courseName": "COMPSCI162",
+    "instructor": "N/A",
+    "difficulty": 4,
+    "description": "***MY FAVORITE CLASS***. Super super cool class that has to do with automata (end of 6B material) and complexity (P vs NP if you’ve ever heard of that) and is basically the defacto theory of computation class. I really liked it with Shindler, but have heard with Vazirani it was a bit of a rougher experience, but I still highly recommend the class anyways just because you get a fascinating insight into what problems computers can solve theoretically. Do note that it is solely writing proofs sooo if that’s not your jam, well I still want to recommend it anyways because I think it can change your mind about proofs :’)"
+  },
+  {
+    "courseName": "COMPSCI163",
+    "instructor": "N/A",
+    "difficulty": 4,
+    "description": "Eppstein is a pretty smart guy but is not a great teacher. Lecture spends a lot of time focusing on the history of the algorithms and the basics, and Eppstein skims over the difficult parts of the algorithms. The material is pretty darn neat though IMO and graph algorithms seem like they’re pretty useful, but the class focuses too much on memorizing details about the algorithms rather than thinking about how you could apply the algorithms to problems. Exam heavy (as of 2025 your grade is now entirely based on exams with no homework component), and exams were very much memorization based. Might be OK if Goodrich teaches it."
+  },
+  {
+    "courseName": "COMPSCI164",
+    "instructor": "N/A",
+    "difficulty": 3,
+    "description": "Taught by Goodrich, it’s algorithms for doing geometry stuff. Don’t know too much else but I lurked in the discord channel for that class for a quarter and there was one person who didn’t like it but I think it’s probably ok if you like algorithms and making shapes with computation"
+  },
+  {
+    "courseName": "COMPSCI165",
+    "instructor": "N/A",
+    "difficulty": 2,
+    "description": "Algorithms project class, also taught by Goodrich. I did take this class and I thought it was overall fine, a bit on the easier side. Weekly gradescope quizzes, 3 projects where you basically implement algorithms. 1st was sorting algorithms, 2nd were algorithms for trying to solve the bin-packing problem, 3rd was writing algorithms to calculate some measures for graph networks, and then you have to plot data from running your algorithms and write a report on the data which wasn’t too bad for me at least. I remember Project 2 being a bit annoying since you had to implement this kinda weird data structure."
+  },
+  {
+    "courseName": "COMPSCI167",
+    "instructor": "N/A",
+    "difficulty": 3,
+    "description": "Pretty neat class! I took this with Shindler (though I’ve heard it is definitely much tougher and not as well taught with Jarecki) and it’s basically an extension of the number theory you learn in 6d and how that applies to cryptography and encryption/decryption and all that. A good bit of proof writing though but overall a bit interesting (I do prefer 162 much more over this class though)"
+  },
+  {
+    "courseName": "COMPSCI169",
+    "instructor": "N/A",
+    "difficulty": 4,
+    "description": "Have not taken it but I’ve heard pretty bad things about the prof who teaches this class. Super mathematical and I’ve heard there’s a lot of linear algebra involved which is personally not my cup of tea."
+  },
+  {
+    "courseName": "COMPSCI171",
+    "instructor": "N/A",
+    "difficulty": 1,
+    "description": "Pretty boring (but easy) class - it’s an intro to AI class, expect to review material from previous courses (ICS 6B, Stats 67, and some graph algorithms from ICS 46 like DFS, BFS, Dijkstra’s, etc.) Briefly touches on ML, but if you want to learn ML, just take CS 178. Not worth unless you want to take CS 175. Lectures were very dry, but apparently the exams have been converted into online weekly quizzes (including for the final). There is a final AI project, usually some variant of minesweeper, checkers, etc."
+  },
+  {
+    "courseName": "COMPSCI172B",
+    "instructor": "N/A",
+    "difficulty": 3,
+    "description": "Didn’t take but it seems to vary a lot on how your TA’s are. Professor is well known but does not care about teaching. Pretty much all theory and exercises out of the textbook, though apparently they tried adding some programming assignments involving neural networks at some point. Attendance is mandatory, and there is a final group project at the end which you have to prepare a presentation for."
+  },
+  {
+    "courseName": "COMPSCI175",
+    "instructor": "N/A",
+    "difficulty": 3,
+    "description": "Have heard that it’s a cool class - some offerings used to create an AI in Minecraft as the final project, but the projects you work on will depend on the professor (some might have you do NLP, etc.)"
+  },
+  {
+    "courseName": "COMPSCI178",
+    "instructor": "N/A",
+    "difficulty": 4,
+    "description": "Very interesting class, but make sure you have a solid understanding of linear algebra and stats, at the very least. Pretty much all theory; includes a final project where you experiment with various classifiers which you learn about through the quarter. Some offerings of this course do not touch too deeply into neural networks - might touch theory, but you may not have any homework related to it."
+  }
+]
