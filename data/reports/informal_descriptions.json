@@ -1,0 +1,352 @@
+[
+  {
+    "id": "I&CSCI163",
+    "title": "Mobile and Ubiquitous Games",
+    "informalDescription": "This class dives into how to design and build all sorts of mobile games, not just apps, but also those cool mixed reality and location-based ones. You'll explore the tech behind games that blend virtual experiences with the real world, perfect if you're into innovative mobile play."
+  },
+  {
+    "id": "I&CSCI166",
+    "title": "Game Design",
+    "informalDescription": "You'll all about the big picture of game design, looking beyond just coding to cover psychology, narrative, tech limitations, and market trends. You'll learn to think like a designer, considering everything from player experience to industry trends, which is awesome for anyone wanting to create engaging games."
+  },
+  {
+    "id": "I&CSCI33",
+    "title": "Intermediate Programming",
+    "informalDescription": "You'll this class will really level up your coding, focusing on intermediate concepts and language features needed for building more complex, higher-quality software. Expect some tough, time-consuming projects that cover everything."
+  },
+  {
+    "id": "I&CSCI45C",
+    "title": "Programming in C/C++ as a Second Language",
+    "informalDescription": "If you're already comfy with programming, this class will get you up to speed with C/C++, focusing on its core features like pointers. Expect a lot of hands-on coding with an autograder and multiple submission attempts, but be ready to self-study outside of lectures for the best results."
+  },
+  {
+    "id": "I&CSCI45J",
+    "title": "Programming in Java as a Second Language",
+    "informalDescription": "If you already know how to code and want to learn Java, this class will quickly get you familiar with its ins and outs. Expect lots of easy labs and participation quizzes, making it a pretty straightforward path to an A if you keep up."
+  },
+  {
+    "id": "I&CSCI46",
+    "title": "Data Structure Implementation and Analysis",
+    "informalDescription": "You'll focuses on implementing core data structures and algorithms, giving you hands-on experience with foundational concepts. Expect practical coding assignments, often with given pseudocode, but perhaps less emphasis on complex problem-solving or theoretical deep dives."
+  },
+  {
+    "id": "I&CSCI51",
+    "title": "Introductory Computer Organization",
+    "informalDescription": "You'll multilevel view, design, and operation of computer system components. Expect a focus on project, homework, assignment, exam, midterm, workload, heavy, lab and practical projects."
+  },
+  {
+    "id": "I&CSCI53",
+    "title": "Principles in System Design",
+    "informalDescription": "You'll explore basic principles of system software: operating systems, compilers, and networking. Students often report this as challenging. Start the assignments early and expect to spend a lot of time in help lab hours."
+  },
+  {
+    "id": "I&CSCI6B",
+    "title": "Boolean Logic and Discrete Structures",
+    "informalDescription": "You'll this class covers boolean logic and discrete structures like relations and automata, but be prepared to mostly teach yourself from the textbook rather than relying on lectures. While the content isn't super difficult, it's a lot of work, so dedicate time to the textbook and consider collaborating with peers to manage it and succeed."
+  },
+  {
+    "id": "I&CSCI6D",
+    "title": "Discrete Mathematics for Computer Science",
+    "informalDescription": "You'll explore essential tools from discrete mathematics used in computer science with an emphasis on the process of abstracting computational problems and analyzing them mathematically."
+  },
+  {
+    "id": "I&CSCI6N",
+    "title": "Computational Linear Algebra",
+    "informalDescription": "You'll study matrices and linear transformations, systems of linear equations, determinants, linear vector spaces, eigenvalues and eigenvectors, orthogonal matrices, diagonalization, and least squares."
+  },
+  {
+    "id": "COMPSCI103",
+    "title": "Advanced Programming and Problem Solving with C++",
+    "informalDescription": "You'll advanced programming language concepts for more complex, higher performance software design. Students often report this as challenging, mixed student feedback."
+  },
+  {
+    "id": "COMPSCI111",
+    "title": "Digital Image Processing",
+    "informalDescription": "You'll learn the fundamental concepts of digital signal and image processing as applicable in areas such as multimedia, graphics, AI, data mining, databases, vision, or video games."
+  },
+  {
+    "id": "COMPSCI112",
+    "title": "Computer Graphics",
+    "informalDescription": "You'll learn the fundamental principles of 3D computer graphics including polygonal modeling, geometric transformations, visibility algorithms, illumination models, texturing, and rasterization. Students often report this as challenging."
+  },
+  {
+    "id": "COMPSCI113",
+    "title": "Computer Game Development",
+    "informalDescription": "You'll learn the principles of interactive 2D and 3D computer game development. Overall positive student feedback."
+  },
+  {
+    "id": "COMPSCI114",
+    "title": "Projects in Advanced 3D Computer Graphics",
+    "informalDescription": "You'll do projects in advanced 3D graphics such as illumination, geometric modeling, visualization, and animation."
+  },
+  {
+    "id": "COMPSCI115",
+    "title": "Computer Simulation",
+    "informalDescription": "You'll discrete event-driven simulation; continuous system simulation; basic probability as pertaining to input distributions and output analysis; stochastic and deterministic simulation; static and dynamic system simulation."
+  },
+  {
+    "id": "COMPSCI116",
+    "title": "Computational Photography and Vision",
+    "informalDescription": "You'll explore the problems of computer vision through the application of computational photography. Students find it moderately demanding, overall positive student feedback."
+  },
+  {
+    "id": "COMPSCI117",
+    "title": "Project in Computer Vision",
+    "informalDescription": "Students undertake construction of a computer vision system. Students find it moderately demanding, mixed student feedback."
+  },
+  {
+    "id": "COMPSCI118",
+    "title": "Introduction to Virtual Reality",
+    "informalDescription": "You'll explore virtual reality systems and software. Students often report this as challenging, overall positive student feedback. Expect a focus on midterm and practical projects."
+  },
+  {
+    "id": "COMPSCI121",
+    "title": "Information Retrieval",
+    "informalDescription": "You'll learn information retrieval including indexing, retrieval, classifying, and clustering text and multimedia documents. Students find it moderately demanding, and there's mixed student feedback."
+  },
+  {
+    "id": "COMPSCI122A",
+    "title": "Introduction to Data Management",
+    "informalDescription": "You'll learn the design of databases and the use of database management systems (DBMS) for applications. Students find it moderately demanding, mixed student feedback."
+  },
+  {
+    "id": "COMPSCI122B",
+    "title": "Project in Databases and Web Applications",
+    "informalDescription": "You'll explore students to advanced database technologies and web applications. Students often report this as challenging, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, workload, heavy, deploy, docker and practical projects."
+  },
+  {
+    "id": "COMPSCI122C",
+    "title": "Principles of Data Management",
+    "informalDescription": "You'll explore fundamental principles underlying data management systems. Students often report this as challenging, overall positive student feedback."
+  },
+  {
+    "id": "COMPSCI122D",
+    "title": "Beyond SQL Data Management",
+    "informalDescription": "You'll study survey of modern data management and analysis technologies beyond relational (SQL) database management. Students find it moderately demanding, overall positive student feedback. Expect a focus on project, homework, assignment, midterm and practical projects."
+  },
+  {
+    "id": "COMPSCI125",
+    "title": "Next Generation Search Systems",
+    "informalDescription": "You'll explore concepts and techniques related to all aspects of search systems. Students find it moderately demanding. Expect a focus on a quarter-long project."
+  },
+  {
+    "id": "COMPSCI130",
+    "title": "Introduction to Security and Privacy",
+    "informalDescription": "You'll learn security mindset and basic principles/practices of software and systems security. Students generally find it relatively easy, overall positive student feedback. Expect a focus on project, exam and practical projects."
+  },
+  {
+    "id": "COMPSCI131",
+    "title": "Parallel and Distributed Computing",
+    "informalDescription": "You'll study parallel and distributed computer systems. Students find it moderately demanding, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, heavy, lab and practical projects."
+  },
+  {
+    "id": "COMPSCI132",
+    "title": "Computer Networks",
+    "informalDescription": "You'll computer network architectures, protocols, and applications. Students find it moderately demanding, mixed student feedback. Expect a focus on homework, assignment, exam, midterm, heavy and practical projects."
+  },
+  {
+    "id": "COMPSCI133",
+    "title": "Advanced Computer Networks",
+    "informalDescription": "You'll computer networks principles are applied to obtain practical experience and skills necessary for designing and implementing computer networks, protocols, and network applications. Students find it moderately demanding, mixed to negative feedback from students."
+  },
+  {
+    "id": "COMPSCI134",
+    "title": "Computer and Network Security",
+    "informalDescription": "You'll study overview of modern computer and networks security, attacks, and countermeasures. Students often report this as challenging, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, heavy and practical projects."
+  },
+  {
+    "id": "COMPSCI137",
+    "title": "Internet Applications Engineering",
+    "informalDescription": "You'll study concepts in Internet applications engineering with emphasis on the Web. Student reviews are scarce for this offering; check prerequisites and ask peers or the instructor for current expectations."
+  },
+  {
+    "id": "COMPSCI141",
+    "title": "Concepts in Programming Languages",
+    "informalDescription": "You'll in-depth study of several contemporary programming languages stressing variety in data structures, operations, notation, and control. Students find it moderately demanding, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, workload, heavy, lab and practical projects."
+  },
+  {
+    "id": "COMPSCI142A",
+    "title": "Compilers and Interpreters",
+    "informalDescription": "Build your own compiler! Covers lexical analysis, syntax analysis, semantic analysis, intermediate representations, code generation, optimization, interpretation, and run-time support. Students find it moderately demanding. Expect a focus on the compiler project."
+  },
+  {
+    "id": "COMPSCI142B",
+    "title": "Project in Compilers and Interpreters",
+    "informalDescription": "You'll project course which provides working laboratory experience in construction and behavior of compilers and interpreters. Students often report this as challenging, overall positive student feedback."
+  },
+  {
+    "id": "COMPSCI143A",
+    "title": "Principles of Operating Systems",
+    "informalDescription": "You'll study principles and concepts of process and resource management, especially as seen in operating systems. Students find it moderately demanding, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, heavy and practical projects."
+  },
+  {
+    "id": "COMPSCI143B",
+    "title": "Project in Operating System Organization",
+    "informalDescription": "You'll detailed specification and design of critical components of an actual operating system including a memory manager, a process server, and a file/IO subsystem. Students generally find it relatively easy, mixed student feedback. Expect a focus on project, assignment, workload and practical projects."
+  },
+  {
+    "id": "COMPSCI144",
+    "title": "High-performance Computers and Program Optimization",
+    "informalDescription": "You'll analyzes the relationship between computer architecture and program optimization. Student reviews are scarce for this offering; check prerequisites and ask peers or the instructor for current expectations."
+  },
+  {
+    "id": "COMPSCI145",
+    "title": "Embedded Software",
+    "informalDescription": "You'll study principles of embedded computing systems: embedded systems architecture, hardware/software components, system software and interfacing, real-time OS, hardware/software co-development, and communication issues."
+  },
+  {
+    "id": "COMPSCI146",
+    "title": "Programming in Multitasking Operating Systems",
+    "informalDescription": "You'll study user and systems level programming of modern internet-connected, multi-user, multitasking operating systems. Students find it moderately demanding and there's mixed student feedback."
+  },
+  {
+    "id": "COMPSCI147",
+    "title": "Internet of Things (IoT) Software and Systems",
+    "informalDescription": "You'll learn the Internet of Things (IoT) from a systems and software perspective. Students find it moderately demanding, overall positive student feedback. Expect a focus on project, assignment, exam, midterm, lab and practical projects."
+  },
+  {
+    "id": "COMPSCI151",
+    "title": "Digital Logic Design",
+    "informalDescription": "You'll boolean algebra. Students find it moderately demanding, mixed student feedback. Expect a focus on project, homework, exam, midterm, lab and practical projects."
+  },
+  {
+    "id": "COMPSCI152",
+    "title": "Computer Architecture",
+    "informalDescription": "You'll study design of computer elements; ALU, control unit, and arithmetic circuits. Students find it moderately demanding, overall positive student feedback. Expect a focus on project, homework, assignment, exam, midterm, workload and practical projects."
+  },
+  {
+    "id": "COMPSCI154",
+    "title": "Computer Design Laboratory",
+    "informalDescription": "You'll underlying primitives of computer instruction sets. Students find it moderately demanding, mixed student feedback."
+  },
+  {
+    "id": "COMPSCI161",
+    "title": "Design and Analysis of Algorithms",
+    "informalDescription": "You'll study techniques for efficient algorithm design, including divide-and-conquer and dynamic programming, and time/space analysis. Students find it moderately demanding, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, workload, heavy and practical projects."
+  },
+  {
+    "id": "COMPSCI162",
+    "title": "Formal Languages and Automata",
+    "informalDescription": "You'll formal aspects of describing and recognizing languages by grammars and automata. Students find it moderately demanding, mixed student feedback. Expect a focus on homework, exam, midterm, lab and practical projects."
+  },
+  {
+    "id": "COMPSCI163",
+    "title": "Graph Algorithms",
+    "informalDescription": "You'll study algorithms for solving fundamental problems in graph theory. Students find it moderately demanding, overall positive student feedback. Expect a focus on homework, assignment, exam, midterm, heavy and practical projects."
+  },
+  {
+    "id": "COMPSCI164",
+    "title": "Computational Geometry",
+    "informalDescription": "You'll study algorithms and data structures for computational geometry and geometric modeling, with applications to computer vision and graphics. Students find it moderately demanding, overall positive student feedback. Expect a focus on homework, assignment, exam, midterm, workload and practical projects."
+  },
+  {
+    "id": "COMPSCI165",
+    "title": "Project in Algorithms and Data Structures",
+    "informalDescription": "You'll study design, implementation, execution, and analysis of algorithms for problems such as sorting, searching, data compression, and data encryption. Students find it moderately demanding, overall positive student feedback. Expect a focus on project, exam and practical projects."
+  },
+  {
+    "id": "COMPSCI166",
+    "title": "Quantum Computation and Information",
+    "informalDescription": "You'll basic models for quantum computation and their foundations in quantum mechanics. Students often report this as challenging, mixed to negative feedback from students. Expect a focus on heavy and practical projects."
+  },
+  {
+    "id": "COMPSCI167",
+    "title": "Introduction to Applied Cryptography",
+    "informalDescription": "You'll learn the essential aspects of applied cryptography, as it is used in practice. Students find it moderately demanding, mixed student feedback. Expect a focus on homework, exam and practical projects."
+  },
+  {
+    "id": "COMPSCI168",
+    "title": "Network Optimization",
+    "informalDescription": "You'll network modeling techniques and related algorithms for solving large-scale integer programming problems. Student reviews are scarce for this offering; check prerequisites and ask peers or the instructor for current expectations."
+  },
+  {
+    "id": "COMPSCI169",
+    "title": "Introduction to Optimization",
+    "informalDescription": "You'll a broad introduction to optimization. Students often report this as challenging, mixed to negative feedback from students. Expect a focus on project, homework, assignment, exam, midterm, workload, heavy and practical projects."
+  },
+  {
+    "id": "COMPSCI171",
+    "title": "Introduction to Artificial Intelligence",
+    "informalDescription": "You'll different means of representing knowledge and uses of representations in heuristic problem solving. Students find it moderately demanding, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, heavy, lab and practical projects."
+  },
+  {
+    "id": "COMPSCI172B",
+    "title": "Neural Networks and Deep Learning ",
+    "informalDescription": "You'll neural network and deep learning from multiple perspectives. Students often report this as challenging, mixed to negative feedback from students. Expect a focus on project, assignment and practical projects."
+  },
+  {
+    "id": "COMPSCI172C",
+    "title": "Artificial Intelligence Frontiers: Technical, Ethical, and Societal",
+    "informalDescription": "You'll explores the frontiers of artificial intelligence and related technologies with a focus on the underlying ethical, legal, and societal challenges and opportunities they create. Student reviews are scarce for this offering; check prerequisites and ask peers or the instructor for current expectations."
+  },
+  {
+    "id": "COMPSCI174",
+    "title": "Bioinformatics",
+    "informalDescription": "You'll explore fundamental problems in biology that lend themselves to computational approaches. Student reviews are scarce for this offering; check prerequisites and ask peers or the instructor for current expectations."
+  },
+  {
+    "id": "COMPSCI175",
+    "title": "Project in Artificial Intelligence",
+    "informalDescription": "You'll study construction of a working artificial intelligence system. Students find it moderately demanding, overall positive student feedback. Expect a focus on project, homework, assignment and practical projects."
+  },
+  {
+    "id": "COMPSCI177",
+    "title": "Applications of Probability in Computer Science",
+    "informalDescription": "You'll study application of probability to real-world problems in computer science. Students find it moderately demanding, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, heavy and practical projects."
+  },
+  {
+    "id": "COMPSCI178",
+    "title": "Machine Learning and Data-Mining",
+    "informalDescription": "You'll learn principles of machine learning and data-mining applied to real-world datasets. Students find it moderately demanding, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, heavy, lab and practical projects."
+  },
+  {
+    "id": "COMPSCI179",
+    "title": "Algorithms for Probabilistic and Deterministic Graphical Models",
+    "informalDescription": "You'll graphical model techniques dealing with probabilistic and deterministic knowledge representations. Students find it moderately demanding, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, heavy and practical projects."
+  },
+  {
+    "id": "COMPSCI180A",
+    "title": "Project in Computer Science",
+    "informalDescription": "Students to solve a substantial real-world problem with knowledge gained from many areas in computer science. Student reviews are scarce for this offering; check prerequisites and ask peers or the instructor for current expectations."
+  },
+  {
+    "id": "COMPSCI180B",
+    "title": "Project in Computer Science",
+    "informalDescription": "Students to solve a substantial real-world problem with knowledge gained from many areas in computer science. Student reviews are scarce for this offering; check prerequisites and ask peers or the instructor for current expectations."
+  },
+  {
+    "id": "COMPSCI183",
+    "title": "Introduction to Computational Biology",
+    "informalDescription": "You'll the use of theories and methods based on computer science, mathematics, and physics in molecular biology and biochemistry. Students often report this as challenging, mixed student feedback."
+  },
+  {
+    "id": "COMPSCI184A",
+    "title": "Artificial Intelligence in Biology and Medicine",
+    "informalDescription": "You'll learn computational methods in molecular biology, aimed at those interested in learning about this interdisciplinary area. Students find it moderately demanding, mixed student feedback. Expect a focus on project, homework, assignment, exam, midterm, lab, and practical projects."
+  },
+  {
+    "id": "COMPSCI184B",
+    "title": "Probabilistic Modeling of Biological Data",
+    "informalDescription": "You'll a unified Bayesian probabilistic framework for modeling and mining biological data. Student reviews are scarce for this offering; check prerequisites and ask peers or the instructor for current expectations."
+  },
+  {
+    "id": "COMPSCI184C",
+    "title": "Computational Systems Biology",
+    "informalDescription": "You'll computational inference and modeling of gene regulation networks, signal transduction pathways, and the effects of regulatory networks in cellular processes, development, and disease. Student reviews are scarce for this offering; check prerequisites and ask peers or the instructor for current expectations."
+  },
+  {
+    "id": "COMPSCI189",
+    "title": "Project in Bioinformatics",
+    "informalDescription": "You'll teaches problem definition and analysis, data representation, algorithm design, component integration, solution validation, and testability with teams specifying, designing, building, and testing a solution to a bioinformatics problem. Mixed to negative feedback from students."
+  },
+  {
+    "id": "COMPSCI190",
+    "title": "Special Topics in Information and Computer Science",
+    "informalDescription": "You'll study studies in selected areas of Information and Computer Science. Expect a focus on project, homework and practical projects."
+  },
+  {
+    "id": "COMPSCI199",
+    "title": "Individual Study",
+    "informalDescription": "You'll individual research or investigation with CS faculty. Expect a focus on practical projects."
+  }
+]

@@ -193,6 +193,18 @@
           "title": "High-performance Computers and Program Optimization"
         },
         {
+          "id": "COMPSCI151",
+          "title": "Digital Logic Design"
+        },
+        {
+          "id": "COMPSCI152",
+          "title": "Computer Architecture"
+        },
+        {
+          "id": "COMPSCI154",
+          "title": "Computer Design Laboratory"
+        },
+        {
           "id": "COMPSCI168",
           "title": "Network Optimization"
         },
@@ -275,22 +287,6 @@
         {
           "id": "COMPSCI146",
           "title": "Programming in Multitasking Operating Systems"
-        },
-        {
-          "id": "COMPSCI151",
-          "title": "Digital Logic Design"
-        },
-        {
-          "id": "COMPSCI152",
-          "title": "Computer Architecture"
-        },
-        {
-          "id": "COMPSCI153",
-          "title": "Logic Design Laboratory"
-        },
-        {
-          "id": "COMPSCI154",
-          "title": "Computer Design Laboratory"
         },
         {
           "id": "COMPSCI169",

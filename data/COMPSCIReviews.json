@@ -9,6 +9,14 @@
     ]
   },
   {
+    "courseName": "COMPSCI151",
+    "difficulty": 3,
+    "description": "The professor is very nice and helpful, but the course is very difficult. The material is very dense and the homework is very time consuming. The exams are also very difficult and require a lot of memorization. Overall, I would not recommend this course unless you are very interested in the material and are willing to put in a lot of work.",
+    "keywords": [
+      "Systems & Architecture"
+    ]
+  },
+  {
     "courseName": "COMPSCI132",
     "instructor": "Marco Levorato",
     "difficulty": 2,
