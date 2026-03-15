@@ -26,10 +26,9 @@ class UserIneligibleForAllCSUpperDivsError(Exception):
     pass
 
 
-def fetch_active_courses() -> set:
-    """Gets the course offerings for the most recently released WebSOC quarter through AnteaterAPI"""
+def fetch_active_courses(year: str, season: str) -> set:
+    """Gets the course offerings for the specified quarter through AnteaterAPI"""
 
-    year, season = fetch_most_recent_quarter()
     departments = ["COMPSCI", "I&C SCI"]
     all_courses = set()
     for dept in departments:
@@ -61,16 +60,19 @@ def fetch_active_courses() -> set:
     return all_courses
 
 
-def fetch_most_recent_quarter() -> list[str]:
+def fetch_five_most_recent_quarters() -> list[tuple[str, str]]:
     conn.request("GET", "/v2/rest/websoc/terms")
     res = conn.getresponse()
     data = res.read()
     response_data = json.loads(data.decode("utf-8"))
+    recent_quarters = []
     if response_data.get("ok"):
-        # The first element in the data field should be the most recent quarter, from my observations
-        most_recent_quarter = response_data.get("data")[0].get("shortName")
-        quarter_info = most_recent_quarter.split()
-        return quarter_info
+        # The first five elements in the data field should be the five most recent quarters in chronological order, from my observations
+        for i in range(5):
+            most_recent_quarter = response_data.get("data")[i].get("shortName")
+            recent_quarters.append(tuple(most_recent_quarter.split()))
+            # tuple[0] is year (2026), and tuple[1] is season (Fall)
+        return recent_quarters
     raise Exception("Failed to fetch most recent term information")
 
 
