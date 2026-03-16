@@ -19,7 +19,6 @@ TESTING = False
 # Load environment variables from .env
 load_dotenv()
 
-gemini = gemini.Gemini()
 
 db = Database()
 
@@ -60,14 +59,14 @@ async def root():
     return {"message": "Welcome to the FastAPI Backend!"}
 
 
-@app.get("/api/activeQuarter")
-async def api_get_active_quarter():
+@app.get("/api/quarters")
+async def api_get_quarters():
     try:
-        year, season = util.fetch_most_recent_quarter()
-        return {"year": year, "season": season}
+        quarters = util.fetch_five_most_recent_quarters()
+        return {"data": quarters, "status": "ok", "message": "Quarters"}
     except Exception as e:
-        print(f"Error fetching active quarter: {e}")
-        return {"year": "...", "season": "Upcoming"}
+        print(f"Error fetching quarters: {e}")
+        return {"data": [], "status": "error", "message": "Failed to fetch quarters"}
 
 
 def get_current_user(username: str | None = None) -> User:
@@ -84,7 +83,7 @@ This section is for the class information
 
 
 @app.get("/api/allClassesData")
-async def all_classes():
+async def all_classes(quarter: str | None = None):
     """
     Returns all the classes in the database
     """
@@ -116,8 +115,13 @@ async def all_classes():
                 ],
                 "message": "prefilled temp data",
             }
-        print("Received /api/allClassesData: Fetching all classes...")
+        print(f"Received /api/allClassesData: Fetching all classes for quarter: {quarter}")
         courses = list(db.get_collection("courses").find())
+
+        if quarter:
+            season, year = quarter.split()
+            activeCourses = util.fetch_active_courses(year, season)
+            courses = [c for c in courses if c["id"] in activeCourses]
 
         util.stringify_ids(courses)
 
@@ -154,7 +158,7 @@ async def api_course_info(courseid: str = None):
 
 @app.get("/api/recommendedClasses")
 async def api_recommended_classes(
-    user: User = Depends(get_current_user), next_quarter_only: bool = True
+    user: User = Depends(get_current_user), quarter: str | None = None
 ):
     """
     Returns the recommended classes for a given user
@@ -162,25 +166,17 @@ async def api_recommended_classes(
 
     try:
         print(
-            f"Received /api/recommendedClasses for user: {user.username}, next_quarter_only: {next_quarter_only}"
+            f"Received /api/recommendedClasses for user: {user.username}, quarter: {quarter}"
         )
 
         user_info = user.get_user_info()
         print("user_info: ", user_info)
 
         if user_info:
-            # Using the new retrieval method in User class
-            # interested_eligible, specialization_eligible = (
-            #     user.retrieve_recommended_classes()
-            # )
-
-            # recommended_classes = gemini.recommend_class(
-            #     user_info, interested_eligible, specialization_eligible
-            # )
-
+           
             return {
                 "data": user.retrieve_recommended_classes(
-                    next_quarter_only=next_quarter_only
+                    quarter=quarter
                 ),
                 "status": "ok",
                 "message": "Recommended classes",

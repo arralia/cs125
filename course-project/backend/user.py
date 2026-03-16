@@ -73,7 +73,7 @@ class User:
         return courses
 
     def retrieve_recommended_classes(
-        self, quarter: str = None, next_quarter_only: bool = True
+        self, quarter: str = None
     ) -> list:
         """
         Retrieves the recommended classes for the user for the given quarter
@@ -83,7 +83,7 @@ class User:
         courses = self.retrieve_all_courses()
         try:
             interested_eligible, specialization_eligible = util.narrow_down_courses(
-                 courses, self.get_user_info(), next_quarter_only=next_quarter_only
+                 courses, self.get_user_info(), quarter=quarter
             )
 
             # TODO: Implement easier classes preference

@@ -76,7 +76,7 @@ def fetch_five_most_recent_quarters() -> list[tuple[str, str]]:
     raise Exception("Failed to fetch most recent term information")
 
 
-def narrow_down_courses(courses: list, user_info: dict, next_quarter_only: bool = True) -> tuple[set, set]:
+def narrow_down_courses(courses: list, user_info: dict, quarter: str | None = None) -> tuple[set, set]:
     """This function will take the courses data from the database
     and return the courses that are relevant to the user's context.
     We never want to return NO courses here. Only case where that will
@@ -117,8 +117,9 @@ def narrow_down_courses(courses: list, user_info: dict, next_quarter_only: bool 
         c["className"].replace(" ", "") for c in user_info.get("completedClasses", [])
     }
 
-    if next_quarter_only:
-        activeCourses = fetch_active_courses()
+    if quarter:
+        season, year = quarter.split()
+        activeCourses = fetch_active_courses(year, season)
         print(
             f"{len((interestedCourses & eligibleCourses) - activeCourses)} interested and eligible courses are not active for this quarter; {len((specializationCourses & eligibleCourses) - activeCourses)} specialization and eligible courses are not active for this quarter"
         )

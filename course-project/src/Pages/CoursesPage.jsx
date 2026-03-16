@@ -8,6 +8,7 @@ export default function CoursesPage() {
   const [allClasses, setAllClasses] = useState([]);
   const [classes, setClasses] = useState([]);
   const [selectedQuarter, setSelectedQuarter] = useState("All Courses");
+  const [quarters, setQuarters] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
   const filterRef = useRef(null);
 
@@ -16,12 +17,28 @@ export default function CoursesPage() {
     api: "/api/allClassesData",
   });
 
+  const { execute: fetchQuarters } = useApiGet({
+    api: "/api/quarters",
+  });
+
   const fetchClasses = useCallback(() => {
-    execute().then((res) => {
-      setAllClasses(res?.data);
-      setClasses(res?.data);
+    const paramQuarter = selectedQuarter === "All Courses" ? "" : selectedQuarter;
+    execute({
+      params: { quarter: paramQuarter },
+    }).then((res) => {
+      setAllClasses(res?.data || []);
+      setClasses(res?.data || []);
     });
-  }, [execute]);
+  }, [execute, selectedQuarter]);
+
+  // Fetch quarters once
+  useEffect(() => {
+    fetchQuarters().then((res) => {
+      if (res?.data) {
+        setQuarters(res.data);
+      }
+    });
+  }, [fetchQuarters]);
 
   // Use useEffect to trigger the fetch once
   useEffect(() => {
@@ -57,23 +74,19 @@ export default function CoursesPage() {
             <select
               value={selectedQuarter}
               onChange={(e) => setSelectedQuarter(e.target.value)}
-              className="appearance-none text-sm font-semibold py-2 pl-5 pr-10 text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm shadow-indigo-200 rounded-xl transition-all hover:shadow-md cursor-pointer outline-none"
+              className="appearance-none h-[40px] text-sm font-semibold py-2 pl-5 pr-10 text-slate-700 bg-white border border-slate-200 hover:border-slate-300 shadow-sm rounded-xl transition-all cursor-pointer outline-none focus:ring-2 focus:ring-indigo-500/20"
             >
               <option value="All Courses" className="text-slate-900">
                 All Courses
               </option>
-              <option value="Spring 2026" className="text-slate-900">
-                Spring 2026
-              </option>
-              <option value="Winter 2026" className="text-slate-900">
-                Winter 2026
-              </option>
-              <option value="Fall 2025" className="text-slate-900">
-                Fall 2025
-              </option>
+              {quarters.map((q, idx) => (
+                <option key={idx} value={`${q[1]} ${q[0]}`} className="text-slate-900">
+                  {q[1]} {q[0]}
+                </option>
+              ))}
             </select>
-            <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-white/80">
-              <ChevronDownIcon className="w-4 h-4 stroke-[3]" />
+            <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+              <ChevronDownIcon className="w-4 h-4 stroke-3" />
             </div>
           </div>
 
