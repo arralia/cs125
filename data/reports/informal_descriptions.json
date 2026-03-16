@@ -92,7 +92,7 @@
   {
     "id": "COMPSCI117",
     "title": "Project in Computer Vision",
-    "informalDescription": "In this course, you'll actually build a computer vision system. It's moderately demanding and student feedback can vary, so be ready to dive into the technical details."
+    "informalDescription": "In this course, you'll actually build a computer vision system, covering topics like robot navigation, human motion tracking, and 3D modeling from photos. It's moderately demanding and student feedback can vary, so be ready to dive into the technical details."
   },
   {
     "id": "COMPSCI118",
@@ -157,12 +157,12 @@
   {
     "id": "COMPSCI137",
     "title": "Internet Applications Engineering",
-    "informalDescription": "A study of web-focused engineering. Reviews are a bit scarce for this one, so it's a good idea to chat with the instructor or peers about what to expect."
+    "informalDescription": "A study of web-focused engineering, covering concepts like HTTP, REST, and Peer-to-Peer systems. Reviews are a bit scarce for this one, so it's a good idea to chat with the instructor or peers about what to expect."
   },
   {
     "id": "COMPSCI141",
     "title": "Concepts in Programming Languages",
-    "informalDescription": "This class explores the structure and notation of various programming languages. Heads up: the course structure can feel a bit disorganized depending on the professor, so be ready for constant deadlines and a heavy project load."
+    "informalDescription": "This class explores the structure and notation of various programming languages, including paradigms like logic, functional, and object-oriented programming. Heads up: the course structure can feel a bit disorganized depending on the professor, so be ready for constant deadlines and a heavy project load."
   },
   {
     "id": "COMPSCI142A",
@@ -187,7 +187,7 @@
   {
     "id": "COMPSCI144",
     "title": "High-performance Computers and Program Optimization",
-    "informalDescription": "Explores how architecture affects optimization. There aren't many reviews for this one, so checking the prerequisites carefully is a must."
+    "informalDescription": "Explores how computer architecture affects program optimization, covering topics like RISC, Superscalar, and VLIW architectures. There aren't many reviews for this one, so checking the prerequisites carefully is a must."
   },
   {
     "id": "COMPSCI145",
@@ -257,7 +257,7 @@
   {
     "id": "COMPSCI168",
     "title": "Network Optimization",
-    "informalDescription": "Uses modeling techniques for large-scale integer programming. Reviews are scarce, so definitely check the prerequisites before signing up."
+    "informalDescription": "Uses modeling techniques for large-scale integer programming, with applications in communication, transportation, and logistics networks. Reviews are scarce, so definitely check the prerequisites before signing up."
   },
   {
     "id": "COMPSCI169",
@@ -277,12 +277,12 @@
   {
     "id": "COMPSCI172C",
     "title": "Artificial Intelligence Frontiers: Technical, Ethical, and Societal",
-    "informalDescription": "Covers the cutting edge of AI and its ethical implications. Reviews are scarce, so talking to peers or the instructor is a good move here."
+    "informalDescription": "Covers the cutting edge of AI and the underlying ethical, legal, and societal challenges they create. Reviews are scarce, so talking to peers or the instructor is a good move here."
   },
   {
     "id": "COMPSCI174",
     "title": "Bioinformatics",
-    "informalDescription": "Applies computational approaches to biology problems. Another one with scarce reviews, so double-check the prerequisites."
+    "informalDescription": "Introduces biology problems that lend themselves to computational and algorithmic analysis. Another one with scarce reviews, so double-check the prerequisites."
   },
   {
     "id": "COMPSCI175",
@@ -292,7 +292,7 @@
   {
     "id": "COMPSCI177",
     "title": "Applications of Probability in Computer Science",
-    "informalDescription": "You'll apply probability to CS problems through a heavy workload of projects and exams. It's moderately demanding and student feedback is often mixed."
+    "informalDescription": "You'll apply probability to real-world CS problems like algorithm analysis, network traffic modeling, and reliability. It's a heavy workload of projects and exams, moderately demanding, and student feedback is often mixed."
   },
   {
     "id": "COMPSCI178",
@@ -317,7 +317,7 @@
   {
     "id": "COMPSCI183",
     "title": "Introduction to Computational Biology",
-    "informalDescription": "Uses CS and physics/math methods in molecular biology. It's generally reported as a challenging course with mixed student feedback."
+    "informalDescription": "This course uses theories and methods from CS and physics for biomolecular modeling and analyzing biological structures. It's generally reported as a challenging course with mixed student feedback."
   },
   {
     "id": "COMPSCI184A",
@@ -327,12 +327,12 @@
   {
     "id": "COMPSCI184B",
     "title": "Probabilistic Modeling of Biological Data",
-    "informalDescription": "Learns Bayesian frameworks for biological data. Reviews are scarce, so check the syllabus and prerequisites carefully."
+    "informalDescription": "A focus on Bayesian frameworks for modeling biological data, including things like Markov models and gene finding. Reviews are scarce, so check the syllabus and prerequisites carefully."
   },
   {
     "id": "COMPSCI184C",
     "title": "Computational Systems Biology",
-    "informalDescription": "Inference and modeling of gene regulation and signal pathways. Not many reviews here, so it's best to ask an advisor or previous students."
+    "informalDescription": "Inference and modeling of gene regulation, signal transduction pathways, and cellular processes. Not many reviews here, so it's best to ask an advisor or previous students."
   },
   {
     "id": "COMPSCI189",
