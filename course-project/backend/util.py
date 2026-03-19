@@ -410,7 +410,12 @@ def rank_courses(
 
     scores.sort(key=lambda x: x[1], reverse=True)
     return [
-        {"id": cid, "title": course_map[cid]["title"]}
+        {
+            "id": cid,
+            "title": course_map[cid]["title"],
+            "informalDescription": course_map[cid].get("informalDescription"),
+            "averageGPA": course_map[cid].get("averageGPA"),
+        }
         for cid, _ in scores
         if cid in course_map
     ]

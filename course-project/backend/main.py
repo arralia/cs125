@@ -185,7 +185,12 @@ async def api_recommended_classes(
             courses = list(db.get_collection("courses").find())
             upper_divs = util.get_only_upper_divs(courses)
             all_upper_divs = [
-                {"id": course["id"], "title": course["title"]} for course in upper_divs
+                {
+                    "id": course["id"],
+                    "title": course["title"],
+                    "informalDescription": course("informalDescription"),
+                }
+                for course in upper_divs
             ]
             return {
                 "data": all_upper_divs,
