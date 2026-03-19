@@ -86,15 +86,16 @@ class User:
                  courses, self.get_user_info(), quarter=quarter
             )
 
-            # TODO: Implement easier classes preference
-            if self.get_easier_classes_preference():
-                pass
+            candidate_pool = interested_eligible | specialization_eligible
+            course_map = {c["id"]: c for c in courses}
 
-
-            # Merge them and convert to a list of dicts to match what the frontend expects
-            narrowed_down_ids = list(interested_eligible | specialization_eligible)
-            narrowed_courses = [c for c in courses if c.get("id") in narrowed_down_ids]
-            return narrowed_courses
+            return util.rank_courses(
+                candidate_pool,
+                self.get_user_info(),
+                course_map,
+                self.get_quarters_left(),
+                self.get_easier_classes_preference(),
+            )
 
         except util.UserIneligibleForAllCSUpperDivsError:
             # TODO: Maybe toast to tell them they're ineligible for all CS upper divs for now.

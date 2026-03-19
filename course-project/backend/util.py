@@ -286,3 +286,131 @@ def clean_empty_interests(interests: list):
             continue
         new_interests.append(interest)
     return new_interests
+
+
+GRADE_POINTS = {
+    "A+": 15, "A": 15, "A-": 13,
+    "B+": 11, "B": 9,  "B-": 7,
+    "C+": 5,  "C": 3,  "C-": 1,
+}
+
+
+def _normalize_course_id(class_name: str) -> list[str]:
+    """Convert a user-stored class name to candidate DB course IDs.
+    e.g. 'CS 161' -> ['CS161', 'COMPSCI161'], 'ICS 46' -> ['ICS46', 'I&CSCI46']"""
+    stripped = class_name.replace(" ", "")
+    candidates = [stripped]
+    upper = stripped.upper()
+    if upper.startswith("CS") and not upper.startswith("COMPSCI"):
+        candidates.append("COMPSCI" + stripped[2:])
+    if upper.startswith("ICS"):
+        candidates.append("I&CSCI" + stripped[3:])
+    return candidates
+
+
+def load_reviews() -> dict:
+    """Load all reviews from MongoDB. Returns {course_id: [review_dicts]}."""
+    reviews_by_course = {}
+    for review in db.get_collection("reviews").find():
+        course_id = review.get("courseName")
+        if course_id:
+            reviews_by_course.setdefault(course_id, []).append(review)
+    print(f"Loaded reviews for {len(reviews_by_course)} courses")
+    return reviews_by_course
+
+
+def rank_courses(
+    candidate_ids: set,
+    user_info: dict,
+    course_map: dict,
+    quarters_left: int,
+    easier_classes: bool,
+) -> list[dict]:
+    """Score and rank candidate courses for the user.
+
+    Factors:
+    1. Specialization alignment — required (+50) or elective (+30)
+    2. Interest alignment — +10 per overlapping keyword
+    3. Grade aptitude — grade points for topically similar completed courses
+    4. Difficulty penalty — scaled by urgency (quartersLeft) or easierClasses preference
+    """
+
+    # Factor 4 setup: determine urgency weight
+    if quarters_left <= 1:
+        urgency_weight = 2.0
+    elif quarters_left == 2:
+        urgency_weight = 1.0
+    elif easier_classes:
+        urgency_weight = 0.5
+    else:
+        urgency_weight = 0.0
+
+    # Factor 1 setup: get required vs elective split from existing function
+    necessary_spec_courses, choose_spec_courses, _ = get_specialization_courses(
+        user_info.get("specialization", ""),
+        user_info.get("completedClasses", [])
+    )
+
+    # Factor 2 setup: extract user's interest keyword strings
+    user_interest_keywords = {
+        i.get("interests") for i in user_info.get("interests", []) if i.get("interests")
+    }
+
+    # Factor 4 setup: only load reviews if penalty is active
+    reviews_by_course = load_reviews() if urgency_weight > 0 else {}
+
+    scores = []
+    for course_id in candidate_ids:
+        course = course_map.get(course_id)
+        if not course:
+            continue
+
+        score = 0.0
+        course_keywords = set(course.get("keywords", []))
+
+        # Factor 1: Specialization alignment
+        if course_id in necessary_spec_courses:
+            score += 50
+        elif course_id in choose_spec_courses:
+            score += 30
+
+        # Factor 2: Interest alignment weighted by keyword overlap
+        if user_interest_keywords and course_keywords:
+            score += len(course_keywords & user_interest_keywords) * 10
+
+        # Factor 3: Grade aptitude — completed courses sharing keywords
+        for completed in user_info.get("completedClasses", []):
+            grade_pts = GRADE_POINTS.get(completed.get("grade", ""), 0)
+            if grade_pts == 0:
+                continue
+            for cid in _normalize_course_id(completed.get("className", "")):
+                completed_course = course_map.get(cid)
+                if completed_course:
+                    if course_keywords & set(completed_course.get("keywords", [])):
+                        score += grade_pts
+                    break
+
+        # Factor 4: Difficulty penalty
+        if urgency_weight > 0:
+            difficulty_signals = []
+
+            course_reviews = reviews_by_course.get(course_id, [])
+            if course_reviews:
+                avg_review_difficulty = sum(r.get("difficulty", 3) for r in course_reviews) / len(course_reviews)
+                difficulty_signals.append(avg_review_difficulty)
+
+            avg_gpa = course.get("averageGPA")
+            if avg_gpa is not None:
+                difficulty_signals.append((4.0 - avg_gpa) * (5 / 4))
+
+            if difficulty_signals:
+                score -= (sum(difficulty_signals) / len(difficulty_signals)) * urgency_weight
+
+        scores.append((course_id, score))
+
+    scores.sort(key=lambda x: x[1], reverse=True)
+    return [
+        {"id": cid, "title": course_map[cid]["title"]}
+        for cid, _ in scores
+        if cid in course_map
+    ]
